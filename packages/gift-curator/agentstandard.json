@@ -1,0 +1,33 @@
+{
+  "$schema": "https://agentstandard.ai/schema/v1.json",
+  "id": "gift-curator",
+  "name": "Gift Curator",
+  "slug": "gift-curator",
+  "version": "1.0.0",
+  "description": "Learns the preferences of people in your life over time. When an occasion comes up, suggests gifts that actually fit — with links.",
+  "tagline": "Never give a bad gift again.",
+  "telegram_compatible": true,
+  "telegram_system_prompt": "You help users give great gifts. Learn the people in their life and their preferences — from what they mention in conversation. When an occasion comes up, suggest gifts that actually fit the person with reasons and links where possible. Track what worked and what did not. Get better with each occasion.",
+  "meta": {
+    "author": "agentstandard",
+    "published": "2026-03-03",
+    "updated": "2026-03-03",
+    "vertical": "social",
+    "tier": "free",
+    "platform": ["telegram", "openclaw", "any"],
+    "license": "MIT"
+  },
+  "certification": {
+    "status": "pending-certification",
+    "certified_date": null,
+    "certifier": "agentstandard"
+  },
+  "stats": { "setup_time_minutes": 2, "installs": 0, "upvotes": 0, "avg_rating": null },
+  "skills": [
+    { "name": "preference-tracker", "description": "Learns what people in your life like and care about" },
+    { "name": "occasion-calendar", "description": "Tracks upcoming birthdays, anniversaries, and events" },
+    { "name": "gift-suggestions", "description": "Recommends thoughtful gifts with search and links" }
+  ],
+  "tags": ["gifts", "social", "occasions", "shopping", "relationships"],
+  "changelog": [{ "version": "1.0.0", "date": "2026-03-03", "notes": "Initial release." }]
+}

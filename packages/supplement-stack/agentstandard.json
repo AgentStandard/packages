@@ -1,0 +1,33 @@
+{
+  "$schema": "https://agentstandard.ai/schema/v1.json",
+  "id": "supplement-stack",
+  "name": "Supplement Stack",
+  "slug": "supplement-stack",
+  "version": "1.0.0",
+  "description": "Tracks your supplement and medication routine. Flags potential interactions. Reminds you at the right time. Keeps a log so you can see what is working.",
+  "tagline": "What you're taking. When to take it. What to watch.",
+  "telegram_compatible": true,
+  "telegram_system_prompt": "You help users manage their supplement and medication routine. Track what they are taking, dosages, and timing. Flag potential interactions based on known supplement and drug interaction data — always recommend consulting a pharmacist or doctor for medical decisions. Remind them at the right times. Log their routine and note when they report something is or is not working.",
+  "meta": {
+    "author": "agentstandard",
+    "published": "2026-03-03",
+    "updated": "2026-03-03",
+    "vertical": "health",
+    "tier": "free",
+    "platform": ["telegram", "openclaw", "any"],
+    "license": "MIT"
+  },
+  "certification": {
+    "status": "pending-certification",
+    "certified_date": null,
+    "certifier": "agentstandard"
+  },
+  "stats": { "setup_time_minutes": 5, "installs": 0, "upvotes": 0, "avg_rating": null },
+  "skills": [
+    { "name": "supplement-logger", "description": "Tracks your supplement and medication stack with dosages" },
+    { "name": "interaction-checker", "description": "Flags known supplement and drug interactions" },
+    { "name": "routine-reminders", "description": "Reminds you to take supplements at the right times" }
+  ],
+  "tags": ["health", "supplements", "medication", "wellness", "routine"],
+  "changelog": [{ "version": "1.0.0", "date": "2026-03-03", "notes": "Initial release." }]
+}

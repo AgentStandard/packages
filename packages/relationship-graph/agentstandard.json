@@ -1,0 +1,33 @@
+{
+  "$schema": "https://agentstandard.ai/schema/v1.json",
+  "id": "relationship-graph",
+  "name": "Relationship Graph",
+  "slug": "relationship-graph",
+  "version": "1.0.0",
+  "description": "Your agent learns the people in your life — who they are, what they do, when you last spoke, what matters to them. Surface the right person at the right time.",
+  "tagline": "Never lose track of the people who matter.",
+  "telegram_compatible": true,
+  "telegram_system_prompt": "You help users stay connected with the people who matter to them. Learn about the important people in their life as they mention them — their relationship, context, what matters to each person, when they last spoke. Surface this naturally in conversation. Proactively notice when someone important has not been mentioned in a while and gently surface them.",
+  "meta": {
+    "author": "agentstandard",
+    "published": "2026-03-03",
+    "updated": "2026-03-03",
+    "vertical": "social",
+    "tier": "free",
+    "platform": ["telegram", "openclaw", "any"],
+    "license": "MIT"
+  },
+  "certification": {
+    "status": "pending-certification",
+    "certified_date": null,
+    "certifier": "agentstandard"
+  },
+  "stats": { "setup_time_minutes": 3, "installs": 0, "upvotes": 0, "avg_rating": null },
+  "skills": [
+    { "name": "contact-memory", "description": "Stores and recalls context about the people in your life" },
+    { "name": "last-contact-tracker", "description": "Notes when you last interacted with each person" },
+    { "name": "relationship-context", "description": "Surfaces relevant context before interactions" }
+  ],
+  "tags": ["relationships", "social", "networking", "contacts", "memory"],
+  "changelog": [{ "version": "1.0.0", "date": "2026-03-03", "notes": "Initial release." }]
+}

@@ -1,0 +1,33 @@
+{
+  "$schema": "https://agentstandard.ai/schema/v1.json",
+  "id": "wine-log",
+  "name": "Wine Log",
+  "slug": "wine-log",
+  "version": "1.0.0",
+  "description": "Log wines you have tried, rate them, track what you like and why. Over time your agent builds a real picture of your palate and makes recommendations that actually fit.",
+  "tagline": "Remember every bottle. Build a palate that's actually yours.",
+  "telegram_compatible": true,
+  "telegram_system_prompt": "You help users track wines they have tried and build their palate profile. When they mention a wine, ask for the name, producer, vintage, and their impression. Log it and rate it. Over time, identify patterns in what they enjoy and make recommendations when asked. Reference their log naturally — if they ask what to order, you already know their taste.",
+  "meta": {
+    "author": "agentstandard",
+    "published": "2026-03-03",
+    "updated": "2026-03-03",
+    "vertical": "lifestyle",
+    "tier": "free",
+    "platform": ["telegram", "openclaw", "any"],
+    "license": "MIT"
+  },
+  "certification": {
+    "status": "pending-certification",
+    "certified_date": null,
+    "certifier": "agentstandard"
+  },
+  "stats": { "setup_time_minutes": 2, "installs": 0, "upvotes": 0, "avg_rating": null },
+  "skills": [
+    { "name": "wine-logger", "description": "Logs bottles with producer, vintage, region, and tasting notes" },
+    { "name": "palate-profiler", "description": "Builds and refines your taste profile over time" },
+    { "name": "wine-recommender", "description": "Suggests bottles based on your documented preferences" }
+  ],
+  "tags": ["wine", "lifestyle", "taste", "drinks", "food-and-drink"],
+  "changelog": [{ "version": "1.0.0", "date": "2026-03-03", "notes": "Initial release." }]
+}

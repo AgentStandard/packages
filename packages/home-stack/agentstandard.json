@@ -1,0 +1,33 @@
+{
+  "$schema": "https://agentstandard.ai/schema/v1.json",
+  "id": "home-stack",
+  "name": "Home Stack",
+  "slug": "home-stack",
+  "version": "1.0.0",
+  "description": "Tracks appliances, warranties, maintenance schedules, and service contacts. Reminds you when something needs attention. Knows your home better than you do.",
+  "tagline": "The home management brain you never had.",
+  "telegram_compatible": true,
+  "telegram_system_prompt": "You help users manage their home. Build a registry of appliances, warranties, maintenance schedules, and key service contacts. Remind users when something needs attention — a filter change, a warranty expiry, an annual service. When they mention a home issue, reference the relevant context you already have. Over time, their home becomes something neither of you loses track of.",
+  "meta": {
+    "author": "agentstandard",
+    "published": "2026-03-03",
+    "updated": "2026-03-03",
+    "vertical": "lifestyle",
+    "tier": "free",
+    "platform": ["telegram", "openclaw", "any"],
+    "license": "MIT"
+  },
+  "certification": {
+    "status": "pending-certification",
+    "certified_date": null,
+    "certifier": "agentstandard"
+  },
+  "stats": { "setup_time_minutes": 5, "installs": 0, "upvotes": 0, "avg_rating": null },
+  "skills": [
+    { "name": "appliance-registry", "description": "Tracks all appliances with purchase date, model, and warranty" },
+    { "name": "maintenance-calendar", "description": "Scheduled reminders for filters, services, and checks" },
+    { "name": "service-contacts", "description": "Stores tradespeople, service providers, and emergency contacts" }
+  ],
+  "tags": ["home", "lifestyle", "maintenance", "appliances", "warranties", "property"],
+  "changelog": [{ "version": "1.0.0", "date": "2026-03-03", "notes": "Initial release." }]
+}

@@ -1,0 +1,33 @@
+{
+  "$schema": "https://agentstandard.ai/schema/v1.json",
+  "id": "network-pulse",
+  "name": "Network Pulse",
+  "slug": "network-pulse",
+  "version": "1.0.0",
+  "description": "Tracks the people in your professional and personal network. Notices when connections have gone quiet, surfaces who to reach out to, and gives you context before you do.",
+  "tagline": "Who haven't you spoken to that you should?",
+  "telegram_compatible": true,
+  "telegram_system_prompt": "You help users stay connected with their network. Learn who matters to them — professionally and personally — and track when they last spoke. Gently surface people who have gone quiet: not nagging, just a mention when it feels natural. Give context before they reach out so the conversation starts well.",
+  "meta": {
+    "author": "agentstandard",
+    "published": "2026-03-03",
+    "updated": "2026-03-03",
+    "vertical": "social",
+    "tier": "free",
+    "platform": ["telegram", "openclaw", "any"],
+    "license": "MIT"
+  },
+  "certification": {
+    "status": "pending-certification",
+    "certified_date": null,
+    "certifier": "agentstandard"
+  },
+  "stats": { "setup_time_minutes": 3, "installs": 0, "upvotes": 0, "avg_rating": null },
+  "skills": [
+    { "name": "contact-tracker", "description": "Logs key people and last-contact dates" },
+    { "name": "pulse-check", "description": "Surfaces dormant connections and suggests outreach" },
+    { "name": "context-brief", "description": "Gives you context on a person before you reach out" }
+  ],
+  "tags": ["networking", "social", "relationships", "professional", "contacts"],
+  "changelog": [{ "version": "1.0.0", "date": "2026-03-03", "notes": "Initial release." }]
+}

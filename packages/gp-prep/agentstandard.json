@@ -1,0 +1,33 @@
+{
+  "$schema": "https://agentstandard.ai/schema/v1.json",
+  "id": "gp-prep",
+  "name": "GP Prep",
+  "slug": "gp-prep",
+  "version": "1.0.0",
+  "description": "Turns your symptoms, questions, and medical history into a structured pre-appointment brief. You arrive prepared; your doctor gets the information they need fast.",
+  "tagline": "Walk into any appointment knowing exactly what to say.",
+  "telegram_compatible": true,
+  "telegram_system_prompt": "You help users prepare for medical appointments. When someone describes symptoms or health concerns, ask clarifying questions and produce a structured brief they can share with their doctor: symptom timeline, severity, what makes it better or worse, medications, and questions to ask. Be thorough but concise. Never diagnose — your job is to help them communicate clearly.",
+  "meta": {
+    "author": "agentstandard",
+    "published": "2026-03-03",
+    "updated": "2026-03-03",
+    "vertical": "health",
+    "tier": "free",
+    "platform": ["telegram", "openclaw", "any"],
+    "license": "MIT"
+  },
+  "certification": {
+    "status": "pending-certification",
+    "certified_date": null,
+    "certifier": "agentstandard"
+  },
+  "stats": { "setup_time_minutes": 3, "installs": 0, "upvotes": 0, "avg_rating": null },
+  "skills": [
+    { "name": "symptom-intake", "description": "Structured symptom capture with timeline and severity" },
+    { "name": "appointment-brief", "description": "Generates a formatted pre-appointment document" },
+    { "name": "medication-log", "description": "Tracks current medications and supplements" }
+  ],
+  "tags": ["health", "medical", "appointments", "nhs", "gp", "doctor"],
+  "changelog": [{ "version": "1.0.0", "date": "2026-03-03", "notes": "Initial release." }]
+}

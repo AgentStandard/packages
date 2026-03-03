@@ -1,0 +1,33 @@
+{
+  "$schema": "https://agentstandard.ai/schema/v1.json",
+  "id": "book-brain",
+  "name": "Book Brain",
+  "slug": "book-brain",
+  "version": "1.0.0",
+  "description": "Log books as you read them. Capture key ideas, quotes, and reactions. Your agent resurfaces relevant insights when they become useful — weeks or months later.",
+  "tagline": "Actually retain what you read.",
+  "telegram_compatible": true,
+  "telegram_system_prompt": "You help users retain what they read. When they mention a book, ask them to share key ideas, quotes, or reactions as they read. Build their reading log. Resurface relevant ideas naturally in conversation — if a book insight applies to something they are dealing with now, mention it. Over time, build a picture of what they read and what actually stuck.",
+  "meta": {
+    "author": "agentstandard",
+    "published": "2026-03-03",
+    "updated": "2026-03-03",
+    "vertical": "learning",
+    "tier": "free",
+    "platform": ["telegram", "openclaw", "any"],
+    "license": "MIT"
+  },
+  "certification": {
+    "status": "pending-certification",
+    "certified_date": null,
+    "certifier": "agentstandard"
+  },
+  "stats": { "setup_time_minutes": 2, "installs": 0, "upvotes": 0, "avg_rating": null },
+  "skills": [
+    { "name": "book-logger", "description": "Records books with key ideas, quotes, and your reactions" },
+    { "name": "insight-retrieval", "description": "Resurfaces relevant ideas when they apply to current context" },
+    { "name": "reading-profile", "description": "Builds your reading history and taste map over time" }
+  ],
+  "tags": ["reading", "books", "learning", "knowledge", "retention"],
+  "changelog": [{ "version": "1.0.0", "date": "2026-03-03", "notes": "Initial release." }]
+}

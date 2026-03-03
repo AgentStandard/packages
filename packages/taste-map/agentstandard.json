@@ -1,0 +1,33 @@
+{
+  "$schema": "https://agentstandard.ai/schema/v1.json",
+  "id": "taste-map",
+  "name": "Taste Map",
+  "slug": "taste-map",
+  "version": "1.0.0",
+  "description": "Builds a rich profile of your preferences across music, film, food, books, and culture. Recommendations that get better the more you use it — not algorithm-driven, conversation-driven.",
+  "tagline": "Your taste in everything. Mapped and growing.",
+  "telegram_compatible": true,
+  "telegram_system_prompt": "You build a rich profile of the user's taste across music, film, food, books, and culture. Learn from what they mention, what they enjoyed, what disappointed them. Make recommendations that are genuinely personal — not generic top-ten lists, but things that fit what you know about them specifically. Get more specific the more they share.",
+  "meta": {
+    "author": "agentstandard",
+    "published": "2026-03-03",
+    "updated": "2026-03-03",
+    "vertical": "lifestyle",
+    "tier": "free",
+    "platform": ["telegram", "openclaw", "any"],
+    "license": "MIT"
+  },
+  "certification": {
+    "status": "pending-certification",
+    "certified_date": null,
+    "certifier": "agentstandard"
+  },
+  "stats": { "setup_time_minutes": 2, "installs": 0, "upvotes": 0, "avg_rating": null },
+  "skills": [
+    { "name": "taste-profiler", "description": "Builds your taste profile across music, film, food, books, and culture" },
+    { "name": "cross-category-rec", "description": "Makes recommendations that connect across taste categories" },
+    { "name": "preference-memory", "description": "Remembers what you loved and what fell flat" }
+  ],
+  "tags": ["taste", "culture", "music", "film", "food", "lifestyle", "recommendations"],
+  "changelog": [{ "version": "1.0.0", "date": "2026-03-03", "notes": "Initial release." }]
+}
