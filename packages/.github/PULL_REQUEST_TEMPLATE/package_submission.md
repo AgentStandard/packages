@@ -24,6 +24,7 @@
 *All boxes must be checked before the review begins.*
 
 - [ ] `agentstandard.json` validates against `schema/v1.json`
+- [ ] `license` field is present (MIT / Apache-2.0 / CC0-1.0 / ISC)
 - [ ] All URLs in README return HTTP 200
 - [ ] Install command tested on a clean machine
 - [ ] No credentials, API keys, or secrets in any file
@@ -36,14 +37,18 @@
 
 ---
 
-## Submission Declaration
+## Contributor Terms
 
-*By checking this box, you confirm the following:*
+- [ ] **I have read and agree to the [AgentStandard Contributor Terms](https://agentstandard.ai/contributor-terms).**
 
-- [ ] **I confirm that this package does not violate any third-party terms of service, does not collect or transmit user data without explicit disclosure in the README and manifest, and does not perform any automated actions prohibited by applicable law.**
-- [ ] **I confirm that all instructions in this package are fully declared in the `system_prompt` field of the manifest. There are no hidden instructions.**
-- [ ] **I confirm that I have no undisclosed financial interest in any tools, services, or products recommended by this package.**
-- [ ] **I understand that AgentStandard reserves the right to reject or revoke certification at any time, and that certification does not constitute a warranty of fitness for any particular purpose.**
+*By checking this box you confirm: you own or have rights to submit this package; you grant AgentStandard a licence to list, display, and review it; you are solely responsible for its behaviour and any claims arising from its use; it does not infringe any third-party IP, ToS, or applicable law; and you have no undisclosed financial interest in any tools it recommends.*
+
+## Package Declaration
+
+- [ ] **All instructions are fully declared in the `system_prompt` field. There are no hidden instructions.**
+- [ ] **This package does not collect or transmit user data beyond what is disclosed in the README and manifest.**
+- [ ] **The `license` field is set to a permissive open-source licence (MIT, Apache 2.0, CC0, or ISC).**
+- [ ] **I understand that AgentStandard may reject or revoke listing at any time. Certification is not a warranty of fitness for any purpose.**
 
 ---
 
