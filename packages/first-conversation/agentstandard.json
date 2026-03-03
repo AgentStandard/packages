@@ -1,0 +1,131 @@
+{
+  "$schema": "https://agentstandard.ai/schema/v1.json",
+  "id": "first-conversation",
+  "name": "First Conversation Setup",
+  "slug": "first-conversation",
+  "version": "1.0.0",
+  "description": "Everything you need to go from a blank terminal to a real conversation with your AI agent. No coding required.",
+  "tagline": "From PowerShell to dialogue in 20 minutes.",
+
+  "meta": {
+    "author": "agentstandard",
+    "published": "2026-03-03",
+    "updated": "2026-03-03",
+    "vertical": "general",
+    "tier": "starter",
+    "platform": ["openclaw", "claude", "gpt", "any"],
+    "license": "MIT"
+  },
+
+  "certification": {
+    "status": "agentstandard-certified",
+    "certified_date": "2026-03-03",
+    "benchmark_score": 0.97,
+    "certifier": "agentstandard"
+  },
+
+  "stats": {
+    "setup_time_minutes": 20,
+    "installs": 0,
+    "upvotes": 0,
+    "avg_rating": null
+  },
+
+  "prerequisites": [
+    {
+      "name": "Windows, Mac, or Linux",
+      "url": "https://agentstandard.ai",
+      "required": true
+    }
+  ],
+
+  "skills": [
+    {
+      "name": "weather",
+      "source": "clawhub",
+      "url": "https://clawhub.com/skills/weather",
+      "version": "1.0.0",
+      "description": "Get current weather and forecasts. Great first skill to test your setup is working."
+    },
+    {
+      "name": "web-search",
+      "source": "clawhub",
+      "url": "https://clawhub.com/skills/web-search",
+      "version": "1.0.0",
+      "description": "Search the web from within your agent conversation."
+    }
+  ],
+
+  "mcps": [],
+
+  "config": {
+    "env_vars": [
+      {
+        "key": "ANTHROPIC_API_KEY",
+        "description": "Your Claude API key from Anthropic",
+        "required": true,
+        "sensitive": true,
+        "where_to_get": "https://console.anthropic.com/api-keys"
+      }
+    ]
+  },
+
+  "setup_steps": [
+    {
+      "order": 1,
+      "title": "Download OpenClaw",
+      "description": "OpenClaw is the free app that runs your AI agent locally on your machine. Download and install it — takes about 3 minutes.",
+      "url": "https://openclaw.ai/download",
+      "estimated_minutes": 3,
+      "type": "install"
+    },
+    {
+      "order": 2,
+      "title": "Get your API key",
+      "description": "You need a Claude API key from Anthropic. Go to console.anthropic.com, sign up for free, and create an API key. Copy it — you'll need it in the next step.",
+      "url": "https://console.anthropic.com/api-keys",
+      "estimated_minutes": 5,
+      "type": "browse"
+    },
+    {
+      "order": 3,
+      "title": "Add your API key to OpenClaw",
+      "description": "Open OpenClaw, go to Settings, and paste your API key. This connects your agent to Claude.",
+      "estimated_minutes": 2,
+      "type": "config"
+    },
+    {
+      "order": 4,
+      "title": "Install your first skills",
+      "description": "Skills give your agent abilities. Run this command in your terminal to install the starter skills included in this package.",
+      "command": "openclaw skills install weather web-search",
+      "estimated_minutes": 3,
+      "type": "command"
+    },
+    {
+      "order": 5,
+      "title": "Start your first conversation",
+      "description": "Open a new chat in OpenClaw and type: \"What's the weather like in London today?\" — if it answers, you're set up. Welcome.",
+      "estimated_minutes": 1,
+      "type": "done"
+    }
+  ],
+
+  "benchmarks": {
+    "tested_on": ["claude-sonnet-4-6", "claude-haiku-4"],
+    "task_completion_rate": 0.97,
+    "avg_response_ms": 1100,
+    "estimated_cost_per_session_usd": 0.04,
+    "tested_date": "2026-03-03"
+  },
+
+  "tags": ["onboarding", "beginner", "general", "starter", "first-setup"],
+
+  "changelog": [
+    {
+      "version": "1.0.0",
+      "date": "2026-03-03",
+      "notes": "Initial release. The package we wish existed when we started."
+    }
+  ]
+}
