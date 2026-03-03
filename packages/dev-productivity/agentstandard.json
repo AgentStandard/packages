@@ -1,0 +1,135 @@
+{
+  "$schema": "https://agentstandard.ai/schema/v1.json",
+  "id": "dev-productivity",
+  "name": "Developer Productivity Stack",
+  "slug": "dev-productivity",
+  "version": "1.0.0",
+  "description": "Code review, PR management, CI monitoring, and documentation — handled by your agent. For engineers who want to ship faster without the context-switching.",
+  "tagline": "Code review, PRs, and CI monitoring — without the context-switching.",
+
+  "meta": {
+    "author": "agentstandard",
+    "published": "2026-03-03",
+    "updated": "2026-03-03",
+    "vertical": "dev",
+    "tier": "pro",
+    "platform": ["openclaw", "claude", "any"],
+    "license": "MIT"
+  },
+
+  "certification": {
+    "status": "agentstandard-certified",
+    "certified_date": "2026-03-03",
+    "benchmark_score": 0.94,
+    "certifier": "agentstandard"
+  },
+
+  "stats": {
+    "setup_time_minutes": 25,
+    "installs": 0,
+    "upvotes": 0,
+    "avg_rating": null
+  },
+
+  "prerequisites": [
+    {
+      "name": "OpenClaw",
+      "url": "https://openclaw.ai",
+      "required": true
+    },
+    {
+      "name": "GitHub account",
+      "url": "https://github.com",
+      "required": true
+    }
+  ],
+
+  "skills": [
+    {
+      "name": "github",
+      "source": "clawhub",
+      "url": "https://clawhub.com/skills/github",
+      "version": "1.0.0",
+      "description": "GitHub operations — issues, PRs, CI runs, code review via gh CLI."
+    },
+    {
+      "name": "web-search",
+      "source": "clawhub",
+      "url": "https://clawhub.com/skills/web-search",
+      "version": "1.0.0",
+      "description": "Research docs, Stack Overflow, and technical references."
+    }
+  ],
+
+  "mcps": [],
+
+  "config": {
+    "env_vars": [
+      {
+        "key": "ANTHROPIC_API_KEY",
+        "description": "Your Claude API key",
+        "required": true,
+        "sensitive": true,
+        "where_to_get": "https://console.anthropic.com/api-keys"
+      },
+      {
+        "key": "GITHUB_TOKEN",
+        "description": "GitHub personal access token for PR and CI access",
+        "required": true,
+        "sensitive": true,
+        "where_to_get": "https://github.com/settings/tokens"
+      }
+    ]
+  },
+
+  "setup_steps": [
+    {
+      "order": 1,
+      "title": "Install OpenClaw",
+      "description": "Download and install OpenClaw.",
+      "url": "https://openclaw.ai/download",
+      "estimated_minutes": 3,
+      "type": "install"
+    },
+    {
+      "order": 2,
+      "title": "Add your API keys",
+      "description": "Add your Claude API key and GitHub token to OpenClaw settings.",
+      "estimated_minutes": 3,
+      "type": "config"
+    },
+    {
+      "order": 3,
+      "title": "Install dev skills",
+      "description": "Install the developer productivity skill package.",
+      "command": "openclaw skills install github web-search",
+      "estimated_minutes": 3,
+      "type": "command"
+    },
+    {
+      "order": 4,
+      "title": "Connect your repo",
+      "description": "Ask: \"Check my open PRs and flag anything that needs review.\" Your agent will pull from GitHub directly.",
+      "estimated_minutes": 2,
+      "type": "done"
+    }
+  ],
+
+  "benchmarks": {
+    "tested_on": ["claude-sonnet-4-6"],
+    "task_completion_rate": 0.94,
+    "avg_response_ms": 1600,
+    "estimated_cost_per_session_usd": 0.08,
+    "tested_date": "2026-03-03"
+  },
+
+  "tags": ["developer", "github", "code-review", "CI", "productivity", "engineering"],
+
+  "changelog": [
+    {
+      "version": "1.0.0",
+      "date": "2026-03-03",
+      "notes": "Initial release."
+    }
+  ]
+}

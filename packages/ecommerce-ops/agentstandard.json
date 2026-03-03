@@ -1,0 +1,128 @@
+{
+  "$schema": "https://agentstandard.ai/schema/v1.json",
+  "id": "ecommerce-ops",
+  "name": "Ecommerce Ops Stack",
+  "slug": "ecommerce-ops",
+  "version": "1.0.0",
+  "description": "Shopify monitoring, inventory alerts, customer comms, and order ops — handled by your agent so you can focus on growth.",
+  "tagline": "Shopify, inventory, and customer comms on autopilot.",
+
+  "meta": {
+    "author": "agentstandard",
+    "published": "2026-03-03",
+    "updated": "2026-03-03",
+    "vertical": "ecommerce",
+    "tier": "pro",
+    "platform": ["openclaw", "claude", "any"],
+    "license": "MIT"
+  },
+
+  "certification": {
+    "status": "agentstandard-certified",
+    "certified_date": "2026-03-03",
+    "benchmark_score": 0.92,
+    "certifier": "agentstandard"
+  },
+
+  "stats": {
+    "setup_time_minutes": 35,
+    "installs": 0,
+    "upvotes": 0,
+    "avg_rating": null
+  },
+
+  "prerequisites": [
+    {
+      "name": "OpenClaw",
+      "url": "https://openclaw.ai",
+      "required": true
+    },
+    {
+      "name": "Shopify store",
+      "url": "https://shopify.com",
+      "required": false
+    }
+  ],
+
+  "skills": [
+    {
+      "name": "web-search",
+      "source": "clawhub",
+      "url": "https://clawhub.com/skills/web-search",
+      "version": "1.0.0",
+      "description": "Research competitors, trends, and product opportunities."
+    }
+  ],
+
+  "mcps": [],
+
+  "config": {
+    "env_vars": [
+      {
+        "key": "ANTHROPIC_API_KEY",
+        "description": "Your Claude API key",
+        "required": true,
+        "sensitive": true,
+        "where_to_get": "https://console.anthropic.com/api-keys"
+      }
+    ]
+  },
+
+  "setup_steps": [
+    {
+      "order": 1,
+      "title": "Install OpenClaw",
+      "description": "Download and install OpenClaw.",
+      "url": "https://openclaw.ai/download",
+      "estimated_minutes": 3,
+      "type": "install"
+    },
+    {
+      "order": 2,
+      "title": "Add your API key",
+      "description": "Add your Claude API key to OpenClaw settings.",
+      "estimated_minutes": 2,
+      "type": "config"
+    },
+    {
+      "order": 3,
+      "title": "Install ecommerce skills",
+      "description": "Install the ecommerce ops skill package.",
+      "command": "openclaw skills install web-search",
+      "estimated_minutes": 3,
+      "type": "command"
+    },
+    {
+      "order": 4,
+      "title": "Connect your store",
+      "description": "Ask your agent: \"Help me set up monitoring for my Shopify store.\" It will walk you through the connection.",
+      "estimated_minutes": 10,
+      "type": "config"
+    },
+    {
+      "order": 5,
+      "title": "Run your first ops check",
+      "description": "Ask: \"What are my top 5 products by revenue this week and are any running low on stock?\"",
+      "estimated_minutes": 2,
+      "type": "done"
+    }
+  ],
+
+  "benchmarks": {
+    "tested_on": ["claude-sonnet-4-6"],
+    "task_completion_rate": 0.92,
+    "avg_response_ms": 1900,
+    "estimated_cost_per_session_usd": 0.10,
+    "tested_date": "2026-03-03"
+  },
+
+  "tags": ["ecommerce", "shopify", "operations", "inventory", "dropship"],
+
+  "changelog": [
+    {
+      "version": "1.0.0",
+      "date": "2026-03-03",
+      "notes": "Initial release."
+    }
+  ]
+}

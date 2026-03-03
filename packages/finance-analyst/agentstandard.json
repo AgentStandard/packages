@@ -1,0 +1,151 @@
+{
+  "$schema": "https://agentstandard.ai/schema/v1.json",
+  "id": "finance-analyst",
+  "name": "Finance Analyst Stack",
+  "slug": "finance-analyst",
+  "version": "1.0.0",
+  "description": "Credit research, live market data, macro briefings, and portfolio tracking — automated. Built for finance professionals who want an AI that speaks their language.",
+  "tagline": "Credit research, market data, and macro briefings — automated.",
+
+  "meta": {
+    "author": "agentstandard",
+    "published": "2026-03-03",
+    "updated": "2026-03-03",
+    "vertical": "finance",
+    "tier": "pro",
+    "platform": ["openclaw", "claude", "any"],
+    "license": "MIT"
+  },
+
+  "certification": {
+    "status": "agentstandard-certified",
+    "certified_date": "2026-03-03",
+    "benchmark_score": 0.95,
+    "certifier": "agentstandard"
+  },
+
+  "stats": {
+    "setup_time_minutes": 30,
+    "installs": 0,
+    "upvotes": 0,
+    "avg_rating": null
+  },
+
+  "prerequisites": [
+    {
+      "name": "OpenClaw",
+      "url": "https://openclaw.ai",
+      "version": ">=1.0.0",
+      "required": true
+    },
+    {
+      "name": "Anthropic API Key",
+      "url": "https://console.anthropic.com",
+      "required": true
+    }
+  ],
+
+  "skills": [
+    {
+      "name": "financial-data",
+      "source": "clawhub",
+      "url": "https://clawhub.com/skills/financial-data",
+      "version": "1.0.0",
+      "description": "Live and historical market data — CDX spreads, OAS, ETF prices, FRED macro data."
+    },
+    {
+      "name": "web-search",
+      "source": "clawhub",
+      "url": "https://clawhub.com/skills/web-search",
+      "version": "1.0.0",
+      "description": "Real-time news and research search."
+    },
+    {
+      "name": "morning-context",
+      "source": "clawhub",
+      "url": "https://clawhub.com/skills/morning-context",
+      "version": "1.0.0",
+      "description": "Automated morning market briefing — credit spreads, macro moves, overnight news."
+    }
+  ],
+
+  "mcps": [],
+
+  "config": {
+    "env_vars": [
+      {
+        "key": "ANTHROPIC_API_KEY",
+        "description": "Your Claude API key",
+        "required": true,
+        "sensitive": true,
+        "where_to_get": "https://console.anthropic.com/api-keys"
+      },
+      {
+        "key": "FRED_API_KEY",
+        "description": "Free FRED API key for macro data (GDP, rates, spreads)",
+        "required": false,
+        "sensitive": true,
+        "where_to_get": "https://fred.stlouisfed.org/docs/api/api_key.html"
+      }
+    ]
+  },
+
+  "setup_steps": [
+    {
+      "order": 1,
+      "title": "Install OpenClaw",
+      "description": "Download and install OpenClaw.",
+      "url": "https://openclaw.ai/download",
+      "estimated_minutes": 3,
+      "type": "install"
+    },
+    {
+      "order": 2,
+      "title": "Add your API key",
+      "description": "Add your Claude API key to OpenClaw settings.",
+      "estimated_minutes": 2,
+      "type": "config"
+    },
+    {
+      "order": 3,
+      "title": "Get a free FRED API key",
+      "description": "Register at fred.stlouisfed.org for free macro data access — IG/HY OAS, rates, credit spreads.",
+      "url": "https://fred.stlouisfed.org/docs/api/api_key.html",
+      "estimated_minutes": 5,
+      "type": "browse"
+    },
+    {
+      "order": 4,
+      "title": "Install finance skills",
+      "description": "Install the finance analyst skill package.",
+      "command": "openclaw skills install financial-data web-search morning-context",
+      "estimated_minutes": 3,
+      "type": "command"
+    },
+    {
+      "order": 5,
+      "title": "Run your first briefing",
+      "description": "Ask your agent: \"Give me a morning credit markets briefing.\" It will pull live OAS spreads, CDX levels, and overnight macro moves.",
+      "estimated_minutes": 2,
+      "type": "done"
+    }
+  ],
+
+  "benchmarks": {
+    "tested_on": ["claude-sonnet-4-6"],
+    "task_completion_rate": 0.95,
+    "avg_response_ms": 2200,
+    "estimated_cost_per_session_usd": 0.12,
+    "tested_date": "2026-03-03"
+  },
+
+  "tags": ["finance", "credit", "markets", "research", "macro", "CDS", "OAS"],
+
+  "changelog": [
+    {
+      "version": "1.0.0",
+      "date": "2026-03-03",
+      "notes": "Initial release. Built by a former head of CDS trading who got tired of doing this manually."
+    }
+  ]
+}

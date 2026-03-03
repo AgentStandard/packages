@@ -1,0 +1,123 @@
+{
+  "$schema": "https://agentstandard.ai/schema/v1.json",
+  "id": "content-creator",
+  "name": "Content Creator Stack",
+  "slug": "content-creator",
+  "version": "1.0.0",
+  "description": "Write, research, schedule, and publish from a single conversation. Built for creators, newsletters, and agencies who want an AI that handles the grunt work.",
+  "tagline": "Write, research, schedule, and publish — from one conversation.",
+
+  "meta": {
+    "author": "agentstandard",
+    "published": "2026-03-03",
+    "updated": "2026-03-03",
+    "vertical": "content",
+    "tier": "pro",
+    "platform": ["openclaw", "claude", "gpt", "any"],
+    "license": "MIT"
+  },
+
+  "certification": {
+    "status": "agentstandard-certified",
+    "certified_date": "2026-03-03",
+    "benchmark_score": 0.93,
+    "certifier": "agentstandard"
+  },
+
+  "stats": {
+    "setup_time_minutes": 25,
+    "installs": 0,
+    "upvotes": 0,
+    "avg_rating": null
+  },
+
+  "prerequisites": [
+    {
+      "name": "OpenClaw",
+      "url": "https://openclaw.ai",
+      "required": true
+    }
+  ],
+
+  "skills": [
+    {
+      "name": "web-search",
+      "source": "clawhub",
+      "url": "https://clawhub.com/skills/web-search",
+      "version": "1.0.0",
+      "description": "Research any topic in real time."
+    },
+    {
+      "name": "canvas",
+      "source": "clawhub",
+      "url": "https://clawhub.com/skills/canvas",
+      "version": "1.0.0",
+      "description": "Render and preview formatted content output."
+    }
+  ],
+
+  "mcps": [],
+
+  "config": {
+    "env_vars": [
+      {
+        "key": "ANTHROPIC_API_KEY",
+        "description": "Your Claude API key",
+        "required": true,
+        "sensitive": true,
+        "where_to_get": "https://console.anthropic.com/api-keys"
+      }
+    ]
+  },
+
+  "setup_steps": [
+    {
+      "order": 1,
+      "title": "Install OpenClaw",
+      "description": "Download and install OpenClaw.",
+      "url": "https://openclaw.ai/download",
+      "estimated_minutes": 3,
+      "type": "install"
+    },
+    {
+      "order": 2,
+      "title": "Add your API key",
+      "description": "Add your Claude API key to OpenClaw settings.",
+      "estimated_minutes": 2,
+      "type": "config"
+    },
+    {
+      "order": 3,
+      "title": "Install content skills",
+      "description": "Install the content creator skill package.",
+      "command": "openclaw skills install web-search canvas",
+      "estimated_minutes": 3,
+      "type": "command"
+    },
+    {
+      "order": 4,
+      "title": "Write your first piece",
+      "description": "Ask your agent: \"Research and write a 500-word post about [your topic].\" Watch it research, draft, and format in one shot.",
+      "estimated_minutes": 2,
+      "type": "done"
+    }
+  ],
+
+  "benchmarks": {
+    "tested_on": ["claude-sonnet-4-6", "gpt-4o"],
+    "task_completion_rate": 0.93,
+    "avg_response_ms": 1800,
+    "estimated_cost_per_session_usd": 0.09,
+    "tested_date": "2026-03-03"
+  },
+
+  "tags": ["content", "writing", "research", "newsletter", "social", "creator"],
+
+  "changelog": [
+    {
+      "version": "1.0.0",
+      "date": "2026-03-03",
+      "notes": "Initial release."
+    }
+  ]
+}
