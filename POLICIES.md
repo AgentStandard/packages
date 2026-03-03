@@ -16,6 +16,7 @@
 - Sub-agents never push to prod without explicit "push it" from Jackson
 - Vercel previews only until Jackson reviews — prod deploys are a human decision
 - DNS/domain changes always flagged before execution
+- **Pre-deploy link audit (mandatory):** Every external URL in the codebase must return HTTP 200 before anything is declared "ready." No exceptions. Aspera runs this check before every "it's ready" claim.
 
 ## Finance
 - No Stripe charges go live without Jackson reviewing the flow personally
