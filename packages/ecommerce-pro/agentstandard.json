@@ -1,0 +1,277 @@
+{
+  "$schema": "https://agentstandard.ai/schema/v1.json",
+  "id": "ecommerce-pro",
+  "name": "Ecommerce OS",
+  "slug": "ecommerce-pro",
+  "version": "1.0.0",
+  "description": "A full operating system for serious online sellers. Competitive intelligence, margin modeling, launch playbooks, automated market monitoring, conversion diagnostics, and a content engine that writes your entire store — all in one agent.",
+  "tagline": "Not a research tool. A full e-commerce operating system.",
+
+  "meta": {
+    "author": "agentstandard",
+    "published": "2026-03-05",
+    "updated": "2026-03-05",
+    "vertical": "ecommerce",
+    "tier": "premium",
+    "platform": ["openclaw"],
+    "license": "MIT"
+  },
+
+  "certification": {
+    "status": "agentstandard-certified",
+    "certified_date": "2026-03-05",
+    "benchmark_score": null,
+    "certifier": "agentstandard"
+  },
+
+  "stats": {
+    "setup_time_minutes": 20,
+    "installs": 0,
+    "upvotes": 0,
+    "avg_rating": null
+  },
+
+  "prerequisites": [
+    {
+      "name": "OpenClaw",
+      "url": "https://openclaw.ai",
+      "required": true
+    }
+  ],
+
+  "skills": [
+    {
+      "name": "web-search",
+      "source": "clawhub",
+      "url": "https://clawhub.com/skills/web-search",
+      "version": "1.0.0",
+      "description": "Live competitor pricing, trend data, review mining, and market intelligence."
+    }
+  ],
+
+  "mcps": [],
+
+  "config": {
+    "env_vars": [
+      {
+        "key": "ANTHROPIC_API_KEY",
+        "description": "Your Claude API key",
+        "required": true,
+        "sensitive": true,
+        "where_to_get": "https://console.anthropic.com/api-keys"
+      },
+      {
+        "key": "BRAVE_API_KEY",
+        "description": "Brave Search API key — powers live competitor and market research",
+        "required": false,
+        "sensitive": true,
+        "where_to_get": "https://brave.com/search/api/"
+      }
+    ]
+  },
+
+  "setup_steps": [
+    {
+      "order": 1,
+      "title": "Install OpenClaw",
+      "description": "Download and install OpenClaw.",
+      "url": "https://openclaw.ai/download",
+      "estimated_minutes": 3,
+      "type": "install"
+    },
+    {
+      "order": 2,
+      "title": "Add your API key",
+      "description": "Add your Anthropic API key to OpenClaw settings.",
+      "estimated_minutes": 2,
+      "type": "config"
+    },
+    {
+      "order": 3,
+      "title": "Install web search skill",
+      "description": "Required for live competitor monitoring and market intelligence.",
+      "command": "openclaw skills install web-search",
+      "estimated_minutes": 2,
+      "type": "command"
+    },
+    {
+      "order": 4,
+      "title": "Brief your agent — store context",
+      "description": "Tell your agent: (1) What you sell, (2) Your platform (Shopify / Amazon / Etsy / DTC), (3) Your top 3 competitors by name or URL, (4) Your average selling price and rough COGS, (5) Who your customer is in one sentence. This powers everything — the sharper your context, the sharper every output.",
+      "estimated_minutes": 8,
+      "type": "config"
+    },
+    {
+      "order": 5,
+      "title": "Run your first intelligence scan",
+      "description": "Try: /compete [your hero product] — and watch it map your entire competitive landscape with pricing, positioning gaps, and review themes.",
+      "estimated_minutes": 3,
+      "type": "done"
+    }
+  ],
+
+  "system_prompt": "You are a senior e-commerce operator and strategist — the equivalent of a head of growth, brand director, and data analyst combined. You have deep knowledge of DTC, Shopify, Amazon, Etsy, TikTok Shop, and multi-channel retail. You think in margins, not just revenue. You understand conversion, unit economics, customer LTV, and brand positioning simultaneously.\n\nYour job is to act as a full operating system for this store — not just to answer questions, but to proactively surface intelligence, flag risks, and generate assets that are ready to use.\n\nAlways structure output for action: lead with the headline insight, then supporting data, then the recommended action. Never give generic advice — everything must be specific to this store, this product, this market.\n\nWhen you don't have live data, say so clearly and work with what's been provided. When you have web search capability, use it — don't ask for competitor URLs if you can find them yourself.\n\nYou remember everything shared about this store across sessions. Build on it. Never start from zero.",
+
+  "commands": [
+    {
+      "trigger": "/compete",
+      "args": "[product or category]",
+      "description": "Deep competitive analysis. Maps the landscape: who's winning, what they charge, how they position, and where the gaps are. Includes review themes from top competitors — their weaknesses are your opportunities.",
+      "example": "/compete wireless earbuds under £50"
+    },
+    {
+      "trigger": "/price",
+      "args": "[product]",
+      "description": "Pricing strategy with margin modeling. Recommends optimal price point based on competitive positioning, perceived value signals, and your stated COGS. Flags if you're leaving money on the table or pricing yourself out.",
+      "example": "/price my premium yoga mat (COGS £18, competitors £35-£65)"
+    },
+    {
+      "trigger": "/margin",
+      "args": "[product] [optional: selling price, COGS, platform]",
+      "description": "Full margin model. Breaks down platform fees, estimated shipping, returns allowance, ad spend assumption, and net margin. Flags margin risk and recommends lever to pull.",
+      "example": "/margin ceramic travel mug £32 selling price £8 COGS Shopify"
+    },
+    {
+      "trigger": "/trend",
+      "args": "[keyword, product, or category]",
+      "description": "Market trend analysis. Rising search terms, seasonal patterns, category tailwinds or headwinds. Surfaces opportunities 60-90 days before they peak.",
+      "example": "/trend weighted blankets UK"
+    },
+    {
+      "trigger": "/review-mine",
+      "args": "[product name or URL]",
+      "description": "Analyse your own review corpus. Identifies top themes — what customers love, what they complain about, what questions they ask. Outputs: (1) top 3 retention risks, (2) top 3 copy angles to amplify, (3) product improvement signals.",
+      "example": "/review-mine https://mystore.com/products/hero-product"
+    },
+    {
+      "trigger": "/review-them",
+      "args": "[competitor product or URL]",
+      "description": "Mine competitor reviews for their weak points. Turns their 1-3 star reviews into your competitive positioning. Returns a ranked list of unmet needs your store can own.",
+      "example": "/review-them https://competitor.com/their-hero-product"
+    },
+    {
+      "trigger": "/pdp",
+      "args": "[product name and brief]",
+      "description": "Full product detail page package. Outputs: SEO title, meta description, headline, feature bullets (benefit-led, not feature-led), full description, FAQ section, and alt text for hero image. Ready to paste.",
+      "example": "/pdp Hand-poured soy candle, 40hr burn, lavender & cedar, target: women 28-42 gifting"
+    },
+    {
+      "trigger": "/email",
+      "args": "[sequence type]",
+      "description": "Write email sequences for: abandon-cart, post-purchase, re-engagement, new subscriber welcome, product launch, review request, VIP loyalty. Each sequence includes subject line variants and send timing.",
+      "example": "/email abandon-cart 3-part sequence"
+    },
+    {
+      "trigger": "/ad",
+      "args": "[platform] [product]",
+      "description": "Ad copy for Meta, Google, TikTok, or Pinterest. Outputs 3 hook variants, primary text, headline, and CTA. Calibrated to the platform's format and attention curve.",
+      "example": "/ad meta hand-poured candle targeting gifting occasions"
+    },
+    {
+      "trigger": "/ugc",
+      "args": "[product]",
+      "description": "UGC creator briefs and video scripts. Outputs: 3 hook scripts (problem/solution, POV, reaction), shot list, and talking points. Calibrated to TikTok/Reels format.",
+      "example": "/ugc my collagen coffee creamer"
+    },
+    {
+      "trigger": "/ab",
+      "args": "[copy to test]",
+      "description": "Generate 3 A/B variants of any copy — headline, email subject, ad hook, product title. Includes the hypothesis behind each variant and which to test first.",
+      "example": "/ab 'The last water bottle you'll ever buy'"
+    },
+    {
+      "trigger": "/launch",
+      "args": "[product]",
+      "description": "Full launch playbook. Pre-launch research → positioning → channel plan → launch week schedule → post-launch review triggers. Structured as a 4-week timeline with day-by-day actions for launch week.",
+      "example": "/launch new leather card wallet targeting men 25-40"
+    },
+    {
+      "trigger": "/audit",
+      "args": "[store URL or describe your store]",
+      "description": "Holistic store diagnostic. Reviews: conversion trust signals, homepage clarity, PDP quality, navigation friction, social proof, checkout flow, and mobile experience. Returns a prioritised fix list — highest impact items first.",
+      "example": "/audit https://mystore.com"
+    },
+    {
+      "trigger": "/funnel",
+      "args": "[your traffic and conversion numbers]",
+      "description": "Funnel diagnosis. Given your traffic, add-to-cart, checkout, and conversion rates — identifies where you're leaking and what the highest-leverage fix is. Benchmarks against category norms.",
+      "example": "/funnel 10k sessions, 4% ATC, 60% checkout start, 2.1% CVR"
+    },
+    {
+      "trigger": "/aov",
+      "args": "[current AOV and top products]",
+      "description": "AOV optimisation strategy. Recommends bundle configurations, upsell triggers, threshold promotions, and cross-sell sequencing specific to your product catalogue.",
+      "example": "/aov current AOV £34, top sellers: candles, wax melts, diffusers"
+    },
+    {
+      "trigger": "/supplier",
+      "args": "[product category]",
+      "description": "Supplier landscape research. Sources, quality signals, MOQ norms, typical lead times, and red flags to watch for. For existing suppliers: negotiation leverage analysis.",
+      "example": "/supplier premium cotton tote bags UK/EU sourcing"
+    },
+    {
+      "trigger": "/forecast",
+      "args": "[product] [time horizon]",
+      "description": "Demand forecast using trend signals, seasonality patterns, and your historical context. Outputs a planning range (conservative / base / upside) with key assumptions stated.",
+      "example": "/forecast advent calendar sets Q3-Q4"
+    },
+    {
+      "trigger": "/weekly",
+      "args": "",
+      "description": "Weekly performance review template. Prompts you through: revenue vs last week, top/bottom performers, any new competitor moves, and one growth action for the coming week.",
+      "example": "/weekly"
+    }
+  ],
+
+  "crons": [
+    {
+      "name": "Competitor Price Watch",
+      "schedule": "every Monday 08:00",
+      "description": "Scans your top 3 competitors for pricing changes on products that overlap with yours. Alerts only if a change exceeds 10% or a new product drops in your category.",
+      "model": "claude-haiku-4-5",
+      "sessionTarget": "isolated",
+      "delivery": "announce"
+    },
+    {
+      "name": "Weekly Market Trend Report",
+      "schedule": "every Friday 09:00",
+      "description": "Scans trend signals for your category — rising keywords, viral products, seasonal tailwinds. Delivers a 5-bullet brief: what's moving and whether it's relevant to your catalogue.",
+      "model": "claude-haiku-4-5",
+      "sessionTarget": "isolated",
+      "delivery": "announce"
+    },
+    {
+      "name": "Monthly Performance Digest",
+      "schedule": "1st of every month 08:00",
+      "description": "Prompts you through a structured monthly review: market position check, copy refresh candidates, seasonal prep, and one strategic recommendation for the month ahead.",
+      "model": "claude-sonnet-4-6",
+      "sessionTarget": "isolated",
+      "delivery": "announce"
+    }
+  ],
+
+  "benchmarks": {
+    "tested_on": ["claude-sonnet-4-6"],
+    "task_completion_rate": null,
+    "avg_response_ms": null,
+    "estimated_cost_per_session_usd": 0.12,
+    "estimated_monthly_cost_usd": {
+      "min": 8,
+      "max": 25,
+      "notes": "Crons ~$3/mo (Haiku x2 + Sonnet x1). Session usage depends on frequency. Heavy users (daily sessions) toward upper bound."
+    },
+    "tested_date": null
+  },
+
+  "costTier": "medium",
+
+  "tags": ["ecommerce", "DTC", "shopify", "amazon", "competitive-intelligence", "copywriting", "margin", "launch", "conversion", "pricing", "premium"],
+
+  "changelog": [
+    {
+      "version": "1.0.0",
+      "date": "2026-03-05",
+      "notes": "Initial release. Premium tier. Full command set: 17 commands across intelligence, revenue ops, content, and diagnostics. 3 automated crons."
+    }
+  ]
+}
