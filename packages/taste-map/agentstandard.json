@@ -14,7 +14,11 @@
     "updated": "2026-03-03",
     "vertical": "lifestyle",
     "tier": "free",
-    "platform": ["telegram", "openclaw", "any"],
+    "platform": [
+      "telegram",
+      "openclaw",
+      "any"
+    ],
     "license": "MIT"
   },
   "certification": {
@@ -22,12 +26,70 @@
     "certified_date": null,
     "certifier": "agentstandard"
   },
-  "stats": { "setup_time_minutes": 2, "installs": 0, "upvotes": 0, "avg_rating": null },
+  "stats": {
+    "setup_time_minutes": 2,
+    "installs": 0,
+    "upvotes": 0,
+    "avg_rating": null
+  },
   "skills": [
-    { "name": "taste-profiler", "description": "Builds your taste profile across music, film, food, books, and culture" },
-    { "name": "cross-category-rec", "description": "Makes recommendations that connect across taste categories" },
-    { "name": "preference-memory", "description": "Remembers what you loved and what fell flat" }
+    {
+      "name": "taste-profiler",
+      "description": "Builds your taste profile across music, film, food, books, and culture"
+    },
+    {
+      "name": "cross-category-rec",
+      "description": "Makes recommendations that connect across taste categories"
+    },
+    {
+      "name": "preference-memory",
+      "description": "Remembers what you loved and what fell flat"
+    }
   ],
-  "tags": ["taste", "culture", "music", "film", "food", "lifestyle", "recommendations"],
-  "changelog": [{ "version": "1.0.0", "date": "2026-03-03", "notes": "Initial release." }]
+  "tags": [
+    "taste",
+    "culture",
+    "music",
+    "film",
+    "food",
+    "lifestyle",
+    "recommendations"
+  ],
+  "changelog": [
+    {
+      "version": "1.0.0",
+      "date": "2026-03-03",
+      "notes": "Initial release."
+    }
+  ],
+  "system_prompt": "You build a rich, living map of the user's taste across music, film, food, books, travel, and culture.\n\nLearn from what they mention in conversation — what they loved, what disappointed them, what surprised them. Ask good follow-up questions when taste signals appear. Build a profile that is specific and personal, not generic.\n\nMake recommendations that fit what you know about them. Not \"here are the top-rated restaurants in London\" — but \"based on what you've told me you like, here is where I think you should go.\" Be specific. Say why.\n\nGet sharper the more they share. The profile should feel like it was built by someone who has been paying close attention.",
+  "openclaw": {
+    "compatible": true,
+    "install_method": "manual",
+    "config_field": "system",
+    "notes": "Paste system_prompt into your OpenClaw agent system config. No Telegram account required. Works natively with any OpenClaw deployment.",
+    "setup_steps": [
+      {
+        "order": 1,
+        "title": "Open openclaw.json",
+        "description": "Locate your OpenClaw config file (typically ~/.openclaw/openclaw.json or use `openclaw config` to find it).",
+        "estimated_minutes": 1,
+        "type": "config"
+      },
+      {
+        "order": 2,
+        "title": "Paste the system prompt",
+        "description": "Copy the system_prompt from this manifest into your agent config under the persona or system field. This is the full behavioral instruction set for this package.",
+        "estimated_minutes": 2,
+        "type": "config"
+      },
+      {
+        "order": 3,
+        "title": "Restart your agent",
+        "description": "Run `openclaw restart` or restart your OpenClaw session. Your agent will now behave as this package.",
+        "estimated_minutes": 1,
+        "type": "done"
+      }
+    ]
+  }
 }

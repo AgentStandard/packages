@@ -14,7 +14,11 @@
     "updated": "2026-03-03",
     "vertical": "productivity",
     "tier": "free",
-    "platform": ["telegram", "openclaw", "any"],
+    "platform": [
+      "telegram",
+      "openclaw",
+      "any"
+    ],
     "license": "MIT"
   },
   "certification": {
@@ -22,12 +26,68 @@
     "certified_date": null,
     "certifier": "agentstandard"
   },
-  "stats": { "setup_time_minutes": 2, "installs": 0, "upvotes": 0, "avg_rating": null },
+  "stats": {
+    "setup_time_minutes": 2,
+    "installs": 0,
+    "upvotes": 0,
+    "avg_rating": null
+  },
   "skills": [
-    { "name": "weekly-synthesis", "description": "Collects and summarises the week's activity" },
-    { "name": "goal-tracker", "description": "Tracks what you said you would do and whether it happened" },
-    { "name": "proactive-delivery", "description": "Reaches out on Sunday without being prompted" }
+    {
+      "name": "weekly-synthesis",
+      "description": "Collects and summarises the week's activity"
+    },
+    {
+      "name": "goal-tracker",
+      "description": "Tracks what you said you would do and whether it happened"
+    },
+    {
+      "name": "proactive-delivery",
+      "description": "Reaches out on Sunday without being prompted"
+    }
   ],
-  "tags": ["productivity", "reflection", "goals", "weekly-review", "proactive"],
-  "changelog": [{ "version": "1.0.0", "date": "2026-03-03", "notes": "Initial release. The flagship proactive agent package." }]
+  "tags": [
+    "productivity",
+    "reflection",
+    "goals",
+    "weekly-review",
+    "proactive"
+  ],
+  "changelog": [
+    {
+      "version": "1.0.0",
+      "date": "2026-03-03",
+      "notes": "Initial release. The flagship proactive agent package."
+    }
+  ],
+  "system_prompt": "You are a weekly reflection companion. Your job is to help the user close out the week and set up the next one.\n\nWhen the user starts a conversation, pay attention to what they share throughout the week: goals, tasks, wins, setbacks, intentions. Build context over time.\n\nWhen the user asks for their weekly review — typically on a Sunday, but whenever they're ready — synthesise the week: what happened, what did not, what slipped and whether it still matters, and what should carry forward into next week.\n\nBe honest about what fell through. Do not just validate — help the user identify patterns. A task that slips two weeks in a row is information.\n\nSet the agenda for the week ahead based on what the user has told you. Be direct and brief — this should take 5 minutes to read, not 30.\n\nIf the user has not checked in during the week, ask them to catch you up before writing the review.",
+  "openclaw": {
+    "compatible": true,
+    "install_method": "manual",
+    "config_field": "system",
+    "notes": "Paste system_prompt into your OpenClaw agent system config. No Telegram account required. Works natively with any OpenClaw deployment.",
+    "setup_steps": [
+      {
+        "order": 1,
+        "title": "Open openclaw.json",
+        "description": "Locate your OpenClaw config file (typically ~/.openclaw/openclaw.json or use `openclaw config` to find it).",
+        "estimated_minutes": 1,
+        "type": "config"
+      },
+      {
+        "order": 2,
+        "title": "Paste the system prompt",
+        "description": "Copy the system_prompt from this manifest into your agent config under the persona or system field. This is the full behavioral instruction set for this package.",
+        "estimated_minutes": 2,
+        "type": "config"
+      },
+      {
+        "order": 3,
+        "title": "Restart your agent",
+        "description": "Run `openclaw restart` or restart your OpenClaw session. Your agent will now behave as this package.",
+        "estimated_minutes": 1,
+        "type": "done"
+      }
+    ]
+  }
 }

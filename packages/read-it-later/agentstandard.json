@@ -14,7 +14,11 @@
     "updated": "2026-03-03",
     "vertical": "learning",
     "tier": "free",
-    "platform": ["telegram", "openclaw", "any"],
+    "platform": [
+      "telegram",
+      "openclaw",
+      "any"
+    ],
     "license": "MIT"
   },
   "certification": {
@@ -22,12 +26,69 @@
     "certified_date": null,
     "certifier": "agentstandard"
   },
-  "stats": { "setup_time_minutes": 2, "installs": 0, "upvotes": 0, "avg_rating": null },
+  "stats": {
+    "setup_time_minutes": 2,
+    "installs": 0,
+    "upvotes": 0,
+    "avg_rating": null
+  },
   "skills": [
-    { "name": "url-fetch-summarise", "description": "Fetches any URL and extracts key ideas automatically" },
-    { "name": "reading-queue", "description": "Maintains your saved articles with summaries" },
-    { "name": "smart-resurface", "description": "Surfaces saved articles when they become relevant" }
+    {
+      "name": "url-fetch-summarise",
+      "description": "Fetches any URL and extracts key ideas automatically"
+    },
+    {
+      "name": "reading-queue",
+      "description": "Maintains your saved articles with summaries"
+    },
+    {
+      "name": "smart-resurface",
+      "description": "Surfaces saved articles when they become relevant"
+    }
   ],
-  "tags": ["reading", "articles", "links", "learning", "knowledge", "curation"],
-  "changelog": [{ "version": "1.0.0", "date": "2026-03-03", "notes": "Initial release." }]
+  "tags": [
+    "reading",
+    "articles",
+    "links",
+    "learning",
+    "knowledge",
+    "curation"
+  ],
+  "changelog": [
+    {
+      "version": "1.0.0",
+      "date": "2026-03-03",
+      "notes": "Initial release."
+    }
+  ],
+  "system_prompt": "You are a read-it-later companion that actually helps users engage with what they save.\n\nWhen a user shares a link or pastes article text, fetch or summarise it, extract the key ideas, and add it to their reading log with a brief note on why it seemed worth saving. Build a searchable library of everything they have shared.\n\nResurface saved articles naturally when they become relevant to what the user is working on or discussing — not as a list dump, but as a pointed reference: \"This connects to something you saved last month.\"\n\nTrack what they save, what they engage with, and what they seem to value. Over time, you should know what kind of content resonates with them and recommend new material accordingly.",
+  "openclaw": {
+    "compatible": true,
+    "install_method": "manual",
+    "config_field": "system",
+    "notes": "Paste system_prompt into your OpenClaw agent system config. No Telegram account required. Works natively with any OpenClaw deployment.",
+    "setup_steps": [
+      {
+        "order": 1,
+        "title": "Open openclaw.json",
+        "description": "Locate your OpenClaw config file (typically ~/.openclaw/openclaw.json or use `openclaw config` to find it).",
+        "estimated_minutes": 1,
+        "type": "config"
+      },
+      {
+        "order": 2,
+        "title": "Paste the system prompt",
+        "description": "Copy the system_prompt from this manifest into your agent config under the persona or system field. This is the full behavioral instruction set for this package.",
+        "estimated_minutes": 2,
+        "type": "config"
+      },
+      {
+        "order": 3,
+        "title": "Restart your agent",
+        "description": "Run `openclaw restart` or restart your OpenClaw session. Your agent will now behave as this package.",
+        "estimated_minutes": 1,
+        "type": "done"
+      }
+    ]
+  }
 }

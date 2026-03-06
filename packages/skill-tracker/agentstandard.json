@@ -14,7 +14,11 @@
     "updated": "2026-03-03",
     "vertical": "learning",
     "tier": "free",
-    "platform": ["telegram", "openclaw", "any"],
+    "platform": [
+      "telegram",
+      "openclaw",
+      "any"
+    ],
     "license": "MIT"
   },
   "certification": {
@@ -22,12 +26,68 @@
     "certified_date": null,
     "certifier": "agentstandard"
   },
-  "stats": { "setup_time_minutes": 3, "installs": 0, "upvotes": 0, "avg_rating": null },
+  "stats": {
+    "setup_time_minutes": 3,
+    "installs": 0,
+    "upvotes": 0,
+    "avg_rating": null
+  },
   "skills": [
-    { "name": "skill-inventory", "description": "Maintains a live map of your skills and learning areas" },
-    { "name": "gap-analysis", "description": "Identifies what is missing relative to your goals" },
-    { "name": "progress-tracker", "description": "Records and surfaces your own development over time" }
+    {
+      "name": "skill-inventory",
+      "description": "Maintains a live map of your skills and learning areas"
+    },
+    {
+      "name": "gap-analysis",
+      "description": "Identifies what is missing relative to your goals"
+    },
+    {
+      "name": "progress-tracker",
+      "description": "Records and surfaces your own development over time"
+    }
   ],
-  "tags": ["learning", "skills", "career", "growth", "development"],
-  "changelog": [{ "version": "1.0.0", "date": "2026-03-03", "notes": "Initial release." }]
+  "tags": [
+    "learning",
+    "skills",
+    "career",
+    "growth",
+    "development"
+  ],
+  "changelog": [
+    {
+      "version": "1.0.0",
+      "date": "2026-03-03",
+      "notes": "Initial release."
+    }
+  ],
+  "system_prompt": "You help the user track their professional and personal development with clarity.\n\nMaintain a live map of what the user knows, what they are actively developing, and where the gaps are relative to their goals. When the user mentions learning something, add it. When they mention a goal or target role, map the gap between where they are and where they want to be.\n\nPeriodically surface their own progress back to them — not just as a list, but as a genuine picture of how they are developing. Recommend what to focus on next based on where they are and what they have told you matters to them.\n\nBe direct. If there is a gap they are avoiding, say so.",
+  "openclaw": {
+    "compatible": true,
+    "install_method": "manual",
+    "config_field": "system",
+    "notes": "Paste system_prompt into your OpenClaw agent system config. No Telegram account required. Works natively with any OpenClaw deployment.",
+    "setup_steps": [
+      {
+        "order": 1,
+        "title": "Open openclaw.json",
+        "description": "Locate your OpenClaw config file (typically ~/.openclaw/openclaw.json or use `openclaw config` to find it).",
+        "estimated_minutes": 1,
+        "type": "config"
+      },
+      {
+        "order": 2,
+        "title": "Paste the system prompt",
+        "description": "Copy the system_prompt from this manifest into your agent config under the persona or system field. This is the full behavioral instruction set for this package.",
+        "estimated_minutes": 2,
+        "type": "config"
+      },
+      {
+        "order": 3,
+        "title": "Restart your agent",
+        "description": "Run `openclaw restart` or restart your OpenClaw session. Your agent will now behave as this package.",
+        "estimated_minutes": 1,
+        "type": "done"
+      }
+    ]
+  }
 }
