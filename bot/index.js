@@ -856,8 +856,41 @@ bot.command('packages', async (ctx) => {
 
 // ─── Launch ───────────────────────────────────────────────────────────────────
 
+// ── Model validation on startup ───────────────────────────────────────────────
+// Queries /v1/models to confirm the configured model exists on this API key.
+// If not, logs a loud error and alerts Jackson via Telegram — never silently fails.
+async function validateModel() {
+  try {
+    const res = await fetch('https://api.anthropic.com/v1/models', {
+      headers: {
+        'x-api-key': PLATFORM_API_KEY,
+        'anthropic-version': '2023-06-01'
+      }
+    });
+    const data = await res.json();
+    const available = (data.data || []).map(m => m.id);
+    if (!available.includes(MODEL)) {
+      const msg = `⚠️ AgentStandard bot started with INVALID model: \`${MODEL}\`\n\nAvailable models on this key:\n${available.map(m => `• ${m}`).join('\n')}\n\nUpdate ANTHROPIC_MODEL in .env and restart with --update-env.`;
+      console.error('❌  MODEL VALIDATION FAILED:', MODEL);
+      console.error('    Available:', available.join(', '));
+      // Alert Jackson
+      if (process.env.JACKSON_CHAT_ID) {
+        await fetch(`https://api.telegram.org/bot${process.env.TELEGRAM_BOT_TOKEN}/sendMessage`, {
+          method: 'POST',
+          headers: { 'content-type': 'application/json' },
+          body: JSON.stringify({ chat_id: process.env.JACKSON_CHAT_ID, text: msg, parse_mode: 'Markdown' })
+        }).catch(() => {});
+      }
+    } else {
+      console.log(`    Model validated:    ${MODEL} ✓`);
+    }
+  } catch (err) {
+    console.warn('    Model validation skipped (could not reach /v1/models):', err.message);
+  }
+}
+
 bot.launch()
-  .then(() => {
+  .then(async () => {
     console.log('✅  AgentStandard bot started');
     console.log(`    Model:              ${MODEL}`);
     console.log(`    Free messages:      ${FREE_MESSAGE_LIMIT} per user (setup questions free)`);
@@ -865,6 +898,7 @@ bot.launch()
     console.log(`    Output cap:         ${MAX_OUTPUT_TOKENS} tokens`);
     console.log(`    Data file:          ${DATA_FILE}`);
     console.log('    Press Ctrl+C to stop.\n');
+    await validateModel();
   })
   .catch((err) => {
     console.error('❌  Failed to start bot:', err.message);
