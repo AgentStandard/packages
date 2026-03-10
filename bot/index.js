@@ -4,6 +4,7 @@ const Anthropic = require('@anthropic-ai/sdk');
 const fs = require('fs');
 const path = require('path');
 const PACKAGES = require('./packages');
+const { parseRepoSlug, listFiles, readFile, writeFile, triggerDeploy, pickFiles, generateChange, formatDiff } = require('./deploy');
 
 // ─── Config ───────────────────────────────────────────────────────────────────
 
@@ -852,6 +853,200 @@ bot.command('packages', async (ctx) => {
   msg += `Browse all packages at agentstandard.ai`;
 
   await ctx.reply(msg, { parse_mode: 'Markdown', disable_web_page_preview: true });
+});
+
+// ─── Deploy & GitHub commands ─────────────────────────────────────────────────
+
+bot.command('setdeploy', async (ctx) => {
+  const userId = String(ctx.from.id);
+  const user = getUser(users, userId);
+  if (!user.setupComplete) return ctx.reply('Finish setup first.');
+  const url = ctx.message.text.split(' ').slice(1).join(' ').trim();
+  if (!url || !url.startsWith('http')) {
+    return ctx.reply('Paste your Vercel deploy hook URL:\n`/setdeploy https://api.vercel.com/v1/integrations/deploy/...`\n\nFind it in Vercel → Project Settings → Git → Deploy Hooks.', { parse_mode: 'Markdown' });
+  }
+  user.profile.deployHook = url;
+  saveUsers(users);
+  await ctx.reply('✅ Deploy hook saved. Use `/deploy` to trigger a redeploy anytime.', { parse_mode: 'Markdown' });
+});
+
+bot.command('deploy', async (ctx) => {
+  const userId = String(ctx.from.id);
+  const user = getUser(users, userId);
+  if (!user.setupComplete) return ctx.reply('Finish setup first.');
+  if (!user.profile.deployHook) {
+    return ctx.reply('No deploy hook set yet.\n\nGo to Vercel → Project Settings → Git → Deploy Hooks, create one, then send:\n`/setdeploy <url>`', { parse_mode: 'Markdown' });
+  }
+  await ctx.sendChatAction('typing');
+  const ok = await triggerDeploy(user.profile.deployHook).catch(() => false);
+  if (ok) {
+    await ctx.reply('🚀 Deploy triggered — Vercel is building. Usually live in 1-2 minutes.');
+  } else {
+    await ctx.reply('❌ Deploy hook failed. Check the URL is still valid in your Vercel project settings.');
+  }
+});
+
+bot.command('setrepo', async (ctx) => {
+  const userId = String(ctx.from.id);
+  const user = getUser(users, userId);
+  if (!user.setupComplete) return ctx.reply('Finish setup first.');
+  const input = ctx.message.text.split(' ').slice(1).join(' ').trim();
+  const slug = parseRepoSlug(input);
+  if (!slug) {
+    return ctx.reply('Send your GitHub repo URL:\n`/setrepo https://github.com/you/your-repo`', { parse_mode: 'Markdown' });
+  }
+  if (!user.profile.github) user.profile.github = {};
+  user.profile.github.repo = slug;
+  saveUsers(users);
+  const hasPat = !!(user.profile.github && user.profile.github.pat);
+  const next = hasPat
+    ? 'All set — try `/edit change the button colour to blue`.'
+    : 'Now add your GitHub token so I can read and edit your code:\n`/setpat ghp_your_token`\n\nGet one at github.com/settings/tokens — needs *Contents: Read & Write* on this repo.';
+  await ctx.reply(`✅ Repo set to \`${slug}\`.\n\n${next}`, { parse_mode: 'Markdown' });
+});
+
+bot.command('setpat', async (ctx) => {
+  const userId = String(ctx.from.id);
+  const user = getUser(users, userId);
+  if (!user.setupComplete) return ctx.reply('Finish setup first.');
+  const token = ctx.message.text.split(' ').slice(1).join(' ').trim();
+  if (!token || (!token.startsWith('ghp_') && !token.startsWith('github_pat_'))) {
+    return ctx.reply('Send your GitHub personal access token:\n`/setpat ghp_your_token_here`\n\nGet one at github.com/settings/tokens → Fine-grained tokens → Contents: Read & Write.\n\n⚠️ Scope it to only this repo. Stored securely on our server.', { parse_mode: 'Markdown' });
+  }
+  if (!user.profile.github) user.profile.github = {};
+  user.profile.github.pat = token;
+  saveUsers(users);
+  const hasRepo = !!(user.profile.github && user.profile.github.repo);
+  const next = hasRepo
+    ? 'All set — try `/edit change the hero text to say "Follow your dreams"`.'
+    : 'Now add your repo:\n`/setrepo https://github.com/you/your-repo`';
+  await ctx.reply(`✅ GitHub token saved.\n\n${next}`, { parse_mode: 'Markdown' });
+});
+
+bot.command('edit', async (ctx) => {
+  const userId = String(ctx.from.id);
+  const user = getUser(users, userId);
+  if (!user.setupComplete) return ctx.reply('Finish setup first.');
+
+  const instruction = ctx.message.text.split(' ').slice(1).join(' ').trim();
+  if (!instruction) {
+    return ctx.reply('Tell me what to change:\n`/edit make the button say "Start your journey"`', { parse_mode: 'Markdown' });
+  }
+
+  const g = user.profile.github;
+  if (!g || !g.repo || !g.pat) {
+    const steps = [];
+    if (!g || !g.repo) steps.push('`/setrepo <github-url>`');
+    if (!g || !g.pat) steps.push('`/setpat <github-token>`');
+    return ctx.reply(`Connect your GitHub repo first:\n${steps.join('\n')}`, { parse_mode: 'Markdown' });
+  }
+
+  await ctx.sendChatAction('typing');
+  await ctx.reply(`🔍 Looking at your code for: _"${instruction}"_`, { parse_mode: 'Markdown' });
+
+  try {
+    const { files, branch } = await listFiles(g.pat, g.repo);
+    if (!files.length) return ctx.reply('No editable files found in your repo. Check the repo URL and token permissions.');
+
+    const apiKey = user.apiKey || PLATFORM_API_KEY;
+    const targetFiles = await pickFiles(apiKey, files, instruction);
+
+    if (!targetFiles.length) {
+      return ctx.reply("Couldn't identify the right file to edit. Try being more specific — mention the component, page, or section name.");
+    }
+
+    const changes = [];
+    for (const filePath of targetFiles) {
+      await ctx.sendChatAction('typing');
+      const { content: oldContent, sha } = await readFile(g.pat, g.repo, filePath, branch);
+      const newContent = await generateChange(apiKey, filePath, oldContent, instruction);
+      if (newContent.trim() !== oldContent.trim()) {
+        changes.push({ filePath, oldContent, newContent, sha });
+      }
+    }
+
+    if (!changes.length) {
+      return ctx.reply('Looked at the files but no changes were needed — or the change was already in place. Try rephrasing.');
+    }
+
+    // Store pending edit
+    user.pendingEdit = { instruction, changes, branch };
+    saveUsers(users);
+
+    // Build diff preview
+    let preview = `*Proposed changes for:* _${instruction}_\n\n`;
+    for (const c of changes) {
+      const diff = formatDiff(c.oldContent, c.newContent);
+      preview += `📄 \`${c.filePath}\`\n\`\`\`diff\n${diff}\n\`\`\`\n\n`;
+    }
+    if (preview.length > 3600) preview = preview.slice(0, 3600) + '\n_(preview truncated)_\n\n';
+
+    const deployNote = user.profile.deployHook ? '🚀 Will auto-deploy after commit.\n\n' : '_(Add `/setdeploy <url>` to auto-deploy after commit)_\n\n';
+
+    await ctx.reply(preview + deployNote + 'Does this look right?', {
+      parse_mode: 'Markdown',
+      reply_markup: {
+        inline_keyboard: [[
+          { text: '✅ Commit & deploy', callback_data: 'edit_confirm' },
+          { text: '❌ Cancel', callback_data: 'edit_cancel' }
+        ]]
+      }
+    });
+
+  } catch (err) {
+    console.error('Edit error:', err.message);
+    await ctx.reply(`Something went wrong: ${err.message}`);
+  }
+});
+
+bot.action('edit_confirm', async (ctx) => {
+  const userId = String(ctx.from.id);
+  const user = getUser(users, userId);
+  if (!user.pendingEdit) return ctx.answerCbQuery('No pending edit found.');
+
+  await ctx.answerCbQuery('Committing...');
+  await ctx.editMessageReplyMarkup({ inline_keyboard: [] });
+  await ctx.reply('⏳ Committing to GitHub...');
+
+  try {
+    const { instruction, changes, branch } = user.pendingEdit;
+    const g = user.profile.github;
+
+    for (const c of changes) {
+      await writeFile(g.pat, g.repo, c.filePath, c.newContent, c.sha, instruction, branch);
+    }
+
+    user.pendingEdit = null;
+
+    if (user.profile.deployHook) {
+      await ctx.reply('✅ Committed. Triggering deploy...');
+      const ok = await triggerDeploy(user.profile.deployHook).catch(() => false);
+      saveUsers(users);
+      if (ok) {
+        await ctx.reply('🚀 Deployed! Your site will be live in about a minute.');
+      } else {
+        await ctx.reply('✅ Committed to GitHub, but the deploy hook failed. Trigger manually in Vercel or check the hook URL.');
+      }
+    } else {
+      saveUsers(users);
+      await ctx.reply(`✅ Committed to \`${g.repo}\`.\n\nAdd a deploy hook with \`/setdeploy <url>\` to auto-deploy next time.`, { parse_mode: 'Markdown' });
+    }
+  } catch (err) {
+    console.error('Commit error:', err.message);
+    user.pendingEdit = null;
+    saveUsers(users);
+    await ctx.reply(`❌ Commit failed: ${err.message}`);
+  }
+});
+
+bot.action('edit_cancel', async (ctx) => {
+  const userId = String(ctx.from.id);
+  const user = getUser(users, userId);
+  user.pendingEdit = null;
+  saveUsers(users);
+  await ctx.answerCbQuery('Cancelled');
+  await ctx.editMessageReplyMarkup({ inline_keyboard: [] });
+  await ctx.reply('Edit cancelled. What else can I help with?');
 });
 
 // ─── Launch ───────────────────────────────────────────────────────────────────
