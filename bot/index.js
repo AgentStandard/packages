@@ -413,6 +413,37 @@ bot.on('text', async (ctx) => {
     const step = user.setupStep;
     const q = SETUP_QUESTIONS[step];
 
+    // ── Correction detection (before saving) ─────────────────────────────────
+    // If user says "make it X", "actually X", "I meant X" etc., treat as a re-do
+    // of the *previous* answer, not the current question.
+    if (step > 0) {
+      const correctionMatch = text.trim().match(
+        /^(?:make it|actually[,\s]+|change it to|i meant|no wait[,\s]*|oops[,\s]*(?:i meant)?|sorry[,\s]*(?:i meant)?|correction[:\s]+|wait[,\s]+(?:make it)?)\s*(.+)/i
+      );
+      if (correctionMatch) {
+        const correctedValue = correctionMatch[1].trim();
+        const prevStep = step - 1;
+        if (prevStep === 0) {
+          const raw = correctedValue.replace(/[^a-zA-Z\s'-]/g, '').trim();
+          const words = raw.split(/\s+/).filter(Boolean);
+          user.profile.name = (words.length <= 2 ? raw : words[words.length - 1]).slice(0, 20);
+        } else if (prevStep === 1) {
+          const raw = correctedValue.replace(/[^a-zA-Z0-9\s'-]/g, '').trim();
+          user.profile.agentName = raw.slice(0, 30) || 'your assistant';
+        }
+        // Confirm correction and re-ask the current question (don't advance)
+        const confirmPrefix = prevStep === 1
+          ? `Got it — I'll go by *${user.profile.agentName}*.\n\n`
+          : prevStep === 0
+          ? `Updated — I'll call you *${user.profile.name}*.\n\n`
+          : `Updated.\n\n`;
+        const currQ = SETUP_QUESTIONS[step];
+        const currQText = currQ.question(user.profile.agentName || user.profile.name || 'there');
+        saveUsers(users);
+        return ctx.reply(confirmPrefix + currQText, { parse_mode: 'Markdown' });
+      }
+    }
+
     // Save the answer
     if (step === 0) {
       // Extract a clean name — strip punctuation, cap at 20 chars
