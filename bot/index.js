@@ -9,7 +9,7 @@ const PACKAGES = require('./packages');
 
 const BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
 const PLATFORM_API_KEY = process.env.ANTHROPIC_API_KEY;
-const MODEL = 'claude-haiku-3-5-20241022';
+const MODEL = process.env.ANTHROPIC_MODEL || 'claude-haiku-3-5-20241022';
 const FREE_MESSAGE_LIMIT = 30;           // setup questions don't count
 const MAX_HISTORY = 20;                  // message pairs kept per user
 const MAX_INPUT_CHARS = 800;             // cap input to prevent abuse
@@ -414,24 +414,65 @@ bot.on('text', async (ctx) => {
     const q = SETUP_QUESTIONS[step];
 
     // ── Correction detection (before saving) ─────────────────────────────────
-    // If user says "make it X", "actually X", "I meant X" etc., treat as a re-do
-    // of the *previous* answer, not the current question.
+    // Detects three patterns:
+    //   1. Explicit phrase: "make it X", "actually X", "I meant X", etc.
+    //   2. Asterisk suffix: "Mr Dream Coach*"  → correction of previous answer
+    //   3. Fuzzy match: near-identical spelling to previous answer (Levenshtein ≤ 3)
+
+    // Helper: Levenshtein distance
+    function levenshtein(a, b) {
+      const m = a.length, n = b.length;
+      const dp = Array.from({ length: m + 1 }, (_, i) => [i, ...Array(n).fill(0)]);
+      for (let j = 0; j <= n; j++) dp[0][j] = j;
+      for (let i = 1; i <= m; i++)
+        for (let j = 1; j <= n; j++)
+          dp[i][j] = a[i-1] === b[j-1] ? dp[i-1][j-1]
+            : 1 + Math.min(dp[i-1][j], dp[i][j-1], dp[i-1][j-1]);
+      return dp[m][n];
+    }
+
+    // Get previous answer for comparison
+    function getPrevAnswer(prevStep) {
+      if (prevStep === 0) return user.profile.name || '';
+      if (prevStep === 1) return user.profile.agentName || '';
+      if (prevStep === 2) return user.profile.context || '';
+      if (prevStep === 3) return user.profile.challenge || '';
+      return '';
+    }
+
     if (step > 0) {
-      const correctionMatch = text.trim().match(
+      const raw = text.trim();
+      const prevStep = step - 1;
+      const prevAnswer = getPrevAnswer(prevStep);
+
+      // Pattern 1: explicit correction phrase
+      const explicitMatch = raw.match(
         /^(?:make it|actually[,\s]+|change it to|i meant|no wait[,\s]*|oops[,\s]*(?:i meant)?|sorry[,\s]*(?:i meant)?|correction[:\s]+|wait[,\s]+(?:make it)?)\s*(.+)/i
       );
-      if (correctionMatch) {
-        const correctedValue = correctionMatch[1].trim();
-        const prevStep = step - 1;
+      // Pattern 2: asterisk suffix (e.g. "Mr Dream Coach*")
+      const asteriskMatch = !explicitMatch && raw.endsWith('*') ? raw.slice(0, -1).trim() : null;
+      // Pattern 3: fuzzy match — very similar to previous answer (min length 4, distance ≤ 3)
+      const fuzzyTrigger = !explicitMatch && !asteriskMatch && prevAnswer.length >= 4 &&
+        levenshtein(raw.toLowerCase(), prevAnswer.toLowerCase()) <= 3;
+
+      const correctedValue = explicitMatch ? explicitMatch[1].trim()
+        : asteriskMatch ? asteriskMatch
+        : fuzzyTrigger ? raw
+        : null;
+
+      if (correctedValue !== null) {
         if (prevStep === 0) {
-          const raw = correctedValue.replace(/[^a-zA-Z\s'-]/g, '').trim();
-          const words = raw.split(/\s+/).filter(Boolean);
-          user.profile.name = (words.length <= 2 ? raw : words[words.length - 1]).slice(0, 20);
+          const cleaned = correctedValue.replace(/[^a-zA-Z\s'-]/g, '').trim();
+          const words = cleaned.split(/\s+/).filter(Boolean);
+          user.profile.name = (words.length <= 2 ? cleaned : words[words.length - 1]).slice(0, 20);
         } else if (prevStep === 1) {
-          const raw = correctedValue.replace(/[^a-zA-Z0-9\s'-]/g, '').trim();
-          user.profile.agentName = raw.slice(0, 30) || 'your assistant';
+          const cleaned = correctedValue.replace(/[^a-zA-Z0-9\s'-]/g, '').trim();
+          user.profile.agentName = cleaned.slice(0, 30) || 'your assistant';
+        } else if (prevStep === 2) {
+          user.profile.context = correctedValue.slice(0, 500);
+        } else if (prevStep === 3) {
+          user.profile.challenge = correctedValue.slice(0, 500);
         }
-        // Confirm correction and re-ask the current question (don't advance)
         const confirmPrefix = prevStep === 1
           ? `Got it — I'll go by *${user.profile.agentName}*.\n\n`
           : prevStep === 0
