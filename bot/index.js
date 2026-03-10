@@ -9,7 +9,7 @@ const PACKAGES = require('./packages');
 
 const BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
 const PLATFORM_API_KEY = process.env.ANTHROPIC_API_KEY;
-const MODEL = process.env.ANTHROPIC_MODEL || 'claude-haiku-3-5-20241022';
+const MODEL = process.env.ANTHROPIC_MODEL || 'claude-haiku-4-5-20251001';
 const FREE_MESSAGE_LIMIT = 30;           // setup questions don't count
 const MAX_HISTORY = 20;                  // message pairs kept per user
 const MAX_INPUT_CHARS = 800;             // cap input to prevent abuse
