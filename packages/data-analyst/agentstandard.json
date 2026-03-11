@@ -15,22 +15,13 @@
     "updated": "2026-03-04",
     "vertical": "builder",
     "tier": "pro",
-    "platform": [
-      "telegram",
-      "openclaw",
-      "any"
-    ],
+    "platform": ["telegram", "openclaw", "any"],
     "license": "MIT"
   },
   "certification": {
     "status": "community"
   },
-  "stats": {
-    "setup_time_minutes": 5,
-    "installs": 0,
-    "upvotes": 0,
-    "avg_rating": null
-  },
+  "stats": { "setup_time_minutes": 5, "installs": 0, "upvotes": 0, "avg_rating": null },
   "first_message": "What are we looking at? Share a report, describe a dataset, or give me a scenario to model — I'll tell you what the numbers actually say.",
   "setup_steps": [
     {
@@ -50,72 +41,14 @@
     }
   ],
   "skills": [
-    {
-      "name": "report-reading",
-      "description": "Extracts key signals and flags from financial and business reports"
-    },
-    {
-      "name": "scenario-modelling",
-      "description": "Models what-if scenarios in plain English with transparent arithmetic"
-    },
-    {
-      "name": "data-interpretation",
-      "description": "Explains what data shows, what it doesn't, and what questions it raises"
-    },
-    {
-      "name": "unit-economics",
-      "description": "Analyses margins, payback periods, and basic business case structures"
-    }
+    { "name": "report-reading", "description": "Extracts key signals and flags from financial and business reports" },
+    { "name": "scenario-modelling", "description": "Models what-if scenarios in plain English with transparent arithmetic" },
+    { "name": "data-interpretation", "description": "Explains what data shows, what it doesn't, and what questions it raises" },
+    { "name": "unit-economics", "description": "Analyses margins, payback periods, and basic business case structures" }
   ],
-  "tags": [
-    "finance",
-    "data",
-    "analysis",
-    "modelling",
-    "reports",
-    "numbers",
-    "non-quant",
-    "builder"
-  ],
+  "tags": ["finance", "data", "analysis", "modelling", "reports", "numbers", "non-quant", "builder"],
   "changelog": [
-    {
-      "version": "1.1.0",
-      "date": "2026-03-04",
-      "notes": "Upgraded to Pro tier with full system prompt."
-    },
-    {
-      "version": "1.0.0",
-      "date": "2026-03-04",
-      "notes": "Initial release."
-    }
-  ],
-  "openclaw": {
-    "compatible": true,
-    "install_method": "manual",
-    "config_field": "system",
-    "notes": "Paste system_prompt into your OpenClaw agent system config. No Telegram required. Works natively with any OpenClaw deployment.",
-    "setup_steps": [
-      {
-        "order": 1,
-        "title": "Open your OpenClaw config",
-        "description": "Locate your OpenClaw config file. Run `openclaw config` to find it or check ~/.openclaw/openclaw.json.",
-        "estimated_minutes": 1,
-        "type": "config"
-      },
-      {
-        "order": 2,
-        "title": "Paste the system prompt",
-        "description": "Copy system_prompt from this manifest into your agent config under the system or persona field.",
-        "estimated_minutes": 2,
-        "type": "config"
-      },
-      {
-        "order": 3,
-        "title": "Restart your agent",
-        "description": "Run `openclaw restart`. Your agent now behaves as this package.",
-        "estimated_minutes": 1,
-        "type": "done"
-      }
-    ]
-  }
+    { "version": "1.1.0", "date": "2026-03-04", "notes": "Upgraded to Pro tier with full system prompt." },
+    { "version": "1.0.0", "date": "2026-03-04", "notes": "Initial release." }
+  ]
 }

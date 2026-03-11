@@ -11,14 +11,10 @@
   "meta": {
     "author": "agentstandard",
     "published": "2026-03-03",
-    "updated": "2026-03-03",
+    "updated": "2026-03-04",
     "vertical": "social",
     "tier": "free",
-    "platform": [
-      "telegram",
-      "openclaw",
-      "any"
-    ],
+    "platform": ["telegram", "openclaw", "any"],
     "license": "MIT"
   },
   "certification": {
@@ -26,68 +22,36 @@
     "certified_date": null,
     "certifier": "agentstandard"
   },
-  "stats": {
-    "setup_time_minutes": 3,
-    "installs": 0,
-    "upvotes": 0,
-    "avg_rating": null
-  },
+  "stats": { "setup_time_minutes": 3, "installs": 0, "upvotes": 0, "avg_rating": null },
+  "setup_steps": [
+    {
+      "order": 1,
+      "title": "Open your agent",
+      "description": "Tap the link to open @AgentStandardAI_bot on Telegram. The bot will guide you through a quick 2-minute setup.",
+      "url": "https://t.me/AgentStandardAI_bot?start=relationship-graph",
+      "estimated_minutes": 2,
+      "type": "install"
+    },
+    {
+      "order": 2,
+      "title": "Complete setup",
+      "description": "Answer 7 quick questions — your name, what to call your agent, a bit of context about you. This is what makes every conversation feel personal.",
+      "estimated_minutes": 2,
+      "type": "config"
+    },
+    {
+      "order": 3,
+      "title": "Start your first conversation",
+      "description": "Once setup is done, just send a message. Your agent knows its role — it'll guide you from there.",
+      "estimated_minutes": 1,
+      "type": "done"
+    }
+  ],
   "skills": [
-    {
-      "name": "contact-memory",
-      "description": "Stores and recalls context about the people in your life"
-    },
-    {
-      "name": "last-contact-tracker",
-      "description": "Notes when you last interacted with each person"
-    },
-    {
-      "name": "relationship-context",
-      "description": "Surfaces relevant context before interactions"
-    }
+    { "name": "contact-memory", "description": "Stores and recalls context about the people in your life" },
+    { "name": "last-contact-tracker", "description": "Notes when you last interacted with each person" },
+    { "name": "relationship-context", "description": "Surfaces relevant context before interactions" }
   ],
-  "tags": [
-    "relationships",
-    "social",
-    "networking",
-    "contacts",
-    "memory"
-  ],
-  "changelog": [
-    {
-      "version": "1.0.0",
-      "date": "2026-03-03",
-      "notes": "Initial release."
-    }
-  ],
-  "system_prompt": "You help the user maintain meaningful relationships by remembering context about the people in their life.\n\nAs the user mentions people — friends, family, colleagues, contacts — learn who they are: their relationship to the user, what they do, what matters to them, when the user last spoke to them, and what they talked about.\n\nWhen the user is about to reach out to someone, surface relevant context: what you know about that person, when they last spoke, anything worth following up on. When connections seem to have gone quiet, gently surface that.\n\nThis is not a CRM. It is a memory layer for the relationships the user cares about. Be warm, not clinical.",
-  "openclaw": {
-    "compatible": true,
-    "install_method": "manual",
-    "config_field": "system",
-    "notes": "Paste system_prompt into your OpenClaw agent system config. No Telegram account required. Works natively with any OpenClaw deployment.",
-    "setup_steps": [
-      {
-        "order": 1,
-        "title": "Open openclaw.json",
-        "description": "Locate your OpenClaw config file (typically ~/.openclaw/openclaw.json or use `openclaw config` to find it).",
-        "estimated_minutes": 1,
-        "type": "config"
-      },
-      {
-        "order": 2,
-        "title": "Paste the system prompt",
-        "description": "Copy the system_prompt from this manifest into your agent config under the persona or system field. This is the full behavioral instruction set for this package.",
-        "estimated_minutes": 2,
-        "type": "config"
-      },
-      {
-        "order": 3,
-        "title": "Restart your agent",
-        "description": "Run `openclaw restart` or restart your OpenClaw session. Your agent will now behave as this package.",
-        "estimated_minutes": 1,
-        "type": "done"
-      }
-    ]
-  }
+  "tags": ["relationships", "social", "networking", "contacts", "memory"],
+  "changelog": [{ "version": "1.0.0", "date": "2026-03-03", "notes": "Initial release." }]
 }

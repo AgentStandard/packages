@@ -11,14 +11,10 @@
   "meta": {
     "author": "agentstandard",
     "published": "2026-03-03",
-    "updated": "2026-03-03",
+    "updated": "2026-03-04",
     "vertical": "learning",
     "tier": "free",
-    "platform": [
-      "telegram",
-      "openclaw",
-      "any"
-    ],
+    "platform": ["telegram", "openclaw", "any"],
     "license": "MIT"
   },
   "certification": {
@@ -26,68 +22,36 @@
     "certified_date": null,
     "certifier": "agentstandard"
   },
-  "stats": {
-    "setup_time_minutes": 2,
-    "installs": 0,
-    "upvotes": 0,
-    "avg_rating": null
-  },
+  "stats": { "setup_time_minutes": 2, "installs": 0, "upvotes": 0, "avg_rating": null },
+  "setup_steps": [
+    {
+      "order": 1,
+      "title": "Open your agent",
+      "description": "Tap the link to open @AgentStandardAI_bot on Telegram. The bot will guide you through a quick 2-minute setup.",
+      "url": "https://t.me/AgentStandardAI_bot?start=book-brain",
+      "estimated_minutes": 2,
+      "type": "install"
+    },
+    {
+      "order": 2,
+      "title": "Complete setup",
+      "description": "Answer 7 quick questions — your name, what to call your agent, a bit of context about you. This is what makes every conversation feel personal.",
+      "estimated_minutes": 2,
+      "type": "config"
+    },
+    {
+      "order": 3,
+      "title": "Start your first conversation",
+      "description": "Once setup is done, just send a message. Your agent knows its role — it'll guide you from there.",
+      "estimated_minutes": 1,
+      "type": "done"
+    }
+  ],
   "skills": [
-    {
-      "name": "book-logger",
-      "description": "Records books with key ideas, quotes, and your reactions"
-    },
-    {
-      "name": "insight-retrieval",
-      "description": "Resurfaces relevant ideas when they apply to current context"
-    },
-    {
-      "name": "reading-profile",
-      "description": "Builds your reading history and taste map over time"
-    }
+    { "name": "book-logger", "description": "Records books with key ideas, quotes, and your reactions" },
+    { "name": "insight-retrieval", "description": "Resurfaces relevant ideas when they apply to current context" },
+    { "name": "reading-profile", "description": "Builds your reading history and taste map over time" }
   ],
-  "tags": [
-    "reading",
-    "books",
-    "learning",
-    "knowledge",
-    "retention"
-  ],
-  "changelog": [
-    {
-      "version": "1.0.0",
-      "date": "2026-03-03",
-      "notes": "Initial release."
-    }
-  ],
-  "system_prompt": "You are a reading companion. Help the user get more from what they read by capturing, synthesising, and surfacing the ideas that matter.\n\nWhen a user shares a book they are reading or have finished, capture: key ideas, standout quotes, their reaction, what surprised them, and what they want to apply. Build their reading history over time.\n\nSurface relevant ideas from past reads when they become applicable to something the user is working on or discussing. If they are facing a problem, check whether something from their reading history applies.\n\nBuild a picture of what kind of reader they are and what they value. Make recommendations based on their actual taste, not bestseller lists.",
-  "openclaw": {
-    "compatible": true,
-    "install_method": "manual",
-    "config_field": "system",
-    "notes": "Paste system_prompt into your OpenClaw agent system config. No Telegram account required. Works natively with any OpenClaw deployment.",
-    "setup_steps": [
-      {
-        "order": 1,
-        "title": "Open openclaw.json",
-        "description": "Locate your OpenClaw config file (typically ~/.openclaw/openclaw.json or use `openclaw config` to find it).",
-        "estimated_minutes": 1,
-        "type": "config"
-      },
-      {
-        "order": 2,
-        "title": "Paste the system prompt",
-        "description": "Copy the system_prompt from this manifest into your agent config under the persona or system field. This is the full behavioral instruction set for this package.",
-        "estimated_minutes": 2,
-        "type": "config"
-      },
-      {
-        "order": 3,
-        "title": "Restart your agent",
-        "description": "Run `openclaw restart` or restart your OpenClaw session. Your agent will now behave as this package.",
-        "estimated_minutes": 1,
-        "type": "done"
-      }
-    ]
-  }
+  "tags": ["reading", "books", "learning", "knowledge", "retention"],
+  "changelog": [{ "version": "1.0.0", "date": "2026-03-03", "notes": "Initial release." }]
 }

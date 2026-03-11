@@ -11,14 +11,10 @@
   "meta": {
     "author": "agentstandard",
     "published": "2026-03-03",
-    "updated": "2026-03-03",
+    "updated": "2026-03-04",
     "vertical": "health",
     "tier": "free",
-    "platform": [
-      "telegram",
-      "openclaw",
-      "any"
-    ],
+    "platform": ["telegram", "openclaw", "any"],
     "license": "MIT"
   },
   "certification": {
@@ -26,68 +22,36 @@
     "certified_date": null,
     "certifier": "agentstandard"
   },
-  "stats": {
-    "setup_time_minutes": 5,
-    "installs": 0,
-    "upvotes": 0,
-    "avg_rating": null
-  },
+  "stats": { "setup_time_minutes": 5, "installs": 0, "upvotes": 0, "avg_rating": null },
+  "setup_steps": [
+    {
+      "order": 1,
+      "title": "Open your agent",
+      "description": "Tap the link to open @AgentStandardAI_bot on Telegram. The bot will guide you through a quick 2-minute setup.",
+      "url": "https://t.me/AgentStandardAI_bot?start=supplement-stack",
+      "estimated_minutes": 2,
+      "type": "install"
+    },
+    {
+      "order": 2,
+      "title": "Complete setup",
+      "description": "Answer 7 quick questions — your name, what to call your agent, a bit of context about you. This is what makes every conversation feel personal.",
+      "estimated_minutes": 2,
+      "type": "config"
+    },
+    {
+      "order": 3,
+      "title": "Start your first conversation",
+      "description": "Once setup is done, just send a message. Your agent knows its role — it'll guide you from there.",
+      "estimated_minutes": 1,
+      "type": "done"
+    }
+  ],
   "skills": [
-    {
-      "name": "supplement-logger",
-      "description": "Tracks your supplement and medication stack with dosages"
-    },
-    {
-      "name": "interaction-checker",
-      "description": "Flags known supplement and drug interactions"
-    },
-    {
-      "name": "routine-reminders",
-      "description": "Reminds you to take supplements at the right times"
-    }
+    { "name": "supplement-logger", "description": "Tracks your supplement and medication stack with dosages" },
+    { "name": "interaction-checker", "description": "Flags known supplement and drug interactions" },
+    { "name": "routine-reminders", "description": "Reminds you to take supplements at the right times" }
   ],
-  "tags": [
-    "health",
-    "supplements",
-    "medication",
-    "wellness",
-    "routine"
-  ],
-  "changelog": [
-    {
-      "version": "1.0.0",
-      "date": "2026-03-03",
-      "notes": "Initial release."
-    }
-  ],
-  "system_prompt": "You help the user manage their supplement and medication routine clearly and safely.\n\nTrack what the user is taking, at what dose, and at what time. Flag known interactions between supplements and medications — always with the caveat that the user should consult a pharmacist or doctor before making changes based on your suggestions.\n\nRemind users to take their supplements at the right times if they ask for that. Log the routine over time. Note when the user reports something working or not working, and build a record they can share with a healthcare provider if needed.\n\nYou help with organisation and information. Medical decisions stay with qualified professionals.",
-  "openclaw": {
-    "compatible": true,
-    "install_method": "manual",
-    "config_field": "system",
-    "notes": "Paste system_prompt into your OpenClaw agent system config. No Telegram account required. Works natively with any OpenClaw deployment.",
-    "setup_steps": [
-      {
-        "order": 1,
-        "title": "Open openclaw.json",
-        "description": "Locate your OpenClaw config file (typically ~/.openclaw/openclaw.json or use `openclaw config` to find it).",
-        "estimated_minutes": 1,
-        "type": "config"
-      },
-      {
-        "order": 2,
-        "title": "Paste the system prompt",
-        "description": "Copy the system_prompt from this manifest into your agent config under the persona or system field. This is the full behavioral instruction set for this package.",
-        "estimated_minutes": 2,
-        "type": "config"
-      },
-      {
-        "order": 3,
-        "title": "Restart your agent",
-        "description": "Run `openclaw restart` or restart your OpenClaw session. Your agent will now behave as this package.",
-        "estimated_minutes": 1,
-        "type": "done"
-      }
-    ]
-  }
+  "tags": ["health", "supplements", "medication", "wellness", "routine"],
+  "changelog": [{ "version": "1.0.0", "date": "2026-03-03", "notes": "Initial release." }]
 }

@@ -1,16 +1,16 @@
 {
   "$schema": "https://agentstandard.ai/schema/v1.json",
   "id": "ecommerce-ops",
-  "name": "Ecommerce Ops Stack",
+  "name": "Ecommerce Strategy Stack",
   "slug": "ecommerce-ops",
-  "version": "1.0.0",
-  "description": "Shopify monitoring, inventory alerts, customer comms, and order ops — handled by your agent so you can focus on growth.",
-  "tagline": "Shopify, inventory, and customer comms on autopilot.",
+  "version": "1.1.0",
+  "description": "Research competitors, spot pricing opportunities, write product copy, and build your launch and growth strategy — your AI co-pilot for selling online.",
+  "tagline": "Competitor research, product copy, and growth strategy for online sellers.",
 
   "meta": {
     "author": "agentstandard",
     "published": "2026-03-03",
-    "updated": "2026-03-03",
+    "updated": "2026-03-04",
     "vertical": "ecommerce",
     "tier": "pro",
     "platform": ["openclaw", "claude", "any"],
@@ -18,14 +18,14 @@
   },
 
   "certification": {
-    "status": "agentstandard-certified",
-    "certified_date": "2026-03-03",
-    "benchmark_score": 0.92,
-    "certifier": "agentstandard"
+    "status": "community",
+    "certified_date": null,
+    "benchmark_score": null,
+    "certifier": null
   },
 
   "stats": {
-    "setup_time_minutes": 35,
+    "setup_time_minutes": 15,
     "installs": 0,
     "upvotes": 0,
     "avg_rating": null
@@ -36,11 +36,6 @@
       "name": "OpenClaw",
       "url": "https://openclaw.ai",
       "required": true
-    },
-    {
-      "name": "Shopify store",
-      "url": "https://shopify.com",
-      "required": false
     }
   ],
 
@@ -50,7 +45,7 @@
       "source": "clawhub",
       "url": "https://clawhub.com/skills/web-search",
       "version": "1.0.0",
-      "description": "Research competitors, trends, and product opportunities."
+      "description": "Research competitors, pricing trends, and market opportunities in real time."
     }
   ],
 
@@ -86,39 +81,44 @@
     },
     {
       "order": 3,
-      "title": "Install ecommerce skills",
-      "description": "Install the ecommerce ops skill package.",
+      "title": "Install web search skill",
+      "description": "Gives your agent live access to competitor pricing, trends, and market data.",
       "command": "openclaw skills install web-search",
-      "estimated_minutes": 3,
+      "estimated_minutes": 2,
       "type": "command"
     },
     {
       "order": 4,
-      "title": "Connect your store",
-      "description": "Ask your agent: \"Help me set up monitoring for my Shopify store.\" It will walk you through the connection.",
-      "estimated_minutes": 10,
+      "title": "Brief your agent on your store",
+      "description": "Tell your agent: what you sell, who your customers are, and your top 2-3 competitors. The more context you give, the sharper the research.",
+      "estimated_minutes": 5,
       "type": "config"
     },
     {
       "order": 5,
-      "title": "Run your first ops check",
-      "description": "Ask: \"What are my top 5 products by revenue this week and are any running low on stock?\"",
-      "estimated_minutes": 2,
+      "title": "Run your first research session",
+      "description": "Try: \"Who are my main competitors and what are they charging for [your product]?\" or \"Write me 3 product descriptions for [item] targeting [customer].\"",
+      "estimated_minutes": 3,
       "type": "done"
     }
   ],
 
   "benchmarks": {
     "tested_on": ["claude-sonnet-4-6"],
-    "task_completion_rate": 0.92,
-    "avg_response_ms": 1900,
-    "estimated_cost_per_session_usd": 0.10,
-    "tested_date": "2026-03-03"
+    "task_completion_rate": null,
+    "avg_response_ms": null,
+    "estimated_cost_per_session_usd": 0.06,
+    "tested_date": null
   },
 
-  "tags": ["ecommerce", "shopify", "operations", "inventory", "dropship"],
+  "tags": ["ecommerce", "research", "copywriting", "strategy", "competitors", "pricing"],
 
   "changelog": [
+    {
+      "version": "1.1.0",
+      "date": "2026-03-04",
+      "notes": "Rewritten to accurately reflect web-search capabilities. Removed live Shopify data claims. Repositioned as research and strategy tool."
+    },
     {
       "version": "1.0.0",
       "date": "2026-03-03",
