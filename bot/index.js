@@ -29,7 +29,7 @@ The user has set specific rules for how they want to work with you. Follow them 
 
 // Build a fully personalised system prompt from the user's profile
 // If the user came via a package deep link, use that package's system prompt as the base
-function buildSystemPrompt(profile) {
+function buildSystemPrompt(profile, memory) {
   let prompt = BASE_SYSTEM_PROMPT;
 
   // If user arrived via a package deep link, layer in the package's specialised prompt
@@ -57,6 +57,14 @@ function buildSystemPrompt(profile) {
   }
   if (profile.goal) {
     prompt += `\n\n90-day goal: "${profile.goal}" — keep this in mind. When relevant, reference it.`;
+  }
+
+  // Inject persistent memory — facts extracted from previous conversations
+  if (memory && memory.facts && Object.keys(memory.facts).length > 0) {
+    const factsText = Object.entries(memory.facts)
+      .map(([k, v]) => `- ${k.replace(/_/g, ' ')}: ${v}`)
+      .join('\n');
+    prompt += `\n\n---\nPersistent memory — things you know about ${profile.name || 'this person'} from previous conversations:\n${factsText}\nReference these naturally when relevant. Do not recite them back unprompted.\n---`;
   }
 
   return prompt;
@@ -172,23 +180,26 @@ let gifts = loadGifts();
 function getUser(users, userId) {
   if (!users[userId]) {
     users[userId] = {
-      messageCount: 0,     // only counts post-setup conversation messages
+      messageCount: 0,
       apiKey: null,
       awaitingKey: false,
       history: [],
-      // Setup state
       setupComplete: false,
       setupStep: 0,
       awaitingCategoryPick: false,
       giftFlow: null,
-      profile: {},         // stores answers: name, use, style
+      profile: {},
+      memory: { facts: {}, updatedAt: null },
     };
   }
-  // Migrate old users without setup fields
   if (users[userId].setupComplete === undefined) {
-    users[userId].setupComplete = true; // treat existing users as already set up
+    users[userId].setupComplete = true;
     users[userId].setupStep = SETUP_QUESTIONS.length;
     users[userId].profile = {};
+  }
+  // Migrate users without memory object
+  if (!users[userId].memory) {
+    users[userId].memory = { facts: {}, updatedAt: null };
   }
   return users[userId];
 }
@@ -197,10 +208,9 @@ function getUser(users, userId) {
 
 // ─── Claude ───────────────────────────────────────────────────────────────────
 
-async function callClaude(apiKey, history, userMessage, profile) {
+async function callClaude(apiKey, history, userMessage, profile, memory) {
   const client = new Anthropic({ apiKey });
 
-  // Truncate input to prevent abuse
   const safeMessage = userMessage.length > MAX_INPUT_CHARS
     ? userMessage.slice(0, MAX_INPUT_CHARS) + '…'
     : userMessage;
@@ -213,11 +223,46 @@ async function callClaude(apiKey, history, userMessage, profile) {
   const response = await client.messages.create({
     model: MODEL,
     max_tokens: MAX_OUTPUT_TOKENS,
-    system: buildSystemPrompt(profile || {}),
+    system: buildSystemPrompt(profile || {}, memory || {}),
     messages,
   });
 
   return response.content[0].text;
+}
+
+// Background memory extraction — runs after each exchange, non-blocking
+async function extractMemoryFacts(apiKey, userMessage, assistantReply, user) {
+  try {
+    const client = new Anthropic({ apiKey });
+    const extractPrompt = `Extract personal facts worth remembering from this exchange. Focus on: health conditions, medications, allergies, dietary restrictions, preferences, goals, family/work context, location, or significant life facts the user stated about themselves.
+
+User: "${userMessage.slice(0, 400)}"
+Assistant: "${assistantReply.slice(0, 300)}"
+
+Return JSON only: {"key_name": "value", ...} using snake_case keys. Max 3 facts per exchange. Only extract explicit statements — no inferences. If nothing worth storing, return {}.`;
+
+    const response = await client.messages.create({
+      model: MODEL,  // use same model as main conversation
+      max_tokens: 150,
+      messages: [{ role: 'user', content: extractPrompt }],
+    });
+
+    const text = response.content[0].text.trim();
+    const jsonMatch = text.match(/\{[^}]*\}/s);
+    if (jsonMatch) {
+      const extracted = JSON.parse(jsonMatch[0]);
+      const keys = Object.keys(extracted);
+      if (keys.length > 0) {
+        if (!user.memory) user.memory = { facts: {}, updatedAt: null };
+        Object.assign(user.memory.facts, extracted);
+        user.memory.updatedAt = new Date().toISOString();
+        return true;
+      }
+    }
+  } catch (_) {
+    // Silent — memory extraction is best-effort, never blocks conversation
+  }
+  return false;
 }
 
 async function validateApiKey(apiKey) {
@@ -294,13 +339,24 @@ bot.start(async (ctx) => {
     return;
   }
 
+  // ── Gift creation link (?start=gift) ──────────────────────────────────────
+  if (payload === 'gift') {
+    user.giftFlow = { step: 'name' };
+    saveUsers(users);
+    await ctx.reply(
+      `You're creating a gift. Nice.\n\nWho is this for? (First name is fine.)`,
+      { parse_mode: 'Markdown' }
+    );
+    return;
+  }
+
   // ── Package deep link ──────────────────────────────────────────────────────
   if (packageData) {
     user.profile.packageSlug = packageSlug;
     user.profile.packageName = packageData.name;
     saveUsers(users);
     await ctx.reply(
-      `Hi ${firstName || 'there'}! You're setting up *${packageData.name}* — ${packageData.tagline}\n\nBefore we start, a couple of quick questions so I can actually be useful to you.\n\nWhat should I call you?`,
+      `Hi ${firstName || 'there'}. You just opened *${packageData.name}*.\n\n_${packageData.tagline}_\n\nTwo minutes of setup — then you're in. What should I call you?`,
       { parse_mode: 'Markdown' }
     );
     return;
@@ -320,6 +376,33 @@ bot.command('reset', async (ctx) => {
   user.awaitingKey = false;
   saveUsers(users);
   await ctx.reply('Conversation cleared. Fresh start — what\'s on your mind?');
+});
+
+// ── /memory ───────────────────────────────────────────────────────────────────
+
+bot.command('memory', async (ctx) => {
+  const userId = String(ctx.from.id);
+  const user = getUser(users, userId);
+  const facts = user.memory && user.memory.facts ? user.memory.facts : {};
+  const keys = Object.keys(facts);
+
+  if (keys.length === 0) {
+    return ctx.reply("I haven't stored anything specific about you yet. Keep talking to me — I'll build up context over time.\n\nUse /forget to clear memory if you ever want a clean slate.");
+  }
+
+  const lines = keys.map(k => `• ${k.replace(/_/g, ' ')}: ${facts[k]}`).join('\n');
+  const updated = user.memory.updatedAt ? `\nLast updated: ${new Date(user.memory.updatedAt).toLocaleDateString('en-GB')}` : '';
+  await ctx.reply(`Here's what I remember about you:\n\n${lines}${updated}\n\nUse /forget to clear this.`);
+});
+
+// ── /forget ───────────────────────────────────────────────────────────────────
+
+bot.command('forget', async (ctx) => {
+  const userId = String(ctx.from.id);
+  const user = getUser(users, userId);
+  user.memory = { facts: {}, updatedAt: null };
+  saveUsers(users);
+  await ctx.reply('Memory cleared. I\'ve forgotten everything I stored about you — starting fresh.');
 });
 
 // ── /status ───────────────────────────────────────────────────────────────────
@@ -553,15 +636,17 @@ bot.on('text', async (ctx) => {
       const agentName = user.profile.agentName || 'I';
       const tenetsAck = user.profile.tenets ? `${agentName} has your rules. ` : '';
       const goalAck = user.profile.goal ? `90-day goal noted. ` : '';
-      const packageIntro = user.profile.packageName
-        ? `${agentName} is set up as your ${user.profile.packageName} companion. `
-        : '';
       const giftedBy = user.profile.giftedBy
         ? `${user.profile.giftedBy} gave you a good one.\n\n`
         : '';
-      await ctx.reply(
-        `${giftedBy}${tenetsAck}${goalAck}${packageIntro}I've got everything I need to be useful to you.\n\nYou have ${FREE_MESSAGE_LIMIT} free messages, ${name || 'let\'s go'}. What do you want to start with?`
-      );
+
+      // If the package has a distinctive firstMessage, use it; otherwise default
+      const activePkg = user.profile.packageSlug && PACKAGES[user.profile.packageSlug];
+      const firstMsg = (activePkg && activePkg.firstMessage)
+        ? activePkg.firstMessage.replace(/{name}/g, name)
+        : `I've got everything I need. You have ${FREE_MESSAGE_LIMIT} free messages, ${name}. What do you want to start with?`;
+
+      await ctx.reply(`${giftedBy}${tenetsAck}${goalAck}${firstMsg}`);
     }
     return;
   }
@@ -621,7 +706,7 @@ bot.on('text', async (ctx) => {
   await ctx.sendChatAction('typing');
 
   try {
-    const reply = await callClaude(apiKey, user.history, text, user.profile);
+    const reply = await callClaude(apiKey, user.history, text, user.profile, user.memory);
 
     user.history.push(
       { role: 'user', content: text },
@@ -637,6 +722,11 @@ bot.on('text', async (ctx) => {
 
     saveUsers(users);
     await ctx.reply(reply);
+
+    // Background memory extraction — non-blocking, stores facts for future sessions
+    extractMemoryFacts(apiKey, text, reply, user).then(extracted => {
+      if (extracted) saveUsers(users);
+    }).catch(() => {});
 
     // Warn at 5 remaining
     if (!user.apiKey && user.messageCount === FREE_MESSAGE_LIMIT - 5) {
@@ -814,13 +904,15 @@ bot.on('callback_query', async (ctx) => {
 
 bot.command('help', async (ctx) => {
   await ctx.reply(
-    `Here's what I can do:\n\n` +
-    `💬 *Chat* — just send me a message. I remember our full conversation.\n\n` +
-    `📦 */packages* — browse all available agent packages. Each one shapes how I work for a specific area of your life.\n\n` +
-    `🔄 */reset* — start fresh with a new setup. Clears everything.\n\n` +
-    `📊 */status* — see your usage.\n\n` +
-    `You have 30 free messages on the platform. After that, add your own Anthropic API key to keep going (console.anthropic.com/api-keys).\n\n` +
-    `agentstandard.ai`,
+    `Here's what you can do:\n\n` +
+    `💬 *Just talk* — send any message. I remember your full conversation.\n\n` +
+    `📦 */packages* — browse all 30+ agent packages. Each one gives your agent a specialised set of skills for a specific area of life.\n\n` +
+    `🧠 */memory* — see what I've stored about you from previous conversations.\n\n` +
+    `🗑 */forget* — clear everything I've stored. Clean slate.\n\n` +
+    `🔄 */reset* — clear conversation history. Your profile and memory stay intact.\n\n` +
+    `📊 */status* — see your usage and message count.\n\n` +
+    `You get ${FREE_MESSAGE_LIMIT} free messages. After that, add your Anthropic API key to continue: console.anthropic.com/api-keys\n\n` +
+    `agentstandard.ai ✦`,
     { parse_mode: 'Markdown' }
   );
 });
@@ -829,12 +921,15 @@ bot.command('help', async (ctx) => {
 
 bot.command('packages', async (ctx) => {
   const grouped = {
-    'Health': ['gp-prep', 'supplement-stack'],
-    'Productivity': ['week-in-review', 'memory-architect'],
-    'Lifestyle': ['wine-log', 'taste-map', 'home-stack'],
+    'Health': ['gp-prep', 'supplement-stack', 'sleep-coach', 'fitness-log'],
+    'Productivity': ['week-in-review', 'memory-architect', 'ops-chief', 'daily-journal'],
+    'Lifestyle': ['wine-log', 'taste-map', 'home-stack', 'pantry-chef', 'travel-planner'],
     'Social': ['relationship-graph', 'network-pulse', 'gift-curator'],
-    'Learning': ['skill-tracker', 'book-brain', 'read-it-later'],
-    'Career': ['salary-scout'],
+    'Learning': ['skill-tracker', 'book-brain', 'read-it-later', 'habit-builder'],
+    'Career': ['salary-scout', 'job-hunt-agent', 'freelancer-guard'],
+    'Builder': ['idea-validator', 'deep-researcher', 'content-studio', 'launch-stack', 'vibe-coder', 'data-analyst'],
+    'Finance': ['bid-auditor'],
+    'Trust': ['agent-transparency'],
   };
 
   let msg = `📦 *AgentStandard Packages*\n\nEach package shapes your agent for a specific part of your life. Tap a link to start that agent — it takes 2 minutes to set up.\n\n`;
