@@ -14,15 +14,27 @@
     "updated": "2026-03-04",
     "vertical": "career",
     "tier": "free",
-    "platform": ["telegram", "openclaw", "any"],
+    "platform": [
+      "telegram",
+      "openclaw",
+      "any"
+    ],
     "license": "MIT"
   },
   "certification": {
-    "status": "pending-certification",
-    "certified_date": null,
-    "certifier": "agentstandard"
+    "status": "certified",
+    "score": 78,
+    "forge_date": "2026-03-12",
+    "forge_model": "claude-sonnet-4-6",
+    "arbiter_status": "pending",
+    "report": "certification/reports/job-hunt-agent-forge-FULL-2026-03-12.md"
   },
-  "stats": { "setup_time_minutes": 3, "installs": 0, "upvotes": 0, "avg_rating": null },
+  "stats": {
+    "setup_time_minutes": 3,
+    "installs": 0,
+    "upvotes": 0,
+    "avg_rating": null
+  },
   "setup_steps": [
     {
       "order": 1,
@@ -48,10 +60,32 @@
     }
   ],
   "skills": [
-    { "name": "Application Tracker", "description": "Tracks every role with status, contacts, and next steps" },
-    { "name": "Interview Prep", "description": "Prepares you for specific companies and roles" },
-    { "name": "Follow-up Radar", "description": "Surfaces applications going cold and overdue follow-ups" }
+    {
+      "name": "Application Tracker",
+      "description": "Tracks every role with status, contacts, and next steps"
+    },
+    {
+      "name": "Interview Prep",
+      "description": "Prepares you for specific companies and roles"
+    },
+    {
+      "name": "Follow-up Radar",
+      "description": "Surfaces applications going cold and overdue follow-ups"
+    }
   ],
-  "tags": ["jobs", "career", "interviews", "job-search", "applications"],
-  "changelog": [{ "version": "1.0.0", "date": "2026-03-04", "notes": "Initial release." }]
+  "tags": [
+    "jobs",
+    "career",
+    "interviews",
+    "job-search",
+    "applications"
+  ],
+  "changelog": [
+    {
+      "version": "1.0.0",
+      "date": "2026-03-04",
+      "notes": "Initial release."
+    }
+  ],
+  "first_message": "Tell me about your job search — what roles are you pursuing, or where are you starting from?"
 }

@@ -14,15 +14,27 @@
     "updated": "2026-03-04",
     "vertical": "lifestyle",
     "tier": "free",
-    "platform": ["telegram", "openclaw", "any"],
+    "platform": [
+      "telegram",
+      "openclaw",
+      "any"
+    ],
     "license": "MIT"
   },
   "certification": {
-    "status": "pending-certification",
-    "certified_date": null,
-    "certifier": "agentstandard"
+    "status": "certified",
+    "score": 79,
+    "forge_date": "2026-03-12",
+    "forge_model": "claude-sonnet-4-6",
+    "arbiter_status": "pending",
+    "report": "certification/reports/taste-map-forge-FULL-2026-03-12.md"
   },
-  "stats": { "setup_time_minutes": 2, "installs": 0, "upvotes": 0, "avg_rating": null },
+  "stats": {
+    "setup_time_minutes": 2,
+    "installs": 0,
+    "upvotes": 0,
+    "avg_rating": null
+  },
   "setup_steps": [
     {
       "order": 1,
@@ -48,10 +60,34 @@
     }
   ],
   "skills": [
-    { "name": "taste-profiler", "description": "Builds your taste profile across music, film, food, books, and culture" },
-    { "name": "cross-category-rec", "description": "Makes recommendations that connect across taste categories" },
-    { "name": "preference-memory", "description": "Remembers what you loved and what fell flat" }
+    {
+      "name": "taste-profiler",
+      "description": "Builds your taste profile across music, film, food, books, and culture"
+    },
+    {
+      "name": "cross-category-rec",
+      "description": "Makes recommendations that connect across taste categories"
+    },
+    {
+      "name": "preference-memory",
+      "description": "Remembers what you loved and what fell flat"
+    }
   ],
-  "tags": ["taste", "culture", "music", "film", "food", "lifestyle", "recommendations"],
-  "changelog": [{ "version": "1.0.0", "date": "2026-03-03", "notes": "Initial release." }]
+  "tags": [
+    "taste",
+    "culture",
+    "music",
+    "film",
+    "food",
+    "lifestyle",
+    "recommendations"
+  ],
+  "changelog": [
+    {
+      "version": "1.0.0",
+      "date": "2026-03-03",
+      "notes": "Initial release."
+    }
+  ],
+  "first_message": "What have you been into lately? A film, a song, a restaurant, a book — tell me what's been good."
 }

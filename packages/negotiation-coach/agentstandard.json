@@ -15,11 +15,20 @@
     "updated": "2026-03-12",
     "vertical": "career",
     "tier": "free",
-    "platform": ["telegram", "openclaw", "any"],
+    "platform": [
+      "telegram",
+      "openclaw",
+      "any"
+    ],
     "license": "MIT"
   },
   "certification": {
-    "status": "review"
+    "status": "certified",
+    "score": 88,
+    "forge_date": "2026-03-12",
+    "forge_model": "claude-sonnet-4-6",
+    "arbiter_status": "pending",
+    "report": "certification/reports/negotiation-coach-forge-FULL-2026-03-12.md"
   },
   "stats": {
     "setup_time_minutes": 2,
@@ -67,7 +76,15 @@
       "description": "Anticipates counterarguments and builds responses for the most likely pushback"
     }
   ],
-  "tags": ["negotiation", "salary", "raise", "career", "job-offer", "compensation", "professional"],
+  "tags": [
+    "negotiation",
+    "salary",
+    "raise",
+    "career",
+    "job-offer",
+    "compensation",
+    "professional"
+  ],
   "changelog": [
     {
       "version": "1.0.0",

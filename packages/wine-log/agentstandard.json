@@ -14,15 +14,27 @@
     "updated": "2026-03-04",
     "vertical": "lifestyle",
     "tier": "free",
-    "platform": ["telegram", "openclaw", "any"],
+    "platform": [
+      "telegram",
+      "openclaw",
+      "any"
+    ],
     "license": "MIT"
   },
   "certification": {
-    "status": "pending-certification",
-    "certified_date": null,
-    "certifier": "agentstandard"
+    "status": "featured",
+    "score": 89,
+    "forge_date": "2026-03-12",
+    "forge_model": "claude-sonnet-4-6",
+    "arbiter_status": "pending",
+    "report": "certification/reports/wine-log-forge-FULL-2026-03-12.md"
   },
-  "stats": { "setup_time_minutes": 2, "installs": 0, "upvotes": 0, "avg_rating": null },
+  "stats": {
+    "setup_time_minutes": 2,
+    "installs": 0,
+    "upvotes": 0,
+    "avg_rating": null
+  },
   "setup_steps": [
     {
       "order": 1,
@@ -48,10 +60,32 @@
     }
   ],
   "skills": [
-    { "name": "wine-logger", "description": "Logs bottles with producer, vintage, region, and tasting notes" },
-    { "name": "palate-profiler", "description": "Builds and refines your taste profile over time" },
-    { "name": "wine-recommender", "description": "Suggests bottles based on your documented preferences" }
+    {
+      "name": "wine-logger",
+      "description": "Logs bottles with producer, vintage, region, and tasting notes"
+    },
+    {
+      "name": "palate-profiler",
+      "description": "Builds and refines your taste profile over time"
+    },
+    {
+      "name": "wine-recommender",
+      "description": "Suggests bottles based on your documented preferences"
+    }
   ],
-  "tags": ["wine", "lifestyle", "taste", "drinks", "food-and-drink"],
-  "changelog": [{ "version": "1.0.0", "date": "2026-03-03", "notes": "Initial release." }]
+  "tags": [
+    "wine",
+    "lifestyle",
+    "taste",
+    "drinks",
+    "food-and-drink"
+  ],
+  "changelog": [
+    {
+      "version": "1.0.0",
+      "date": "2026-03-03",
+      "notes": "Initial release."
+    }
+  ],
+  "first_message": "What are you drinking? Tell me the wine and I'll start building your log."
 }

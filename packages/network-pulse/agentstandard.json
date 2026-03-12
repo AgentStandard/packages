@@ -14,15 +14,27 @@
     "updated": "2026-03-04",
     "vertical": "social",
     "tier": "free",
-    "platform": ["telegram", "openclaw", "any"],
+    "platform": [
+      "telegram",
+      "openclaw",
+      "any"
+    ],
     "license": "MIT"
   },
   "certification": {
-    "status": "pending-certification",
-    "certified_date": null,
-    "certifier": "agentstandard"
+    "status": "certified",
+    "score": 78,
+    "forge_date": "2026-03-12",
+    "forge_model": "claude-sonnet-4-6",
+    "arbiter_status": "pending",
+    "report": "certification/reports/network-pulse-forge-FULL-2026-03-12.md"
   },
-  "stats": { "setup_time_minutes": 3, "installs": 0, "upvotes": 0, "avg_rating": null },
+  "stats": {
+    "setup_time_minutes": 3,
+    "installs": 0,
+    "upvotes": 0,
+    "avg_rating": null
+  },
   "setup_steps": [
     {
       "order": 1,
@@ -48,10 +60,32 @@
     }
   ],
   "skills": [
-    { "name": "contact-tracker", "description": "Logs key people and last-contact dates" },
-    { "name": "pulse-check", "description": "Surfaces dormant connections and suggests outreach" },
-    { "name": "context-brief", "description": "Gives you context on a person before you reach out" }
+    {
+      "name": "contact-tracker",
+      "description": "Logs key people and last-contact dates"
+    },
+    {
+      "name": "pulse-check",
+      "description": "Surfaces dormant connections and suggests outreach"
+    },
+    {
+      "name": "context-brief",
+      "description": "Gives you context on a person before you reach out"
+    }
   ],
-  "tags": ["networking", "social", "relationships", "professional", "contacts"],
-  "changelog": [{ "version": "1.0.0", "date": "2026-03-03", "notes": "Initial release." }]
+  "tags": [
+    "networking",
+    "social",
+    "relationships",
+    "professional",
+    "contacts"
+  ],
+  "changelog": [
+    {
+      "version": "1.0.0",
+      "date": "2026-03-03",
+      "notes": "Initial release."
+    }
+  ],
+  "first_message": "Tell me about the people who matter in your life — professionally and personally. I'll track who you're in touch with and surface anyone who's gone quiet."
 }

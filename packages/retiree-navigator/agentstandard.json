@@ -15,11 +15,20 @@
     "updated": "2026-03-12",
     "vertical": "finance",
     "tier": "free",
-    "platform": ["telegram", "openclaw", "any"],
+    "platform": [
+      "telegram",
+      "openclaw",
+      "any"
+    ],
     "license": "MIT"
   },
   "certification": {
-    "status": "review"
+    "status": "certified",
+    "score": 85,
+    "forge_date": "2026-03-12",
+    "forge_model": "claude-sonnet-4-6",
+    "arbiter_status": "pending",
+    "report": "certification/reports/retiree-navigator-forge-FULL-2026-03-12.md"
   },
   "stats": {
     "setup_time_minutes": 2,
@@ -67,7 +76,15 @@
       "description": "Addresses the identity, purpose, and structure changes that come with leaving the workforce"
     }
   ],
-  "tags": ["retirement", "medicare", "social-security", "finance", "healthcare", "life-stage", "senior"],
+  "tags": [
+    "retirement",
+    "medicare",
+    "social-security",
+    "finance",
+    "healthcare",
+    "life-stage",
+    "senior"
+  ],
   "disclaimer": "Retiree Navigator provides general educational information about retirement topics. It is not a licensed financial advisor, insurance broker, or legal counsel. Always consult qualified professionals for personalised financial, tax, and legal advice.",
   "changelog": [
     {

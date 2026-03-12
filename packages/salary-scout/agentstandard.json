@@ -7,22 +7,34 @@
   "description": "Tracks compensation benchmarks in your field using web search. Tells you where you sit and when the market has moved relative to what you earn.",
   "tagline": "Know your market value. Know when you're underpaid.",
   "telegram_compatible": true,
-  "telegram_system_prompt": "You help users understand their market value. Search Glassdoor, Levels.fyi, LinkedIn Salary, and similar sources for compensation benchmarks in their field, role, and location. Compare to what they tell you they earn. Tell them honestly where they sit. Track this over time so they know when the market has moved relative to their current compensation. Be direct — if they are underpaid, say so.",
+  "telegram_system_prompt": "You help users understand their market value. Search Glassdoor, Levels.fyi, LinkedIn Salary, and similar sources for compensation benchmarks in their field, role, and location. Compare to what they tell you they earn. Tell them honestly where they sit. Track this over time so they know when the market has moved relative to their current compensation. Be direct — if they are underpaid, say so.\n\nPLATFORM CAVEAT: You cannot directly access Glassdoor, Levels.fyi, or LinkedIn Salary in most contexts. When asked to 'search' these sources, provide ranges based on your training data with this caveat: 'These are approximate ranges based on general market knowledge — for current figures, check Glassdoor or Levels.fyi directly.'\n\nDATA FRESHNESS: Salary data changes. Always note: 'These figures reflect general market ranges and may be 12-24 months behind current market conditions. Verify with live sources.'\n\nTOTAL COMP: Always frame compensation as total comp — base + bonus + equity + benefits. Ask: 'What does your full package look like, not just base salary?'",
   "meta": {
     "author": "agentstandard",
     "published": "2026-03-03",
     "updated": "2026-03-04",
     "vertical": "career",
     "tier": "free",
-    "platform": ["telegram", "openclaw", "any"],
+    "platform": [
+      "telegram",
+      "openclaw",
+      "any"
+    ],
     "license": "MIT"
   },
   "certification": {
-    "status": "pending-certification",
-    "certified_date": null,
-    "certifier": "agentstandard"
+    "status": "conditional",
+    "score": 72,
+    "forge_date": "2026-03-12",
+    "forge_model": "claude-sonnet-4-6",
+    "arbiter_status": "pending",
+    "report": "certification/reports/salary-scout-forge-FULL-2026-03-12.md"
   },
-  "stats": { "setup_time_minutes": 3, "installs": 0, "upvotes": 0, "avg_rating": null },
+  "stats": {
+    "setup_time_minutes": 3,
+    "installs": 0,
+    "upvotes": 0,
+    "avg_rating": null
+  },
   "setup_steps": [
     {
       "order": 1,
@@ -48,10 +60,34 @@
     }
   ],
   "skills": [
-    { "name": "comp-research", "description": "Searches live compensation benchmarks across multiple sources" },
-    { "name": "market-comparison", "description": "Compares your current comp to market rates by role and location" },
-    { "name": "benchmark-tracker", "description": "Tracks how the market moves over time relative to your pay" }
+    {
+      "name": "comp-research",
+      "description": "Searches live compensation benchmarks across multiple sources"
+    },
+    {
+      "name": "market-comparison",
+      "description": "Compares your current comp to market rates by role and location"
+    },
+    {
+      "name": "benchmark-tracker",
+      "description": "Tracks how the market moves over time relative to your pay"
+    }
   ],
-  "tags": ["salary", "career", "compensation", "jobs", "market-value", "negotiation"],
-  "changelog": [{ "version": "1.0.0", "date": "2026-03-03", "notes": "Initial release." }]
+  "tags": [
+    "salary",
+    "career",
+    "compensation",
+    "jobs",
+    "market-value",
+    "negotiation"
+  ],
+  "changelog": [
+    {
+      "version": "1.0.0",
+      "date": "2026-03-03",
+      "notes": "Initial release."
+    }
+  ],
+  "disclaimer": "Benchmark provides general compensation guidance. Salary data changes frequently and varies by company, location, and market conditions. Always verify with current sources (Glassdoor, Levels.fyi, LinkedIn Salary) before making decisions.",
+  "first_message": "Tell me your role, years of experience, and location. I'll give you a market picture."
 }

@@ -15,13 +15,27 @@
     "updated": "2026-03-04",
     "vertical": "builder",
     "tier": "pro",
-    "platform": ["telegram", "openclaw", "any"],
+    "platform": [
+      "telegram",
+      "openclaw",
+      "any"
+    ],
     "license": "MIT"
   },
   "certification": {
-    "status": "community"
+    "status": "certified",
+    "score": 84,
+    "forge_date": "2026-03-12",
+    "forge_model": "claude-sonnet-4-6",
+    "arbiter_status": "pending",
+    "report": "certification/reports/deep-researcher-forge-FULL-2026-03-12.md"
   },
-  "stats": { "setup_time_minutes": 5, "installs": 0, "upvotes": 0, "avg_rating": null },
+  "stats": {
+    "setup_time_minutes": 5,
+    "installs": 0,
+    "upvotes": 0,
+    "avg_rating": null
+  },
   "first_message": "What do you need researched? Give me the question or topic — as specific or as broad as you like — and I'll tell you what I find.",
   "setup_steps": [
     {
@@ -41,13 +55,38 @@
     }
   ],
   "skills": [
-    { "name": "web-research", "description": "Searches multiple sources and synthesises findings into a structured brief" },
-    { "name": "source-attribution", "description": "Cites sources and distinguishes credible from speculative claims" },
-    { "name": "document-output", "description": "Produces clean markdown research documents on request" }
+    {
+      "name": "web-research",
+      "description": "Searches multiple sources and synthesises findings into a structured brief"
+    },
+    {
+      "name": "source-attribution",
+      "description": "Cites sources and distinguishes credible from speculative claims"
+    },
+    {
+      "name": "document-output",
+      "description": "Produces clean markdown research documents on request"
+    }
   ],
-  "tags": ["research", "analysis", "writing", "knowledge", "synthesis", "builder", "productivity"],
+  "tags": [
+    "research",
+    "analysis",
+    "writing",
+    "knowledge",
+    "synthesis",
+    "builder",
+    "productivity"
+  ],
   "changelog": [
-    { "version": "1.1.0", "date": "2026-03-04", "notes": "Upgraded to Pro tier with full system prompt." },
-    { "version": "1.0.0", "date": "2026-03-04", "notes": "Initial release." }
+    {
+      "version": "1.1.0",
+      "date": "2026-03-04",
+      "notes": "Upgraded to Pro tier with full system prompt."
+    },
+    {
+      "version": "1.0.0",
+      "date": "2026-03-04",
+      "notes": "Initial release."
+    }
   ]
 }

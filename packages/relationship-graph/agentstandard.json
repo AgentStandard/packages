@@ -14,15 +14,27 @@
     "updated": "2026-03-04",
     "vertical": "social",
     "tier": "free",
-    "platform": ["telegram", "openclaw", "any"],
+    "platform": [
+      "telegram",
+      "openclaw",
+      "any"
+    ],
     "license": "MIT"
   },
   "certification": {
-    "status": "pending-certification",
-    "certified_date": null,
-    "certifier": "agentstandard"
+    "status": "certified",
+    "score": 75,
+    "forge_date": "2026-03-12",
+    "forge_model": "claude-sonnet-4-6",
+    "arbiter_status": "pending",
+    "report": "certification/reports/relationship-graph-forge-FULL-2026-03-12.md"
   },
-  "stats": { "setup_time_minutes": 3, "installs": 0, "upvotes": 0, "avg_rating": null },
+  "stats": {
+    "setup_time_minutes": 3,
+    "installs": 0,
+    "upvotes": 0,
+    "avg_rating": null
+  },
   "setup_steps": [
     {
       "order": 1,
@@ -48,10 +60,32 @@
     }
   ],
   "skills": [
-    { "name": "contact-memory", "description": "Stores and recalls context about the people in your life" },
-    { "name": "last-contact-tracker", "description": "Notes when you last interacted with each person" },
-    { "name": "relationship-context", "description": "Surfaces relevant context before interactions" }
+    {
+      "name": "contact-memory",
+      "description": "Stores and recalls context about the people in your life"
+    },
+    {
+      "name": "last-contact-tracker",
+      "description": "Notes when you last interacted with each person"
+    },
+    {
+      "name": "relationship-context",
+      "description": "Surfaces relevant context before interactions"
+    }
   ],
-  "tags": ["relationships", "social", "networking", "contacts", "memory"],
-  "changelog": [{ "version": "1.0.0", "date": "2026-03-03", "notes": "Initial release." }]
+  "tags": [
+    "relationships",
+    "social",
+    "networking",
+    "contacts",
+    "memory"
+  ],
+  "changelog": [
+    {
+      "version": "1.0.0",
+      "date": "2026-03-03",
+      "notes": "Initial release."
+    }
+  ],
+  "first_message": "Tell me about someone who matters to you — their name, how you know them, and what's important to them."
 }

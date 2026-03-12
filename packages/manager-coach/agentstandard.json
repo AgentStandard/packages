@@ -15,11 +15,20 @@
     "updated": "2026-03-12",
     "vertical": "career",
     "tier": "free",
-    "platform": ["telegram", "openclaw", "any"],
+    "platform": [
+      "telegram",
+      "openclaw",
+      "any"
+    ],
     "license": "MIT"
   },
   "certification": {
-    "status": "review"
+    "status": "certified",
+    "score": 86,
+    "forge_date": "2026-03-12",
+    "forge_model": "claude-sonnet-4-6",
+    "arbiter_status": "pending",
+    "report": "certification/reports/manager-coach-forge-FULL-2026-03-12.md"
   },
   "stats": {
     "setup_time_minutes": 2,
@@ -67,7 +76,15 @@
       "description": "Stakeholder navigation, skip-level dynamics, and managing your own manager"
     }
   ],
-  "tags": ["management", "leadership", "career", "teams", "feedback", "1on1", "professional"],
+  "tags": [
+    "management",
+    "leadership",
+    "career",
+    "teams",
+    "feedback",
+    "1on1",
+    "professional"
+  ],
   "changelog": [
     {
       "version": "1.0.0",

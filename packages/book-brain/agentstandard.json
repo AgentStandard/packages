@@ -14,15 +14,27 @@
     "updated": "2026-03-04",
     "vertical": "learning",
     "tier": "free",
-    "platform": ["telegram", "openclaw", "any"],
+    "platform": [
+      "telegram",
+      "openclaw",
+      "any"
+    ],
     "license": "MIT"
   },
   "certification": {
-    "status": "pending-certification",
-    "certified_date": null,
-    "certifier": "agentstandard"
+    "status": "certified",
+    "score": 79,
+    "forge_date": "2026-03-12",
+    "forge_model": "claude-sonnet-4-6",
+    "arbiter_status": "pending",
+    "report": "certification/reports/book-brain-forge-FULL-2026-03-12.md"
   },
-  "stats": { "setup_time_minutes": 2, "installs": 0, "upvotes": 0, "avg_rating": null },
+  "stats": {
+    "setup_time_minutes": 2,
+    "installs": 0,
+    "upvotes": 0,
+    "avg_rating": null
+  },
   "setup_steps": [
     {
       "order": 1,
@@ -48,10 +60,32 @@
     }
   ],
   "skills": [
-    { "name": "book-logger", "description": "Records books with key ideas, quotes, and your reactions" },
-    { "name": "insight-retrieval", "description": "Resurfaces relevant ideas when they apply to current context" },
-    { "name": "reading-profile", "description": "Builds your reading history and taste map over time" }
+    {
+      "name": "book-logger",
+      "description": "Records books with key ideas, quotes, and your reactions"
+    },
+    {
+      "name": "insight-retrieval",
+      "description": "Resurfaces relevant ideas when they apply to current context"
+    },
+    {
+      "name": "reading-profile",
+      "description": "Builds your reading history and taste map over time"
+    }
   ],
-  "tags": ["reading", "books", "learning", "knowledge", "retention"],
-  "changelog": [{ "version": "1.0.0", "date": "2026-03-03", "notes": "Initial release." }]
+  "tags": [
+    "reading",
+    "books",
+    "learning",
+    "knowledge",
+    "retention"
+  ],
+  "changelog": [
+    {
+      "version": "1.0.0",
+      "date": "2026-03-03",
+      "notes": "Initial release."
+    }
+  ],
+  "first_message": "What are you reading right now? Tell me the title and I'll start building your reading log."
 }
