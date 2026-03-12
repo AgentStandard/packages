@@ -31,8 +31,33 @@
       "properties": {
         "status": { "type": "string", "enum": ["uncertified", "community", "agentstandard-certified"] },
         "certified_date": { "type": ["string", "null"] },
+        "certification_version": { "type": ["string", "null"], "description": "Version of CERTIFICATION.md standard this package was reviewed against (e.g. v2.0)" },
         "benchmark_score": { "type": ["number", "null"] },
-        "certifier": { "type": ["string", "null"] }
+        "certifier": { "type": ["string", "null"] },
+        "health": {
+          "type": "object",
+          "description": "Living bill of health — updated by Forge on recurring automated runs",
+          "properties": {
+            "status": {
+              "type": "string",
+              "enum": ["healthy", "degraded", "unhealthy", "stale", "pending"],
+              "description": "healthy=passed last Forge run; degraded=warnings present; unhealthy=failed; stale=not tested in 60+ days; pending=awaiting first run"
+            },
+            "last_tested": { "type": ["string", "null"], "format": "date" },
+            "forge_score": { "type": ["number", "null"], "minimum": 0, "maximum": 100, "description": "Composite Forge score from last run (0-100)" },
+            "credit_score": { "type": ["string", "null"], "enum": ["efficient", "moderate", "heavy", null], "description": "Token efficiency rating from last performance test" },
+            "platform_compat": {
+              "type": "object",
+              "description": "Platform compatibility from last test run",
+              "properties": {
+                "claude": { "type": ["boolean", "null"] },
+                "gpt": { "type": ["boolean", "null"] },
+                "gemini": { "type": ["boolean", "null"] }
+              }
+            },
+            "notes": { "type": ["string", "null"], "description": "Any flags or warnings from last Forge run" }
+          }
+        }
       }
     },
     "stats": {
