@@ -24,11 +24,14 @@
   },
   "certification": {
     "status": "certified",
-    "score": 86,
+    "score": 85,
     "forge_date": "2026-03-12",
     "forge_model": "claude-sonnet-4-6",
-    "arbiter_status": "pending",
-    "report": "certification/reports/manager-coach-forge-FULL-2026-03-12.md"
+    "arbiter_status": "complete",
+    "report": "certification/reports/manager-coach-forge-FULL-2026-03-12.md",
+    "arbiter_adjustment": -1,
+    "arbiter_date": "2026-03-12",
+    "arbiter_model": "gpt-4o (analytical)"
   },
   "stats": {
     "setup_time_minutes": 2,

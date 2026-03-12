@@ -25,8 +25,10 @@
     "score": 62,
     "forge_date": "2026-03-12",
     "forge_model": "claude-sonnet-4-6",
-    "arbiter_status": "pending",
-    "report": "certification/reports/content-creator-forge-FULL-2026-03-12.md"
+    "arbiter_status": "complete",
+    "report": "certification/reports/content-creator-forge-FULL-2026-03-12.md",
+    "arbiter_adjustment": 0,
+    "arbiter_date": "2026-03-12"
   },
   "stats": {
     "setup_time_minutes": 25,

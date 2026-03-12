@@ -26,8 +26,10 @@
     "score": 68,
     "forge_date": "2026-03-12",
     "forge_model": "claude-sonnet-4-6",
-    "arbiter_status": "pending",
-    "report": "certification/reports/supplement-stack-forge-FULL-2026-03-12.md"
+    "arbiter_status": "complete",
+    "report": "certification/reports/supplement-stack-forge-FULL-2026-03-12.md",
+    "arbiter_adjustment": 0,
+    "arbiter_date": "2026-03-12"
   },
   "disclaimer": "Dose tracks your supplement routine. It does not provide medical advice, diagnose conditions, or reliably assess drug interactions. Always consult your pharmacist or doctor before combining supplements with medications or making changes to your health routine.",
   "first_message": "Tell me what you're taking — supplements, vitamins, anything. I'll track your routine and timing.",
