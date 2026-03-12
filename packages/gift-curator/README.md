@@ -32,4 +32,10 @@ See [CONTRIBUTING.md](../../CONTRIBUTING.md) for guidelines.
 
 ---
 
+## Privacy
+
+Your agent may learn personal details about people in your life to serve you better. This data stays in your conversation and is never shared.
+
+---
+
 *Part of the [AgentStandard](https://agentstandard.ai) package registry.*

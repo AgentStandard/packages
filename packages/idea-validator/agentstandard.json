@@ -15,22 +15,13 @@
     "updated": "2026-03-04",
     "vertical": "builder",
     "tier": "pro",
-    "platform": [
-      "telegram",
-      "openclaw",
-      "any"
-    ],
+    "platform": ["telegram", "openclaw", "any"],
     "license": "MIT"
   },
   "certification": {
     "status": "community"
   },
-  "stats": {
-    "setup_time_minutes": 5,
-    "installs": 0,
-    "upvotes": 0,
-    "avg_rating": null
-  },
+  "stats": { "setup_time_minutes": 5, "installs": 0, "upvotes": 0, "avg_rating": null },
   "first_message": "Tell me your idea. One paragraph — what it is, who it's for, and how you make money. I'll take it from there.",
   "setup_steps": [
     {
@@ -50,67 +41,13 @@
     }
   ],
   "skills": [
-    {
-      "name": "market-research",
-      "description": "Searches for market size, competitor landscape, and industry data"
-    },
-    {
-      "name": "assumption-testing",
-      "description": "Identifies and stress-tests the core assumptions behind a business model"
-    },
-    {
-      "name": "mvp-scoping",
-      "description": "Defines the minimal viable product to test the riskiest assumption"
-    }
+    { "name": "market-research", "description": "Searches for market size, competitor landscape, and industry data" },
+    { "name": "assumption-testing", "description": "Identifies and stress-tests the core assumptions behind a business model" },
+    { "name": "mvp-scoping", "description": "Defines the minimal viable product to test the riskiest assumption" }
   ],
-  "tags": [
-    "startup",
-    "business",
-    "validation",
-    "mvp",
-    "market-research",
-    "entrepreneurship",
-    "builder"
-  ],
+  "tags": ["startup", "business", "validation", "mvp", "market-research", "entrepreneurship", "builder"],
   "changelog": [
-    {
-      "version": "1.1.0",
-      "date": "2026-03-04",
-      "notes": "Upgraded to Pro tier with full system prompt."
-    },
-    {
-      "version": "1.0.0",
-      "date": "2026-03-04",
-      "notes": "Initial release."
-    }
-  ],
-  "openclaw": {
-    "compatible": true,
-    "install_method": "manual",
-    "config_field": "system",
-    "notes": "Paste system_prompt into your OpenClaw agent system config. No Telegram required. Works natively with any OpenClaw deployment.",
-    "setup_steps": [
-      {
-        "order": 1,
-        "title": "Open your OpenClaw config",
-        "description": "Locate your OpenClaw config file. Run `openclaw config` to find it or check ~/.openclaw/openclaw.json.",
-        "estimated_minutes": 1,
-        "type": "config"
-      },
-      {
-        "order": 2,
-        "title": "Paste the system prompt",
-        "description": "Copy system_prompt from this manifest into your agent config under the system or persona field.",
-        "estimated_minutes": 2,
-        "type": "config"
-      },
-      {
-        "order": 3,
-        "title": "Restart your agent",
-        "description": "Run `openclaw restart`. Your agent now behaves as this package.",
-        "estimated_minutes": 1,
-        "type": "done"
-      }
-    ]
-  }
+    { "version": "1.1.0", "date": "2026-03-04", "notes": "Upgraded to Pro tier with full system prompt." },
+    { "version": "1.0.0", "date": "2026-03-04", "notes": "Initial release." }
+  ]
 }

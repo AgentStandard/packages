@@ -14,11 +14,7 @@
     "updated": "2026-03-04",
     "vertical": "career",
     "tier": "free",
-    "platform": [
-      "telegram",
-      "openclaw",
-      "any"
-    ],
+    "platform": ["telegram", "openclaw", "any"],
     "license": "MIT"
   },
   "certification": {
@@ -26,69 +22,36 @@
     "certified_date": null,
     "certifier": "agentstandard"
   },
-  "stats": {
-    "setup_time_minutes": 2,
-    "installs": 0,
-    "upvotes": 0,
-    "avg_rating": null
-  },
+  "stats": { "setup_time_minutes": 2, "installs": 0, "upvotes": 0, "avg_rating": null },
+  "setup_steps": [
+    {
+      "order": 1,
+      "title": "Open your agent",
+      "description": "Tap the link to open @AgentStandardAI_bot on Telegram. The bot will guide you through a quick 2-minute setup.",
+      "url": "https://t.me/AgentStandardAI_bot?start=freelancer-guard",
+      "estimated_minutes": 2,
+      "type": "install"
+    },
+    {
+      "order": 2,
+      "title": "Complete setup",
+      "description": "Answer 7 quick questions — your name, what to call your agent, a bit of context about you. This is what makes every conversation feel personal.",
+      "estimated_minutes": 2,
+      "type": "config"
+    },
+    {
+      "order": 3,
+      "title": "Start your first conversation",
+      "description": "Once setup is done, just send a message. Your agent knows its role — it'll guide you from there.",
+      "estimated_minutes": 1,
+      "type": "done"
+    }
+  ],
   "skills": [
-    {
-      "name": "Contract Analyser",
-      "description": "Reads contracts and flags risky clauses in plain English"
-    },
-    {
-      "name": "Scope Guard",
-      "description": "Identifies scope creep risks and vague deliverable definitions"
-    },
-    {
-      "name": "Negotiation Coach",
-      "description": "Suggests better contract language and negotiation positions"
-    }
+    { "name": "Contract Analyser", "description": "Reads contracts and flags risky clauses in plain English" },
+    { "name": "Scope Guard", "description": "Identifies scope creep risks and vague deliverable definitions" },
+    { "name": "Negotiation Coach", "description": "Suggests better contract language and negotiation positions" }
   ],
-  "tags": [
-    "freelance",
-    "contracts",
-    "legal",
-    "career",
-    "consulting",
-    "scope-creep"
-  ],
-  "changelog": [
-    {
-      "version": "1.0.0",
-      "date": "2026-03-04",
-      "notes": "Initial release."
-    }
-  ],
-  "system_prompt": "You help freelancers, contractors, and consultants avoid bad contracts and client situations.\n\nWhen a user pastes a contract, scope of work, proposal, or email thread, analyse it for risk. Flag the specific clauses that should concern them — not generic advice, but \"Clause 4.2 gives them unlimited revision rights with no time cap — this will be abused\" or \"There is no payment terms clause — you need net-30 minimum with a late payment penalty.\"\n\nCommon red flags to always check: unlimited revisions, vague deliverable definitions, broad IP assignment clauses, liability and indemnification clauses, termination for convenience without pay, non-compete scope, no kill fee provision.\n\nAlso help with: writing better contract language, pricing scope of work correctly, handling difficult client conversations, and protecting themselves when scope creep is already happening.\n\nYou are not a lawyer. Always recommend formal legal review for contracts above a meaningful threshold. But help them know what to look for and what questions to ask.",
-  "openclaw": {
-    "compatible": true,
-    "install_method": "manual",
-    "config_field": "system",
-    "notes": "Paste system_prompt into your OpenClaw agent system config. No Telegram required.",
-    "setup_steps": [
-      {
-        "order": 1,
-        "title": "Open your OpenClaw config",
-        "description": "Locate your OpenClaw config. Run openclaw config or check ~/.openclaw/openclaw.json.",
-        "estimated_minutes": 1,
-        "type": "config"
-      },
-      {
-        "order": 2,
-        "title": "Paste the system prompt",
-        "description": "Copy system_prompt from this manifest into your agent config under the system or persona field.",
-        "estimated_minutes": 2,
-        "type": "config"
-      },
-      {
-        "order": 3,
-        "title": "Restart your agent",
-        "description": "Run openclaw restart. Your agent now behaves as this package.",
-        "estimated_minutes": 1,
-        "type": "done"
-      }
-    ]
-  }
+  "tags": ["freelance", "contracts", "legal", "career", "consulting", "scope-creep"],
+  "changelog": [{ "version": "1.0.0", "date": "2026-03-04", "notes": "Initial release." }]
 }

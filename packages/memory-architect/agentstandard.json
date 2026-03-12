@@ -11,14 +11,10 @@
   "meta": {
     "author": "agentstandard",
     "published": "2026-03-03",
-    "updated": "2026-03-03",
+    "updated": "2026-03-04",
     "vertical": "productivity",
     "tier": "free",
-    "platform": [
-      "telegram",
-      "openclaw",
-      "any"
-    ],
+    "platform": ["telegram", "openclaw", "any"],
     "license": "MIT"
   },
   "certification": {
@@ -26,68 +22,36 @@
     "certified_date": null,
     "certifier": "agentstandard"
   },
-  "stats": {
-    "setup_time_minutes": 5,
-    "installs": 0,
-    "upvotes": 0,
-    "avg_rating": null
-  },
+  "stats": { "setup_time_minutes": 5, "installs": 0, "upvotes": 0, "avg_rating": null },
+  "setup_steps": [
+    {
+      "order": 1,
+      "title": "Open your agent",
+      "description": "Tap the link to open @AgentStandardAI_bot on Telegram. The bot will guide you through a quick 2-minute setup.",
+      "url": "https://t.me/AgentStandardAI_bot?start=memory-architect",
+      "estimated_minutes": 2,
+      "type": "install"
+    },
+    {
+      "order": 2,
+      "title": "Complete setup",
+      "description": "Answer 7 quick questions — your name, what to call your agent, a bit of context about you. This is what makes every conversation feel personal.",
+      "estimated_minutes": 2,
+      "type": "config"
+    },
+    {
+      "order": 3,
+      "title": "Start your first conversation",
+      "description": "Once setup is done, just send a message. Your agent knows its role — it'll guide you from there.",
+      "estimated_minutes": 1,
+      "type": "done"
+    }
+  ],
   "skills": [
-    {
-      "name": "diary-synthesis",
-      "description": "Distils daily notes into lasting memory entries"
-    },
-    {
-      "name": "context-surface",
-      "description": "Proactively surfaces relevant memory when applicable"
-    },
-    {
-      "name": "profile-builder",
-      "description": "Builds and refines your personal profile over time"
-    }
+    { "name": "diary-synthesis", "description": "Distils daily notes into lasting memory entries" },
+    { "name": "context-surface", "description": "Proactively surfaces relevant memory when applicable" },
+    { "name": "profile-builder", "description": "Builds and refines your personal profile over time" }
   ],
-  "tags": [
-    "memory",
-    "productivity",
-    "identity",
-    "long-term",
-    "personal"
-  ],
-  "changelog": [
-    {
-      "version": "1.0.0",
-      "date": "2026-03-03",
-      "notes": "Initial release."
-    }
-  ],
-  "system_prompt": "You are a long-term memory companion. Your primary job is to remember things about the user and surface that memory when it becomes relevant.\n\nEvery time the user shares something significant — a decision, a goal, a preference, a concern, something that happened — note it. Build a picture of who they are, what they care about, how they think, and what they are working on.\n\nSurface relevant memories naturally in conversation without being prompted. If the user mentions a project they discussed weeks ago, reference it. If their situation has changed, update your model of them.\n\nOver months of use, you should know this person well enough to anticipate what they need, not just respond to what they ask.",
-  "openclaw": {
-    "compatible": true,
-    "install_method": "manual",
-    "config_field": "system",
-    "notes": "Paste system_prompt into your OpenClaw agent system config. No Telegram account required. Works natively with any OpenClaw deployment.",
-    "setup_steps": [
-      {
-        "order": 1,
-        "title": "Open openclaw.json",
-        "description": "Locate your OpenClaw config file (typically ~/.openclaw/openclaw.json or use `openclaw config` to find it).",
-        "estimated_minutes": 1,
-        "type": "config"
-      },
-      {
-        "order": 2,
-        "title": "Paste the system prompt",
-        "description": "Copy the system_prompt from this manifest into your agent config under the persona or system field. This is the full behavioral instruction set for this package.",
-        "estimated_minutes": 2,
-        "type": "config"
-      },
-      {
-        "order": 3,
-        "title": "Restart your agent",
-        "description": "Run `openclaw restart` or restart your OpenClaw session. Your agent will now behave as this package.",
-        "estimated_minutes": 1,
-        "type": "done"
-      }
-    ]
-  }
+  "tags": ["memory", "productivity", "identity", "long-term", "personal"],
+  "changelog": [{ "version": "1.0.0", "date": "2026-03-03", "notes": "Initial release." }]
 }
