@@ -1,0 +1,36 @@
+{
+  "slug": "data-analyst",
+  "activation": {
+    "explicit_command": "@data-analyst",
+    "phrases": [
+      "data-analyst mode",
+      "help me with data analyst",
+      "start data analyst",
+      "I need data analyst",
+      "help with finance",
+      "help with data",
+      "help with analysis"
+    ],
+    "context_signals": [
+      "user mentions finance or data topics"
+    ]
+  },
+  "deactivation": {
+    "explicit_command": "@default",
+    "phrases": [
+      "done",
+      "exit",
+      "exit data-analyst",
+      "stop data analyst",
+      "back to normal"
+    ],
+    "auto_deactivate": {
+      "after_unrelated_turns": 3,
+      "on_session_end": true,
+      "after_minutes_idle": 30
+    }
+  },
+  "scope": "session",
+  "singleton": true,
+  "persona_name": "Lens"
+}

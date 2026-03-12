@@ -1,0 +1,36 @@
+{
+  "slug": "gp-prep",
+  "activation": {
+    "explicit_command": "@gp-prep",
+    "phrases": [
+      "gp-prep mode",
+      "help me with gp prep",
+      "start gp prep",
+      "I need gp prep",
+      "help with health",
+      "help with medical",
+      "help with appointments"
+    ],
+    "context_signals": [
+      "user mentions health or medical topics"
+    ]
+  },
+  "deactivation": {
+    "explicit_command": "@default",
+    "phrases": [
+      "done",
+      "exit",
+      "exit gp-prep",
+      "stop gp prep",
+      "back to normal"
+    ],
+    "auto_deactivate": {
+      "after_unrelated_turns": 3,
+      "on_session_end": true,
+      "after_minutes_idle": 30
+    }
+  },
+  "scope": "session",
+  "singleton": true,
+  "persona_name": "Triage"
+}

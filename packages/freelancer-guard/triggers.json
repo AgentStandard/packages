@@ -1,0 +1,36 @@
+{
+  "slug": "freelancer-guard",
+  "activation": {
+    "explicit_command": "@freelancer-guard",
+    "phrases": [
+      "freelancer-guard mode",
+      "help me with freelancer guard",
+      "start freelancer guard",
+      "I need freelancer guard",
+      "help with freelance",
+      "help with contracts",
+      "help with legal"
+    ],
+    "context_signals": [
+      "user mentions freelance or contracts topics"
+    ]
+  },
+  "deactivation": {
+    "explicit_command": "@default",
+    "phrases": [
+      "done",
+      "exit",
+      "exit freelancer-guard",
+      "stop freelancer guard",
+      "back to normal"
+    ],
+    "auto_deactivate": {
+      "after_unrelated_turns": 3,
+      "on_session_end": true,
+      "after_minutes_idle": 30
+    }
+  },
+  "scope": "session",
+  "singleton": true,
+  "persona_name": "Clause"
+}

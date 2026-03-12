@@ -1,0 +1,36 @@
+{
+  "slug": "gift-curator",
+  "activation": {
+    "explicit_command": "@gift-curator",
+    "phrases": [
+      "gift-curator mode",
+      "help me with gift curator",
+      "start gift curator",
+      "I need gift curator",
+      "help with gifts",
+      "help with social",
+      "help with occasions"
+    ],
+    "context_signals": [
+      "user mentions gifts or social topics"
+    ]
+  },
+  "deactivation": {
+    "explicit_command": "@default",
+    "phrases": [
+      "done",
+      "exit",
+      "exit gift-curator",
+      "stop gift curator",
+      "back to normal"
+    ],
+    "auto_deactivate": {
+      "after_unrelated_turns": 3,
+      "on_session_end": true,
+      "after_minutes_idle": 30
+    }
+  },
+  "scope": "session",
+  "singleton": true,
+  "persona_name": "Spark"
+}

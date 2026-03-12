@@ -1,0 +1,36 @@
+{
+  "slug": "manager-coach",
+  "activation": {
+    "explicit_command": "@manager-coach",
+    "phrases": [
+      "manager-coach mode",
+      "help me with manager coach",
+      "start manager coach",
+      "I need manager coach",
+      "help with management",
+      "help with leadership",
+      "help with career"
+    ],
+    "context_signals": [
+      "user mentions management or leadership topics"
+    ]
+  },
+  "deactivation": {
+    "explicit_command": "@default",
+    "phrases": [
+      "done",
+      "exit",
+      "exit manager-coach",
+      "stop manager coach",
+      "back to normal"
+    ],
+    "auto_deactivate": {
+      "after_unrelated_turns": 3,
+      "on_session_end": true,
+      "after_minutes_idle": 30
+    }
+  },
+  "scope": "session",
+  "singleton": true,
+  "persona_name": "Vera"
+}

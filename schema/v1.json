@@ -143,6 +143,40 @@
       }
     },
     "tags": { "type": "array", "items": { "type": "string" } },
+    "keywords": {
+      "type": "array",
+      "description": "3-8 tags from the AgentStandard controlled taxonomy. Required for certification.",
+      "items": { "type": "string" },
+      "minItems": 0,
+      "maxItems": 8
+    },
+    "user_level": {
+      "type": "string",
+      "description": "Primary user level this package targets.",
+      "enum": ["beginner", "intermediate", "advanced", "developer"]
+    },
+    "system_prompt": {
+      "type": "string",
+      "description": "The complete system prompt used by this agent. Required for certification. Hidden instructions not declared here will result in automatic rejection. Use empty string if no system prompt."
+    },
+    "data_access": {
+      "type": "array",
+      "description": "List of sensitive data categories this agent accesses. Required for certification.",
+      "items": {
+        "type": "string",
+        "enum": ["email", "calendar", "files", "financial", "contacts", "location", "health", "none"]
+      }
+    },
+    "external_services": {
+      "type": "array",
+      "description": "Third-party APIs or services this agent calls. Required for certification.",
+      "items": { "type": "string" }
+    },
+    "tos_links": {
+      "type": "array",
+      "description": "Terms of Service links for each external service listed in external_services.",
+      "items": { "type": "string", "format": "uri" }
+    },
     "changelog": {
       "type": "array",
       "items": {

@@ -1,0 +1,36 @@
+{
+  "slug": "content-studio",
+  "activation": {
+    "explicit_command": "@content-studio",
+    "phrases": [
+      "content-studio mode",
+      "help me with content studio",
+      "start content studio",
+      "I need content studio",
+      "help with writing",
+      "help with editing",
+      "help with content"
+    ],
+    "context_signals": [
+      "user mentions writing or editing topics"
+    ]
+  },
+  "deactivation": {
+    "explicit_command": "@default",
+    "phrases": [
+      "done",
+      "exit",
+      "exit content-studio",
+      "stop content studio",
+      "back to normal"
+    ],
+    "auto_deactivate": {
+      "after_unrelated_turns": 3,
+      "on_session_end": true,
+      "after_minutes_idle": 30
+    }
+  },
+  "scope": "session",
+  "singleton": true,
+  "persona_name": "Draft"
+}

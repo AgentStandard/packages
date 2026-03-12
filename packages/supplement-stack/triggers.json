@@ -1,0 +1,36 @@
+{
+  "slug": "supplement-stack",
+  "activation": {
+    "explicit_command": "@supplement-stack",
+    "phrases": [
+      "supplement-stack mode",
+      "help me with supplement stack",
+      "start supplement stack",
+      "I need supplement stack",
+      "help with health",
+      "help with supplements",
+      "help with medication"
+    ],
+    "context_signals": [
+      "user mentions health or supplements topics"
+    ]
+  },
+  "deactivation": {
+    "explicit_command": "@default",
+    "phrases": [
+      "done",
+      "exit",
+      "exit supplement-stack",
+      "stop supplement stack",
+      "back to normal"
+    ],
+    "auto_deactivate": {
+      "after_unrelated_turns": 3,
+      "on_session_end": true,
+      "after_minutes_idle": 30
+    }
+  },
+  "scope": "session",
+  "singleton": true,
+  "persona_name": "Dose"
+}

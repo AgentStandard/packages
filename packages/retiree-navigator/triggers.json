@@ -1,0 +1,36 @@
+{
+  "slug": "retiree-navigator",
+  "activation": {
+    "explicit_command": "@retiree-navigator",
+    "phrases": [
+      "retiree-navigator mode",
+      "help me with retiree navigator",
+      "start retiree navigator",
+      "I need retiree navigator",
+      "help with retirement",
+      "help with medicare",
+      "help with social security"
+    ],
+    "context_signals": [
+      "user mentions retirement or medicare topics"
+    ]
+  },
+  "deactivation": {
+    "explicit_command": "@default",
+    "phrases": [
+      "done",
+      "exit",
+      "exit retiree-navigator",
+      "stop retiree navigator",
+      "back to normal"
+    ],
+    "auto_deactivate": {
+      "after_unrelated_turns": 3,
+      "on_session_end": true,
+      "after_minutes_idle": 30
+    }
+  },
+  "scope": "session",
+  "singleton": true,
+  "persona_name": "Compass"
+}

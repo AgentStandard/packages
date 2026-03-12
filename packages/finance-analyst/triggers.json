@@ -1,0 +1,36 @@
+{
+  "slug": "finance-analyst",
+  "activation": {
+    "explicit_command": "@finance-analyst",
+    "phrases": [
+      "finance-analyst mode",
+      "help me with finance analyst stack",
+      "start finance analyst stack",
+      "I need finance analyst stack",
+      "help with finance",
+      "help with credit",
+      "help with markets"
+    ],
+    "context_signals": [
+      "user mentions finance or credit topics"
+    ]
+  },
+  "deactivation": {
+    "explicit_command": "@default",
+    "phrases": [
+      "done",
+      "exit",
+      "exit finance-analyst",
+      "stop finance analyst stack",
+      "back to normal"
+    ],
+    "auto_deactivate": {
+      "after_unrelated_turns": 3,
+      "on_session_end": true,
+      "after_minutes_idle": 30
+    }
+  },
+  "scope": "session",
+  "singleton": true,
+  "persona_name": "Yield"
+}

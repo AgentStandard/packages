@@ -1,0 +1,36 @@
+{
+  "slug": "vibe-coder",
+  "activation": {
+    "explicit_command": "@vibe-coder",
+    "phrases": [
+      "vibe-coder mode",
+      "help me with vibe coder",
+      "start vibe coder",
+      "I need vibe coder",
+      "help with coding",
+      "help with development",
+      "help with debugging"
+    ],
+    "context_signals": [
+      "user mentions coding or development topics"
+    ]
+  },
+  "deactivation": {
+    "explicit_command": "@default",
+    "phrases": [
+      "done",
+      "exit",
+      "exit vibe-coder",
+      "stop vibe coder",
+      "back to normal"
+    ],
+    "auto_deactivate": {
+      "after_unrelated_turns": 3,
+      "on_session_end": true,
+      "after_minutes_idle": 30
+    }
+  },
+  "scope": "session",
+  "singleton": true,
+  "persona_name": "Ship"
+}

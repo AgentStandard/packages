@@ -1,0 +1,160 @@
+{
+  "$schema": "https://agentstandard.ai/schema/meta/v1.json",
+  "description": "Maps user-reported professions/roles to recommended packages for post-onboarding proposals. Primary = best match for this role. Secondary = strong supporting packages. Lifestyle_fallback = used when no career match found.",
+  "version": "1.0.0",
+  "updated": "2026-03-12",
+  "rules": {
+    "max_proposals": 3,
+    "proposal_mix": "2 career + 1 lifestyle, OR 1 career + 2 lifestyle if career coverage is thin",
+    "fallback_trigger": "No profession match found OR profession is 'retired', 'student', 'stay-at-home', or blank",
+    "no_career_fallback": ["pantry-chef", "dream-decoder", "relationship-coach", "book-brain", "habit-builder"]
+  },
+  "professions": {
+    "software_engineer": {
+      "keywords": ["software", "developer", "engineer", "coder", "programming", "backend", "frontend", "fullstack", "devops", "sre", "data engineer", "ml engineer", "ai engineer"],
+      "primary": ["dev-productivity", "vibe-coder", "skill-tracker"],
+      "secondary": ["deep-researcher", "data-analyst", "salary-scout"]
+    },
+    "product_manager": {
+      "keywords": ["product manager", "pm", "product lead", "product owner", "head of product"],
+      "primary": ["ops-chief", "idea-validator", "skill-tracker"],
+      "secondary": ["data-analyst", "salary-scout", "week-in-review"]
+    },
+    "designer": {
+      "keywords": ["designer", "ux", "ui", "graphic design", "creative director", "brand", "illustrator", "art director"],
+      "primary": ["content-studio", "skill-tracker", "taste-map"],
+      "secondary": ["dream-audit", "book-brain", "idea-validator"]
+    },
+    "marketer": {
+      "keywords": ["marketing", "growth", "seo", "social media", "brand manager", "campaign", "demand gen", "content marketing", "performance marketing"],
+      "primary": ["content-creator", "data-analyst", "network-pulse"],
+      "secondary": ["salary-scout", "skill-tracker", "read-it-later"]
+    },
+    "content_creator": {
+      "keywords": ["content creator", "youtuber", "influencer", "blogger", "podcaster", "writer", "journalist", "copywriter", "ghostwriter"],
+      "primary": ["content-studio", "content-creator", "read-it-later"],
+      "secondary": ["idea-validator", "skill-tracker", "dream-audit"]
+    },
+    "ecommerce": {
+      "keywords": ["ecommerce", "e-commerce", "shopify", "amazon seller", "online store", "retail", "dropship", "wholesale"],
+      "primary": ["ecommerce-pro", "data-analyst", "salary-scout"],
+      "secondary": ["ops-chief", "idea-validator", "launch-stack"]
+    },
+    "finance_banking": {
+      "keywords": ["finance", "banking", "investment", "analyst", "trader", "portfolio", "fund", "hedge fund", "private equity", "asset management", "credit", "fixed income", "equity research", "cfa"],
+      "primary": ["finance-analyst", "data-analyst", "salary-scout"],
+      "secondary": ["deep-researcher", "book-brain", "week-in-review"]
+    },
+    "freelancer_consultant": {
+      "keywords": ["freelance", "freelancer", "consultant", "contractor", "independent", "self-employed", "sole trader"],
+      "primary": ["freelancer-guard", "ops-chief", "salary-scout"],
+      "secondary": ["network-pulse", "week-in-review", "idea-validator"]
+    },
+    "entrepreneur_founder": {
+      "keywords": ["founder", "entrepreneur", "startup", "co-founder", "ceo", "cto", "coo", "building a company", "early stage"],
+      "primary": ["idea-validator", "launch-stack", "ops-chief"],
+      "secondary": ["dream-audit", "network-pulse", "data-analyst"]
+    },
+    "manager_executive": {
+      "keywords": ["manager", "director", "vp", "head of", "executive", "c-suite", "team lead", "leadership"],
+      "primary": ["manager-coach", "ops-chief", "network-pulse"],
+      "secondary": ["salary-scout", "week-in-review", "skill-tracker"]
+    },
+    "sales": {
+      "keywords": ["sales", "account executive", "ae", "account manager", "business development", "bdr", "sdr", "revenue"],
+      "primary": ["negotiation-coach", "network-pulse", "salary-scout"],
+      "secondary": ["relationship-graph", "ops-chief", "skill-tracker"]
+    },
+    "legal": {
+      "keywords": ["lawyer", "solicitor", "barrister", "attorney", "legal", "paralegal", "in-house counsel"],
+      "primary": ["freelancer-guard", "deep-researcher", "salary-scout"],
+      "secondary": ["ops-chief", "read-it-later", "book-brain"]
+    },
+    "healthcare": {
+      "keywords": ["doctor", "nurse", "healthcare", "medical", "physician", "pharmacist", "therapist", "psychologist", "dentist", "surgeon", "gp", "clinician"],
+      "primary": ["gp-prep", "deep-researcher", "skill-tracker"],
+      "secondary": ["sleep-coach", "supplement-stack", "week-in-review"]
+    },
+    "teacher_educator": {
+      "keywords": ["teacher", "lecturer", "professor", "tutor", "educator", "academic", "school", "university"],
+      "primary": ["skill-tracker", "content-creator", "book-brain"],
+      "secondary": ["deep-researcher", "habit-builder", "read-it-later"]
+    },
+    "operations_admin": {
+      "keywords": ["operations", "ops", "admin", "office manager", "coordinator", "project manager", "program manager", "executive assistant", "pa", "ea"],
+      "primary": ["ops-chief", "week-in-review", "skill-tracker"],
+      "secondary": ["salary-scout", "habit-builder", "data-analyst"]
+    },
+    "data_science": {
+      "keywords": ["data scientist", "data analyst", "machine learning", "ml", "ai researcher", "statistician", "quantitative", "quant"],
+      "primary": ["data-analyst", "deep-researcher", "skill-tracker"],
+      "secondary": ["finance-analyst", "salary-scout", "book-brain"]
+    },
+    "job_seeker": {
+      "keywords": ["looking for work", "job hunting", "unemployed", "between jobs", "open to work", "job search", "recently left"],
+      "primary": ["job-hunt-agent", "interview-coach", "salary-scout"],
+      "secondary": ["career-pivot", "network-pulse", "negotiation-coach"]
+    },
+    "career_changer": {
+      "keywords": ["career change", "career pivot", "switching industries", "reinventing myself", "want to do something different", "leaving my field"],
+      "primary": ["career-pivot", "interview-coach", "network-pulse"],
+      "secondary": ["skill-tracker", "salary-scout", "negotiation-coach"]
+    },
+    "construction_property": {
+      "keywords": ["construction", "contractor", "property", "real estate", "developer", "builder", "architect", "project manager"],
+      "primary": ["bid-auditor", "ops-chief", "salary-scout"],
+      "secondary": ["freelancer-guard", "network-pulse", "deep-researcher"]
+    }
+  },
+  "lifestyle_fallbacks": {
+    "description": "Used when no career match is found. Ordered by broadest appeal.",
+    "packages": [
+      {
+        "id": "pantry-chef",
+        "reason": "Everyone has had the 'what's in my fridge' problem"
+      },
+      {
+        "id": "dream-decoder",
+        "reason": "Fun, low-stakes, universally relatable"
+      },
+      {
+        "id": "relationship-coach",
+        "reason": "Everyone has something weighing on them"
+      },
+      {
+        "id": "habit-builder",
+        "reason": "Most people want to build or break a habit"
+      },
+      {
+        "id": "book-brain",
+        "reason": "Most people are reading or want to read more"
+      },
+      {
+        "id": "week-in-review",
+        "reason": "Universal — everyone benefits from a weekly reset"
+      }
+    ]
+  },
+  "life_stage_overrides": {
+    "description": "Life stage signals that override or augment career matching.",
+    "stages": {
+      "retired": {
+        "keywords": ["retired", "retirement", "just retired", "leaving work", "finished working"],
+        "primary": ["retiree-navigator", "book-brain", "home-stack"]
+      },
+      "pre_retirement": {
+        "keywords": ["planning to retire", "retiring soon", "5 years from retirement", "thinking about retirement"],
+        "primary": ["retiree-navigator", "finance-analyst", "network-pulse"]
+      },
+      "new_parent": {
+        "keywords": ["new parent", "maternity", "paternity", "baby", "newborn", "parental leave"],
+        "primary": ["habit-builder", "sleep-coach", "ops-chief"]
+      },
+      "student": {
+        "keywords": ["student", "university", "college", "studying", "graduate", "postgrad", "phd"],
+        "primary": ["skill-tracker", "book-brain", "job-hunt-agent"],
+        "secondary": ["deep-researcher", "habit-builder", "interview-coach"]
+      }
+    }
+  }
+}

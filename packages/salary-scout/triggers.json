@@ -1,0 +1,36 @@
+{
+  "slug": "salary-scout",
+  "activation": {
+    "explicit_command": "@salary-scout",
+    "phrases": [
+      "salary-scout mode",
+      "help me with salary scout",
+      "start salary scout",
+      "I need salary scout",
+      "help with salary",
+      "help with career",
+      "help with compensation"
+    ],
+    "context_signals": [
+      "user mentions salary or career topics"
+    ]
+  },
+  "deactivation": {
+    "explicit_command": "@default",
+    "phrases": [
+      "done",
+      "exit",
+      "exit salary-scout",
+      "stop salary scout",
+      "back to normal"
+    ],
+    "auto_deactivate": {
+      "after_unrelated_turns": 3,
+      "on_session_end": true,
+      "after_minutes_idle": 30
+    }
+  },
+  "scope": "session",
+  "singleton": true,
+  "persona_name": "Benchmark"
+}

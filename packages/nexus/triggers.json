@@ -1,0 +1,36 @@
+{
+  "slug": "nexus",
+  "activation": {
+    "explicit_command": "@nexus",
+    "phrases": [
+      "nexus mode",
+      "help me with nexus",
+      "start nexus",
+      "I need nexus",
+      "help with technology",
+      "help with AI",
+      "help with futurism"
+    ],
+    "context_signals": [
+      "user mentions technology or AI topics"
+    ]
+  },
+  "deactivation": {
+    "explicit_command": "@default",
+    "phrases": [
+      "done",
+      "exit",
+      "exit nexus",
+      "stop nexus",
+      "back to normal"
+    ],
+    "auto_deactivate": {
+      "after_unrelated_turns": 3,
+      "on_session_end": true,
+      "after_minutes_idle": 30
+    }
+  },
+  "scope": "session",
+  "singleton": true,
+  "persona_name": "Nexus"
+}

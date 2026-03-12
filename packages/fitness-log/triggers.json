@@ -1,0 +1,33 @@
+{
+  "slug": "fitness-log",
+  "activation": {
+    "explicit_command": "@fitness-log",
+    "phrases": [
+      "fitness-log mode",
+      "help me with fitness log",
+      "start fitness log",
+      "I need fitness log"
+    ],
+    "context_signals": [
+      "user mentions  topics"
+    ]
+  },
+  "deactivation": {
+    "explicit_command": "@default",
+    "phrases": [
+      "done",
+      "exit",
+      "exit fitness-log",
+      "stop fitness log",
+      "back to normal"
+    ],
+    "auto_deactivate": {
+      "after_unrelated_turns": 3,
+      "on_session_end": true,
+      "after_minutes_idle": 30
+    }
+  },
+  "scope": "session",
+  "singleton": true,
+  "persona_name": "Rep"
+}

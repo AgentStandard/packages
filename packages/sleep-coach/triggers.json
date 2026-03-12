@@ -1,0 +1,33 @@
+{
+  "slug": "sleep-coach",
+  "activation": {
+    "explicit_command": "@sleep-coach",
+    "phrases": [
+      "sleep-coach mode",
+      "help me with sleep coach",
+      "start sleep coach",
+      "I need sleep coach"
+    ],
+    "context_signals": [
+      "user mentions  topics"
+    ]
+  },
+  "deactivation": {
+    "explicit_command": "@default",
+    "phrases": [
+      "done",
+      "exit",
+      "exit sleep-coach",
+      "stop sleep coach",
+      "back to normal"
+    ],
+    "auto_deactivate": {
+      "after_unrelated_turns": 3,
+      "on_session_end": true,
+      "after_minutes_idle": 30
+    }
+  },
+  "scope": "session",
+  "singleton": true,
+  "persona_name": "Drift"
+}

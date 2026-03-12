@@ -1,0 +1,36 @@
+{
+  "slug": "week-in-review",
+  "activation": {
+    "explicit_command": "@week-in-review",
+    "phrases": [
+      "week-in-review mode",
+      "help me with week in review",
+      "start week in review",
+      "I need week in review",
+      "help with productivity",
+      "help with reflection",
+      "help with goals"
+    ],
+    "context_signals": [
+      "user mentions productivity or reflection topics"
+    ]
+  },
+  "deactivation": {
+    "explicit_command": "@default",
+    "phrases": [
+      "done",
+      "exit",
+      "exit week-in-review",
+      "stop week in review",
+      "back to normal"
+    ],
+    "auto_deactivate": {
+      "after_unrelated_turns": 3,
+      "on_session_end": true,
+      "after_minutes_idle": 30
+    }
+  },
+  "scope": "session",
+  "singleton": true,
+  "persona_name": "Recap"
+}

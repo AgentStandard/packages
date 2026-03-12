@@ -1,6 +1,13 @@
 # AgentStandard — Finance & Costs Tracker
 *Last updated: 2026-03-03*
 
+## ICO Registration
+- **Application number:** C1886744
+- **Registered:** 3 March 2026
+- **Fee paid:** £52 (Tier 1 — sole trader, software development)
+- **Renewal:** annual
+- **Action on Delaware incorporation:** update registration to reflect C-Corp entity
+
 ---
 
 ## Monthly Fixed Costs

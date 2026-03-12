@@ -1,0 +1,36 @@
+{
+  "slug": "career-pivot",
+  "activation": {
+    "explicit_command": "@career-pivot",
+    "phrases": [
+      "career-pivot mode",
+      "help me with career pivot",
+      "start career pivot",
+      "I need career pivot",
+      "help with career",
+      "help with career change",
+      "help with pivot"
+    ],
+    "context_signals": [
+      "user mentions career or career-change topics"
+    ]
+  },
+  "deactivation": {
+    "explicit_command": "@default",
+    "phrases": [
+      "done",
+      "exit",
+      "exit career-pivot",
+      "stop career pivot",
+      "back to normal"
+    ],
+    "auto_deactivate": {
+      "after_unrelated_turns": 3,
+      "on_session_end": true,
+      "after_minutes_idle": 30
+    }
+  },
+  "scope": "session",
+  "singleton": true,
+  "persona_name": "Bridge"
+}

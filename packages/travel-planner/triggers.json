@@ -1,0 +1,33 @@
+{
+  "slug": "travel-planner",
+  "activation": {
+    "explicit_command": "@travel-planner",
+    "phrases": [
+      "travel-planner mode",
+      "help me with travel planner",
+      "start travel planner",
+      "I need travel planner"
+    ],
+    "context_signals": [
+      "user mentions  topics"
+    ]
+  },
+  "deactivation": {
+    "explicit_command": "@default",
+    "phrases": [
+      "done",
+      "exit",
+      "exit travel-planner",
+      "stop travel planner",
+      "back to normal"
+    ],
+    "auto_deactivate": {
+      "after_unrelated_turns": 3,
+      "on_session_end": true,
+      "after_minutes_idle": 30
+    }
+  },
+  "scope": "session",
+  "singleton": true,
+  "persona_name": "Waypoint"
+}

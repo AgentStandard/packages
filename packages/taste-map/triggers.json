@@ -1,0 +1,36 @@
+{
+  "slug": "taste-map",
+  "activation": {
+    "explicit_command": "@taste-map",
+    "phrases": [
+      "taste-map mode",
+      "help me with taste map",
+      "start taste map",
+      "I need taste map",
+      "help with taste",
+      "help with culture",
+      "help with music"
+    ],
+    "context_signals": [
+      "user mentions taste or culture topics"
+    ]
+  },
+  "deactivation": {
+    "explicit_command": "@default",
+    "phrases": [
+      "done",
+      "exit",
+      "exit taste-map",
+      "stop taste map",
+      "back to normal"
+    ],
+    "auto_deactivate": {
+      "after_unrelated_turns": 3,
+      "on_session_end": true,
+      "after_minutes_idle": 30
+    }
+  },
+  "scope": "session",
+  "singleton": true,
+  "persona_name": "Palette"
+}

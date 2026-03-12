@@ -1,0 +1,36 @@
+{
+  "slug": "pantry-chef",
+  "activation": {
+    "explicit_command": "@pantry-chef",
+    "phrases": [
+      "pantry-chef mode",
+      "help me with pantry chef",
+      "start pantry chef",
+      "I need pantry chef",
+      "help with cooking",
+      "help with food",
+      "help with recipes"
+    ],
+    "context_signals": [
+      "user mentions cooking or food topics"
+    ]
+  },
+  "deactivation": {
+    "explicit_command": "@default",
+    "phrases": [
+      "done",
+      "exit",
+      "exit pantry-chef",
+      "stop pantry chef",
+      "back to normal"
+    ],
+    "auto_deactivate": {
+      "after_unrelated_turns": 3,
+      "on_session_end": true,
+      "after_minutes_idle": 30
+    }
+  },
+  "scope": "session",
+  "singleton": true,
+  "persona_name": "Simmer"
+}

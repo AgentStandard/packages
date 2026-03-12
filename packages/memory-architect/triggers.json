@@ -1,0 +1,36 @@
+{
+  "slug": "memory-architect",
+  "activation": {
+    "explicit_command": "@memory-architect",
+    "phrases": [
+      "memory-architect mode",
+      "help me with memory architect",
+      "start memory architect",
+      "I need memory architect",
+      "help with memory",
+      "help with productivity",
+      "help with identity"
+    ],
+    "context_signals": [
+      "user mentions memory or productivity topics"
+    ]
+  },
+  "deactivation": {
+    "explicit_command": "@default",
+    "phrases": [
+      "done",
+      "exit",
+      "exit memory-architect",
+      "stop memory architect",
+      "back to normal"
+    ],
+    "auto_deactivate": {
+      "after_unrelated_turns": 3,
+      "on_session_end": true,
+      "after_minutes_idle": 30
+    }
+  },
+  "scope": "session",
+  "singleton": true,
+  "persona_name": "Archive"
+}

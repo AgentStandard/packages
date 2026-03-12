@@ -1,0 +1,36 @@
+{
+  "slug": "deep-researcher",
+  "activation": {
+    "explicit_command": "@deep-researcher",
+    "phrases": [
+      "deep-researcher mode",
+      "help me with deep researcher",
+      "start deep researcher",
+      "I need deep researcher",
+      "help with research",
+      "help with analysis",
+      "help with writing"
+    ],
+    "context_signals": [
+      "user mentions research or analysis topics"
+    ]
+  },
+  "deactivation": {
+    "explicit_command": "@default",
+    "phrases": [
+      "done",
+      "exit",
+      "exit deep-researcher",
+      "stop deep researcher",
+      "back to normal"
+    ],
+    "auto_deactivate": {
+      "after_unrelated_turns": 3,
+      "on_session_end": true,
+      "after_minutes_idle": 30
+    }
+  },
+  "scope": "session",
+  "singleton": true,
+  "persona_name": "Probe"
+}

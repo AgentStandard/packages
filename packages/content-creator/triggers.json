@@ -1,0 +1,36 @@
+{
+  "slug": "content-creator",
+  "activation": {
+    "explicit_command": "@content-creator",
+    "phrases": [
+      "content-creator mode",
+      "help me with content creator stack",
+      "start content creator stack",
+      "I need content creator stack",
+      "help with content",
+      "help with writing",
+      "help with research"
+    ],
+    "context_signals": [
+      "user mentions content or writing topics"
+    ]
+  },
+  "deactivation": {
+    "explicit_command": "@default",
+    "phrases": [
+      "done",
+      "exit",
+      "exit content-creator",
+      "stop content creator stack",
+      "back to normal"
+    ],
+    "auto_deactivate": {
+      "after_unrelated_turns": 3,
+      "on_session_end": true,
+      "after_minutes_idle": 30
+    }
+  },
+  "scope": "session",
+  "singleton": true,
+  "persona_name": "Quill"
+}

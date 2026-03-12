@@ -1,0 +1,16 @@
+# Environment — never commit real keys
+.env
+
+# User data — contains API keys and conversation history
+data/
+
+# Dependencies
+node_modules/
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db

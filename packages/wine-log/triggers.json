@@ -1,0 +1,36 @@
+{
+  "slug": "wine-log",
+  "activation": {
+    "explicit_command": "@wine-log",
+    "phrases": [
+      "wine-log mode",
+      "help me with wine log",
+      "start wine log",
+      "I need wine log",
+      "help with wine",
+      "help with lifestyle",
+      "help with taste"
+    ],
+    "context_signals": [
+      "user mentions wine or lifestyle topics"
+    ]
+  },
+  "deactivation": {
+    "explicit_command": "@default",
+    "phrases": [
+      "done",
+      "exit",
+      "exit wine-log",
+      "stop wine log",
+      "back to normal"
+    ],
+    "auto_deactivate": {
+      "after_unrelated_turns": 3,
+      "on_session_end": true,
+      "after_minutes_idle": 30
+    }
+  },
+  "scope": "session",
+  "singleton": true,
+  "persona_name": "Cellar"
+}

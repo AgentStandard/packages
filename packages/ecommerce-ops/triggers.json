@@ -1,0 +1,36 @@
+{
+  "slug": "ecommerce-ops",
+  "activation": {
+    "explicit_command": "@ecommerce-ops",
+    "phrases": [
+      "ecommerce-ops mode",
+      "help me with ecommerce strategy stack",
+      "start ecommerce strategy stack",
+      "I need ecommerce strategy stack",
+      "help with ecommerce",
+      "help with research",
+      "help with copywriting"
+    ],
+    "context_signals": [
+      "user mentions ecommerce or research topics"
+    ]
+  },
+  "deactivation": {
+    "explicit_command": "@default",
+    "phrases": [
+      "done",
+      "exit",
+      "exit ecommerce-ops",
+      "stop ecommerce strategy stack",
+      "back to normal"
+    ],
+    "auto_deactivate": {
+      "after_unrelated_turns": 3,
+      "on_session_end": true,
+      "after_minutes_idle": 30
+    }
+  },
+  "scope": "session",
+  "singleton": true,
+  "persona_name": "Shelf"
+}

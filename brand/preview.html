@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  body { background: #111; display: flex; gap: 40px; padding: 60px; align-items: flex-start; font-family: system-ui; }
+  .item { display: flex; flex-direction: column; align-items: center; gap: 16px; }
+  .label { color: #888; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; }
+  .note { color: #555; font-size: 11px; max-width: 160px; text-align: center; line-height: 1.5; }
+  .bg-light { background: #faf8f4; padding: 20px; border-radius: 12px; }
+</style>
+</head>
+<body>
+  <div class="item">
+    <div class="label">V1 — Full figure</div>
+    <img src="logo-v1.svg" width="200"/>
+    <div class="note">Transparent bg, light palette. Works on warm white homepage.</div>
+  </div>
+  <div class="item">
+    <div class="label">V2 — Circular frame</div>
+    <img src="logo-v2.svg" width="180"/>
+    <div class="note">Astronomical atlas circle. Clean logo proportions.</div>
+  </div>
+  <div class="item">
+    <div class="label">V3 — Dark icon</div>
+    <img src="logo-v3.svg" width="160"/>
+    <div class="note">Dark bg, gold-forward. Works as app icon, favicon, or hero element.</div>
+  </div>
+  <div class="item">
+    <div class="label">V3 on light</div>
+    <div class="bg-light"><img src="logo-v3.svg" width="120"/></div>
+    <div class="note">How V3 looks on the current warm homepage bg.</div>
+  </div>
+</body>
+</html>

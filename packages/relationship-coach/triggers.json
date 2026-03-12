@@ -1,0 +1,36 @@
+{
+  "slug": "relationship-coach",
+  "activation": {
+    "explicit_command": "@relationship-coach",
+    "phrases": [
+      "relationship-coach mode",
+      "help me with relationship coach",
+      "start relationship coach",
+      "I need relationship coach",
+      "help with relationships",
+      "help with emotional support",
+      "help with friendship"
+    ],
+    "context_signals": [
+      "user mentions relationships or emotional-support topics"
+    ]
+  },
+  "deactivation": {
+    "explicit_command": "@default",
+    "phrases": [
+      "done",
+      "exit",
+      "exit relationship-coach",
+      "stop relationship coach",
+      "back to normal"
+    ],
+    "auto_deactivate": {
+      "after_unrelated_turns": 3,
+      "on_session_end": true,
+      "after_minutes_idle": 30
+    }
+  },
+  "scope": "session",
+  "singleton": true,
+  "persona_name": "Cleo"
+}

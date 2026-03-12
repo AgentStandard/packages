@@ -1,0 +1,36 @@
+{
+  "slug": "dream-decoder",
+  "activation": {
+    "explicit_command": "@dream-decoder",
+    "phrases": [
+      "dream-decoder mode",
+      "help me with dream decoder",
+      "start dream decoder",
+      "I need dream decoder",
+      "help with dreams",
+      "help with sleep",
+      "help with psychology"
+    ],
+    "context_signals": [
+      "user mentions dreams or sleep topics"
+    ]
+  },
+  "deactivation": {
+    "explicit_command": "@default",
+    "phrases": [
+      "done",
+      "exit",
+      "exit dream-decoder",
+      "stop dream decoder",
+      "back to normal"
+    ],
+    "auto_deactivate": {
+      "after_unrelated_turns": 3,
+      "on_session_end": true,
+      "after_minutes_idle": 30
+    }
+  },
+  "scope": "session",
+  "singleton": true,
+  "persona_name": "Lune"
+}

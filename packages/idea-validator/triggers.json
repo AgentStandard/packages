@@ -1,0 +1,36 @@
+{
+  "slug": "idea-validator",
+  "activation": {
+    "explicit_command": "@idea-validator",
+    "phrases": [
+      "idea-validator mode",
+      "help me with idea validator",
+      "start idea validator",
+      "I need idea validator",
+      "help with startup",
+      "help with business",
+      "help with validation"
+    ],
+    "context_signals": [
+      "user mentions startup or business topics"
+    ]
+  },
+  "deactivation": {
+    "explicit_command": "@default",
+    "phrases": [
+      "done",
+      "exit",
+      "exit idea-validator",
+      "stop idea validator",
+      "back to normal"
+    ],
+    "auto_deactivate": {
+      "after_unrelated_turns": 3,
+      "on_session_end": true,
+      "after_minutes_idle": 30
+    }
+  },
+  "scope": "session",
+  "singleton": true,
+  "persona_name": "Anvil"
+}

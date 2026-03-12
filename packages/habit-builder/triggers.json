@@ -1,0 +1,33 @@
+{
+  "slug": "habit-builder",
+  "activation": {
+    "explicit_command": "@habit-builder",
+    "phrases": [
+      "habit-builder mode",
+      "help me with habit builder",
+      "start habit builder",
+      "I need habit builder"
+    ],
+    "context_signals": [
+      "user mentions  topics"
+    ]
+  },
+  "deactivation": {
+    "explicit_command": "@default",
+    "phrases": [
+      "done",
+      "exit",
+      "exit habit-builder",
+      "stop habit builder",
+      "back to normal"
+    ],
+    "auto_deactivate": {
+      "after_unrelated_turns": 3,
+      "on_session_end": true,
+      "after_minutes_idle": 30
+    }
+  },
+  "scope": "session",
+  "singleton": true,
+  "persona_name": "Streak"
+}

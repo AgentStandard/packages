@@ -1,0 +1,36 @@
+{
+  "slug": "read-it-later",
+  "activation": {
+    "explicit_command": "@read-it-later",
+    "phrases": [
+      "read-it-later mode",
+      "help me with read it later",
+      "start read it later",
+      "I need read it later",
+      "help with reading",
+      "help with articles",
+      "help with links"
+    ],
+    "context_signals": [
+      "user mentions reading or articles topics"
+    ]
+  },
+  "deactivation": {
+    "explicit_command": "@default",
+    "phrases": [
+      "done",
+      "exit",
+      "exit read-it-later",
+      "stop read it later",
+      "back to normal"
+    ],
+    "auto_deactivate": {
+      "after_unrelated_turns": 3,
+      "on_session_end": true,
+      "after_minutes_idle": 30
+    }
+  },
+  "scope": "session",
+  "singleton": true,
+  "persona_name": "Bookmark"
+}

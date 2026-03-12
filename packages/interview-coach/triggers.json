@@ -1,0 +1,36 @@
+{
+  "slug": "interview-coach",
+  "activation": {
+    "explicit_command": "@interview-coach",
+    "phrases": [
+      "interview-coach mode",
+      "help me with interview coach",
+      "start interview coach",
+      "I need interview coach",
+      "help with interview",
+      "help with career",
+      "help with job search"
+    ],
+    "context_signals": [
+      "user mentions interview or career topics"
+    ]
+  },
+  "deactivation": {
+    "explicit_command": "@default",
+    "phrases": [
+      "done",
+      "exit",
+      "exit interview-coach",
+      "stop interview coach",
+      "back to normal"
+    ],
+    "auto_deactivate": {
+      "after_unrelated_turns": 3,
+      "on_session_end": true,
+      "after_minutes_idle": 30
+    }
+  },
+  "scope": "session",
+  "singleton": true,
+  "persona_name": "Rex"
+}

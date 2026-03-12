@@ -1,0 +1,36 @@
+{
+  "slug": "agent-transparency",
+  "activation": {
+    "explicit_command": "@agent-transparency",
+    "phrases": [
+      "agent-transparency mode",
+      "help me with agent transparency dashboard",
+      "start agent transparency dashboard",
+      "I need agent transparency dashboard",
+      "help with transparency",
+      "help with privacy",
+      "help with trust"
+    ],
+    "context_signals": [
+      "user mentions transparency or privacy topics"
+    ]
+  },
+  "deactivation": {
+    "explicit_command": "@default",
+    "phrases": [
+      "done",
+      "exit",
+      "exit agent-transparency",
+      "stop agent transparency dashboard",
+      "back to normal"
+    ],
+    "auto_deactivate": {
+      "after_unrelated_turns": 3,
+      "on_session_end": true,
+      "after_minutes_idle": 30
+    }
+  },
+  "scope": "session",
+  "singleton": true,
+  "persona_name": "Prism"
+}

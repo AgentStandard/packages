@@ -1,0 +1,22 @@
+{
+  "first-conversation": {
+    "url": "https://github.com/AgentStandard/packages/discussions/1",
+    "number": 1
+  },
+  "finance-analyst": {
+    "url": "https://github.com/AgentStandard/packages/discussions/2",
+    "number": 2
+  },
+  "content-creator": {
+    "url": "https://github.com/AgentStandard/packages/discussions/3",
+    "number": 3
+  },
+  "dev-productivity": {
+    "url": "https://github.com/AgentStandard/packages/discussions/4",
+    "number": 4
+  },
+  "ecommerce-ops": {
+    "url": "https://github.com/AgentStandard/packages/discussions/5",
+    "number": 5
+  }
+}

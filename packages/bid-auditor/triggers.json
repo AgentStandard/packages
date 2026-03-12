@@ -1,0 +1,36 @@
+{
+  "slug": "bid-auditor",
+  "activation": {
+    "explicit_command": "@bid-auditor",
+    "phrases": [
+      "bid-auditor mode",
+      "help me with bid auditor",
+      "start bid auditor",
+      "I need bid auditor",
+      "help with construction",
+      "help with real estate",
+      "help with bidding"
+    ],
+    "context_signals": [
+      "user mentions construction or real-estate topics"
+    ]
+  },
+  "deactivation": {
+    "explicit_command": "@default",
+    "phrases": [
+      "done",
+      "exit",
+      "exit bid-auditor",
+      "stop bid auditor",
+      "back to normal"
+    ],
+    "auto_deactivate": {
+      "after_unrelated_turns": 3,
+      "on_session_end": true,
+      "after_minutes_idle": 30
+    }
+  },
+  "scope": "session",
+  "singleton": true,
+  "persona_name": "Ledger"
+}

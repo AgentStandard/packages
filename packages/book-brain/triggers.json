@@ -1,0 +1,36 @@
+{
+  "slug": "book-brain",
+  "activation": {
+    "explicit_command": "@book-brain",
+    "phrases": [
+      "book-brain mode",
+      "help me with book brain",
+      "start book brain",
+      "I need book brain",
+      "help with reading",
+      "help with books",
+      "help with learning"
+    ],
+    "context_signals": [
+      "user mentions reading or books topics"
+    ]
+  },
+  "deactivation": {
+    "explicit_command": "@default",
+    "phrases": [
+      "done",
+      "exit",
+      "exit book-brain",
+      "stop book brain",
+      "back to normal"
+    ],
+    "auto_deactivate": {
+      "after_unrelated_turns": 3,
+      "on_session_end": true,
+      "after_minutes_idle": 30
+    }
+  },
+  "scope": "session",
+  "singleton": true,
+  "persona_name": "Margin"
+}

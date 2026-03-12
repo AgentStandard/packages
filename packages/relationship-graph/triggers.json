@@ -1,0 +1,36 @@
+{
+  "slug": "relationship-graph",
+  "activation": {
+    "explicit_command": "@relationship-graph",
+    "phrases": [
+      "relationship-graph mode",
+      "help me with relationship graph",
+      "start relationship graph",
+      "I need relationship graph",
+      "help with relationships",
+      "help with social",
+      "help with networking"
+    ],
+    "context_signals": [
+      "user mentions relationships or social topics"
+    ]
+  },
+  "deactivation": {
+    "explicit_command": "@default",
+    "phrases": [
+      "done",
+      "exit",
+      "exit relationship-graph",
+      "stop relationship graph",
+      "back to normal"
+    ],
+    "auto_deactivate": {
+      "after_unrelated_turns": 3,
+      "on_session_end": true,
+      "after_minutes_idle": 30
+    }
+  },
+  "scope": "session",
+  "singleton": true,
+  "persona_name": "Orbit"
+}

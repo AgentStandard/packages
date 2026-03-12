@@ -1,0 +1,36 @@
+{
+  "slug": "network-pulse",
+  "activation": {
+    "explicit_command": "@network-pulse",
+    "phrases": [
+      "network-pulse mode",
+      "help me with network pulse",
+      "start network pulse",
+      "I need network pulse",
+      "help with networking",
+      "help with social",
+      "help with relationships"
+    ],
+    "context_signals": [
+      "user mentions networking or social topics"
+    ]
+  },
+  "deactivation": {
+    "explicit_command": "@default",
+    "phrases": [
+      "done",
+      "exit",
+      "exit network-pulse",
+      "stop network pulse",
+      "back to normal"
+    ],
+    "auto_deactivate": {
+      "after_unrelated_turns": 3,
+      "on_session_end": true,
+      "after_minutes_idle": 30
+    }
+  },
+  "scope": "session",
+  "singleton": true,
+  "persona_name": "Thread"
+}

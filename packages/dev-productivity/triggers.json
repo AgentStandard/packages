@@ -1,0 +1,36 @@
+{
+  "slug": "dev-productivity",
+  "activation": {
+    "explicit_command": "@dev-productivity",
+    "phrases": [
+      "dev-productivity mode",
+      "help me with developer productivity stack",
+      "start developer productivity stack",
+      "I need developer productivity stack",
+      "help with developer",
+      "help with github",
+      "help with code review"
+    ],
+    "context_signals": [
+      "user mentions developer or github topics"
+    ]
+  },
+  "deactivation": {
+    "explicit_command": "@default",
+    "phrases": [
+      "done",
+      "exit",
+      "exit dev-productivity",
+      "stop developer productivity stack",
+      "back to normal"
+    ],
+    "auto_deactivate": {
+      "after_unrelated_turns": 3,
+      "on_session_end": true,
+      "after_minutes_idle": 30
+    }
+  },
+  "scope": "session",
+  "singleton": true,
+  "persona_name": "Cadence"
+}

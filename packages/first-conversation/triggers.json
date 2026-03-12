@@ -1,0 +1,36 @@
+{
+  "slug": "first-conversation",
+  "activation": {
+    "explicit_command": "@first-conversation",
+    "phrases": [
+      "first-conversation mode",
+      "help me with first conversation setup",
+      "start first conversation setup",
+      "I need first conversation setup",
+      "help with onboarding",
+      "help with beginner",
+      "help with general"
+    ],
+    "context_signals": [
+      "user mentions onboarding or beginner topics"
+    ]
+  },
+  "deactivation": {
+    "explicit_command": "@default",
+    "phrases": [
+      "done",
+      "exit",
+      "exit first-conversation",
+      "stop first conversation setup",
+      "back to normal"
+    ],
+    "auto_deactivate": {
+      "after_unrelated_turns": 3,
+      "on_session_end": true,
+      "after_minutes_idle": 30
+    }
+  },
+  "scope": "session",
+  "singleton": true,
+  "persona_name": "Ember"
+}

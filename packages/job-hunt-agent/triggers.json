@@ -1,0 +1,36 @@
+{
+  "slug": "job-hunt-agent",
+  "activation": {
+    "explicit_command": "@job-hunt-agent",
+    "phrases": [
+      "job-hunt-agent mode",
+      "help me with job hunt agent",
+      "start job hunt agent",
+      "I need job hunt agent",
+      "help with jobs",
+      "help with career",
+      "help with interviews"
+    ],
+    "context_signals": [
+      "user mentions jobs or career topics"
+    ]
+  },
+  "deactivation": {
+    "explicit_command": "@default",
+    "phrases": [
+      "done",
+      "exit",
+      "exit job-hunt-agent",
+      "stop job hunt agent",
+      "back to normal"
+    ],
+    "auto_deactivate": {
+      "after_unrelated_turns": 3,
+      "on_session_end": true,
+      "after_minutes_idle": 30
+    }
+  },
+  "scope": "session",
+  "singleton": true,
+  "persona_name": "Rally"
+}

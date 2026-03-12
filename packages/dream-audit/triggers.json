@@ -1,0 +1,36 @@
+{
+  "slug": "dream-audit",
+  "activation": {
+    "explicit_command": "@dream-audit",
+    "phrases": [
+      "dream-audit mode",
+      "help me with dream audit",
+      "start dream audit",
+      "I need dream audit",
+      "help with creativity",
+      "help with goals",
+      "help with accountability"
+    ],
+    "context_signals": [
+      "user mentions creativity or goals topics"
+    ]
+  },
+  "deactivation": {
+    "explicit_command": "@default",
+    "phrases": [
+      "done",
+      "exit",
+      "exit dream-audit",
+      "stop dream audit",
+      "back to normal"
+    ],
+    "auto_deactivate": {
+      "after_unrelated_turns": 3,
+      "on_session_end": true,
+      "after_minutes_idle": 30
+    }
+  },
+  "scope": "session",
+  "singleton": true,
+  "persona_name": "Frank"
+}

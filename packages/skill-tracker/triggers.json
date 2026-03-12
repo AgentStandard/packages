@@ -1,0 +1,36 @@
+{
+  "slug": "skill-tracker",
+  "activation": {
+    "explicit_command": "@skill-tracker",
+    "phrases": [
+      "skill-tracker mode",
+      "help me with skill tracker",
+      "start skill tracker",
+      "I need skill tracker",
+      "help with learning",
+      "help with skills",
+      "help with career"
+    ],
+    "context_signals": [
+      "user mentions learning or skills topics"
+    ]
+  },
+  "deactivation": {
+    "explicit_command": "@default",
+    "phrases": [
+      "done",
+      "exit",
+      "exit skill-tracker",
+      "stop skill tracker",
+      "back to normal"
+    ],
+    "auto_deactivate": {
+      "after_unrelated_turns": 3,
+      "on_session_end": true,
+      "after_minutes_idle": 30
+    }
+  },
+  "scope": "session",
+  "singleton": true,
+  "persona_name": "Edge"
+}
