@@ -7,22 +7,36 @@
   "description": "Learns the preferences of people in your life over time. When an occasion comes up, suggests gifts that actually fit — with links.",
   "tagline": "Never give a bad gift again.",
   "telegram_compatible": true,
-  "telegram_system_prompt": "You help users give great gifts. Learn the people in their life and their preferences — from what they mention in conversation. When an occasion comes up, suggest gifts that actually fit the person with reasons and links where possible. Track what worked and what did not. Get better with each occasion.",
+  "telegram_system_prompt": "You help users give great gifts. Learn the people in their life and their preferences — from what they mention in conversation. When an occasion comes up, suggest gifts that actually fit the person with reasons and links where possible. Track what worked and what did not. Get better with each occasion.\n\nBUDGET: Always ask about budget when an occasion arises if it hasn't been mentioned. Don't recommend options without a price range.\n\nSUGGESTION FORMAT: Since you can't browse live inventory, suggest products by name and description with enough detail for the user to find them easily. Don't promise links.\n\nALLERGIES AND RESTRICTIONS: Ask about dietary restrictions, allergies, or lifestyle considerations (vegan, halal, alcohol-free) before suggesting food, drink, or related gifts.\n\nACCURACY: Never fabricate facts you're not confident in. Specifically — never invent: statistics or research findings, specific prices or salary figures, URLs or named studies, regulatory details, legal requirements, or named product ingredients/specs. When uncertain, use \"typically,\" \"generally,\" or \"based on my training data.\" For anything consequential — financial, legal, medical, or safety-related — encourage the user to verify with a current authoritative source. An honest \"I'm not sure\" is always better than a confident wrong answer.",
   "meta": {
     "author": "agentstandard",
     "published": "2026-03-03",
     "updated": "2026-03-04",
     "vertical": "social",
     "tier": "free",
-    "platform": ["telegram", "openclaw", "any"],
+    "platform": [
+      "telegram",
+      "openclaw",
+      "any"
+    ],
     "license": "MIT"
   },
   "certification": {
-    "status": "pending-certification",
-    "certified_date": null,
-    "certifier": "agentstandard"
+    "status": "certified",
+    "score": 78,
+    "forge_date": "2026-03-12",
+    "forge_model": "claude-sonnet-4-6",
+    "arbiter_status": "complete",
+    "report": "certification/reports/gift-curator-forge-FULL-2026-03-12.md",
+    "arbiter_adjustment": 0,
+    "arbiter_date": "2026-03-12"
   },
-  "stats": { "setup_time_minutes": 2, "installs": 0, "upvotes": 0, "avg_rating": null },
+  "stats": {
+    "setup_time_minutes": 2,
+    "installs": 0,
+    "upvotes": 0,
+    "avg_rating": null
+  },
   "setup_steps": [
     {
       "order": 1,
@@ -48,10 +62,32 @@
     }
   ],
   "skills": [
-    { "name": "preference-tracker", "description": "Learns what people in your life like and care about" },
-    { "name": "occasion-calendar", "description": "Tracks upcoming birthdays, anniversaries, and events" },
-    { "name": "gift-suggestions", "description": "Recommends thoughtful gifts with search and links" }
+    {
+      "name": "preference-tracker",
+      "description": "Learns what people in your life like and care about"
+    },
+    {
+      "name": "occasion-calendar",
+      "description": "Tracks upcoming birthdays, anniversaries, and events"
+    },
+    {
+      "name": "gift-suggestions",
+      "description": "Recommends thoughtful gifts with search and links"
+    }
   ],
-  "tags": ["gifts", "social", "occasions", "shopping", "relationships"],
-  "changelog": [{ "version": "1.0.0", "date": "2026-03-03", "notes": "Initial release." }]
+  "tags": [
+    "gifts",
+    "social",
+    "occasions",
+    "shopping",
+    "relationships"
+  ],
+  "changelog": [
+    {
+      "version": "1.0.0",
+      "date": "2026-03-03",
+      "notes": "Initial release."
+    }
+  ],
+  "first_message": "Tell me about someone you need a gift for — or just tell me about the people in your life. I'll remember everything."
 }

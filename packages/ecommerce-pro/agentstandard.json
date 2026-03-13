@@ -4,8 +4,8 @@
   "name": "Ecommerce OS",
   "slug": "ecommerce-pro",
   "version": "1.0.0",
-  "description": "Research competitors, model margins, plan launches, and write your store — all in one agent. You share the data; I find the gaps and opportunities.",
-  "tagline": "Research competitors and analyse data you share — find the gaps and win.",
+  "description": "Research competitors, model margins, plan launches, and write your store \u2014 all in one agent. You share the data; I find the gaps and opportunities.",
+  "tagline": "Research competitors and analyse data you share \u2014 find the gaps and win.",
   "meta": {
     "author": "agentstandard",
     "published": "2026-03-05",
@@ -61,7 +61,7 @@
       },
       {
         "key": "BRAVE_API_KEY",
-        "description": "Brave Search API key — powers live competitor and market research",
+        "description": "Brave Search API key \u2014 powers live competitor and market research",
         "required": false,
         "sensitive": true,
         "where_to_get": "https://brave.com/search/api/"
@@ -94,38 +94,38 @@
     },
     {
       "order": 4,
-      "title": "Brief your agent — store context",
-      "description": "Tell your agent: (1) What you sell, (2) Your platform (Shopify / Amazon / Etsy / DTC), (3) Your top 3 competitors by name or URL, (4) Your average selling price and rough COGS, (5) Who your customer is in one sentence. This powers everything — the sharper your context, the sharper every output.",
+      "title": "Brief your agent \u2014 store context",
+      "description": "Tell your agent: (1) What you sell, (2) Your platform (Shopify / Amazon / Etsy / DTC), (3) Your top 3 competitors by name or URL, (4) Your average selling price and rough COGS, (5) Who your customer is in one sentence. This powers everything \u2014 the sharper your context, the sharper every output.",
       "estimated_minutes": 8,
       "type": "config"
     },
     {
       "order": 5,
       "title": "Run your first intelligence scan",
-      "description": "Try: /compete [your hero product] — and watch it map your entire competitive landscape with pricing, positioning gaps, and review themes.",
+      "description": "Try: /compete [your hero product] \u2014 and watch it map your entire competitive landscape with pricing, positioning gaps, and review themes.",
       "estimated_minutes": 3,
       "type": "done"
     }
   ],
-  "system_prompt": "You are a senior e-commerce operator and strategist — the equivalent of a head of growth, brand director, and data analyst combined. You have deep knowledge of DTC, Shopify, Amazon, Etsy, TikTok Shop, and multi-channel retail. You think in margins, not just revenue. You understand conversion, unit economics, customer LTV, and brand positioning simultaneously.\n\nYour job is to act as a full operating system for this store — not just to answer questions, but to proactively surface intelligence, flag risks, and generate assets that are ready to use.\n\nAlways structure output for action: lead with the headline insight, then supporting data, then the recommended action. Never give generic advice — everything must be specific to this store, this product, this market.\n\nWhen you don't have live data, say so clearly and work with what's been provided. When you have web search capability, use it — don't ask for competitor URLs if you can find them yourself.\n\nYou remember everything shared about this store across sessions. Build on it. Never start from zero.",
+  "system_prompt": "You are a senior e-commerce operator and strategist \u2014 the equivalent of a head of growth, brand director, and data analyst combined. You have deep knowledge of DTC, Shopify, Amazon, Etsy, TikTok Shop, and multi-channel retail. You think in margins, not just revenue. You understand conversion, unit economics, customer LTV, and brand positioning simultaneously.\n\nYour job is to act as a full operating system for this store \u2014 not just to answer questions, but to proactively surface intelligence, flag risks, and generate assets that are ready to use.\n\nAlways structure output for action: lead with the headline insight, then supporting data, then the recommended action. Never give generic advice \u2014 everything must be specific to this store, this product, this market.\n\nWhen you don't have live data, say so clearly and work with what's been provided. When you have web search capability, use it \u2014 don't ask for competitor URLs if you can find them yourself.\n\nYou remember everything shared about this store across sessions. Build on it. Never start from zero.\n\nACCURACY: Never fabricate facts you're not confident in. Specifically \u2014 never invent: statistics or research findings, specific prices or salary figures, URLs or named studies, regulatory details, legal requirements, or named product ingredients/specs. When uncertain, use \"typically,\" \"generally,\" or \"based on my training data.\" For anything consequential \u2014 financial, legal, medical, or safety-related \u2014 encourage the user to verify with a current authoritative source. An honest \"I'm not sure\" is always better than a confident wrong answer.",
   "commands": [
     {
       "trigger": "/compete",
       "args": "[product or category]",
-      "description": "Deep competitive analysis. Maps the landscape: who's winning, what they charge, how they position, and where the gaps are. Includes review themes from top competitors — their weaknesses are your opportunities.",
-      "example": "/compete wireless earbuds under £50"
+      "description": "Deep competitive analysis. Maps the landscape: who's winning, what they charge, how they position, and where the gaps are. Includes review themes from top competitors \u2014 their weaknesses are your opportunities.",
+      "example": "/compete wireless earbuds under \u00a350"
     },
     {
       "trigger": "/price",
       "args": "[product]",
       "description": "Pricing strategy with margin modeling. Recommends optimal price point based on competitive positioning, perceived value signals, and your stated COGS. Flags if you're leaving money on the table or pricing yourself out.",
-      "example": "/price my premium yoga mat (COGS £18, competitors £35-£65)"
+      "example": "/price my premium yoga mat (COGS \u00a318, competitors \u00a335-\u00a365)"
     },
     {
       "trigger": "/margin",
       "args": "[product] [optional: selling price, COGS, platform]",
       "description": "Full margin model. Breaks down platform fees, estimated shipping, returns allowance, ad spend assumption, and net margin. Flags margin risk and recommends lever to pull.",
-      "example": "/margin ceramic travel mug £32 selling price £8 COGS Shopify"
+      "example": "/margin ceramic travel mug \u00a332 selling price \u00a38 COGS Shopify"
     },
     {
       "trigger": "/trend",
@@ -136,7 +136,7 @@
     {
       "trigger": "/review-mine",
       "args": "[product name or URL]",
-      "description": "Analyse your own review corpus. Identifies top themes — what customers love, what they complain about, what questions they ask. Outputs: (1) top 3 retention risks, (2) top 3 copy angles to amplify, (3) product improvement signals.",
+      "description": "Analyse your own review corpus. Identifies top themes \u2014 what customers love, what they complain about, what questions they ask. Outputs: (1) top 3 retention risks, (2) top 3 copy angles to amplify, (3) product improvement signals.",
       "example": "/review-mine https://mystore.com/products/hero-product"
     },
     {
@@ -172,32 +172,32 @@
     {
       "trigger": "/ab",
       "args": "[copy to test]",
-      "description": "Generate 3 A/B variants of any copy — headline, email subject, ad hook, product title. Includes the hypothesis behind each variant and which to test first.",
+      "description": "Generate 3 A/B variants of any copy \u2014 headline, email subject, ad hook, product title. Includes the hypothesis behind each variant and which to test first.",
       "example": "/ab 'The last water bottle you'll ever buy'"
     },
     {
       "trigger": "/launch",
       "args": "[product]",
-      "description": "Full launch playbook. Pre-launch research → positioning → channel plan → launch week schedule → post-launch review triggers. Structured as a 4-week timeline with day-by-day actions for launch week.",
+      "description": "Full launch playbook. Pre-launch research \u2192 positioning \u2192 channel plan \u2192 launch week schedule \u2192 post-launch review triggers. Structured as a 4-week timeline with day-by-day actions for launch week.",
       "example": "/launch new leather card wallet targeting men 25-40"
     },
     {
       "trigger": "/audit",
       "args": "[store URL or describe your store]",
-      "description": "Holistic store diagnostic. Reviews: conversion trust signals, homepage clarity, PDP quality, navigation friction, social proof, checkout flow, and mobile experience. Returns a prioritised fix list — highest impact items first.",
+      "description": "Holistic store diagnostic. Reviews: conversion trust signals, homepage clarity, PDP quality, navigation friction, social proof, checkout flow, and mobile experience. Returns a prioritised fix list \u2014 highest impact items first.",
       "example": "/audit https://mystore.com"
     },
     {
       "trigger": "/funnel",
       "args": "[your traffic and conversion numbers]",
-      "description": "Funnel diagnosis. Given your traffic, add-to-cart, checkout, and conversion rates — identifies where you're leaking and what the highest-leverage fix is. Benchmarks against category norms.",
+      "description": "Funnel diagnosis. Given your traffic, add-to-cart, checkout, and conversion rates \u2014 identifies where you're leaking and what the highest-leverage fix is. Benchmarks against category norms.",
       "example": "/funnel 10k sessions, 4% ATC, 60% checkout start, 2.1% CVR"
     },
     {
       "trigger": "/aov",
       "args": "[current AOV and top products]",
       "description": "AOV optimisation strategy. Recommends bundle configurations, upsell triggers, threshold promotions, and cross-sell sequencing specific to your product catalogue.",
-      "example": "/aov current AOV £34, top sellers: candles, wax melts, diffusers"
+      "example": "/aov current AOV \u00a334, top sellers: candles, wax melts, diffusers"
     },
     {
       "trigger": "/supplier",
@@ -230,7 +230,7 @@
     {
       "name": "Weekly Market Trend Report",
       "schedule": "every Friday 09:00",
-      "description": "Scans trend signals for your category — rising keywords, viral products, seasonal tailwinds. Delivers a 5-bullet brief: what's moving and whether it's relevant to your catalogue.",
+      "description": "Scans trend signals for your category \u2014 rising keywords, viral products, seasonal tailwinds. Delivers a 5-bullet brief: what's moving and whether it's relevant to your catalogue.",
       "model": "claude-haiku-4-5",
       "sessionTarget": "isolated",
       "delivery": "announce"
@@ -279,5 +279,5 @@
       "notes": "Initial release. Premium tier. Full command set: 17 commands across intelligence, revenue ops, content, and diagnostics. 3 automated crons."
     }
   ],
-  "first_message": "Tell me about your store — platform, product category, monthly revenue range, and what you're trying to solve."
+  "first_message": "Tell me about your store \u2014 platform, product category, monthly revenue range, and what you're trying to solve."
 }

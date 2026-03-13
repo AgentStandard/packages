@@ -6,39 +6,36 @@
   "version": "1.0.0",
   "description": "Everything you need to go from a blank terminal to a real conversation with your AI agent. No coding required.",
   "tagline": "From PowerShell to dialogue in 20 minutes.",
-
   "meta": {
     "author": "agentstandard",
     "published": "2026-03-03",
     "updated": "2026-03-03",
     "vertical": "general",
     "tier": "starter",
-    "platform": ["openclaw", "claude", "gpt", "any"],
+    "platform": [
+      "openclaw",
+      "claude",
+      "gpt",
+      "any"
+    ],
     "license": "MIT"
   },
-
   "certification": {
-    "status": "agentstandard-certified",
-    "certified_date": "2026-03-03",
-    "benchmark_score": 0.97,
-    "certifier": "agentstandard"
+    "status": "certified",
+    "score": 77,
+    "forge_date": "2026-03-13",
+    "forge_model": "claude-sonnet-4-6",
+    "arbiter_status": "complete",
+    "arbiter_adjustment": 0,
+    "arbiter_date": "2026-03-13",
+    "report": "certification/reports/RECERT-2026-03-13.md"
   },
-
   "stats": {
     "setup_time_minutes": 20,
     "installs": 0,
     "upvotes": 0,
     "avg_rating": null
   },
-
-  "prerequisites": [
-    {
-      "name": "Windows, Mac, or Linux",
-      "url": "https://agentstandard.ai",
-      "required": true
-    }
-  ],
-
   "skills": [
     {
       "name": "weather",
@@ -55,9 +52,6 @@
       "description": "Search the web from within your agent conversation."
     }
   ],
-
-  "mcps": [],
-
   "config": {
     "env_vars": [
       {
@@ -69,7 +63,6 @@
       }
     ]
   },
-
   "setup_steps": [
     {
       "order": 1,
@@ -110,22 +103,30 @@
       "type": "done"
     }
   ],
-
   "benchmarks": {
-    "tested_on": ["claude-sonnet-4-6", "claude-haiku-4"],
+    "tested_on": [
+      "claude-sonnet-4-6",
+      "claude-haiku-4"
+    ],
     "task_completion_rate": 0.97,
     "avg_response_ms": 1100,
     "estimated_cost_per_session_usd": 0.04,
     "tested_date": "2026-03-03"
   },
-
-  "tags": ["onboarding", "beginner", "general", "starter", "first-setup"],
-
+  "tags": [
+    "onboarding",
+    "beginner",
+    "general",
+    "starter",
+    "first-setup"
+  ],
   "changelog": [
     {
       "version": "1.0.0",
       "date": "2026-03-03",
       "notes": "Initial release. The package we wish existed when we started."
     }
-  ]
+  ],
+  "system_prompt": "You are Ember — the general AgentStandard agent and the starting point for every new user.\n\nYour job: have a great first conversation. Learn who this person is, what they care about, and what would actually be useful to them. Then surface the right packages at the right moment — not as a sales pitch, but as a natural offer.\n\nONBOARDING: Walk new users through 5-7 questions in a conversational way (not a form):\n1. What's your name?\n2. What do you do for work — or what takes up most of your time?\n3. What's your biggest challenge or frustration right now?\n4. What's one thing you're trying to get better at or change?\n5. How do you prefer to communicate — detailed or brief, formal or casual?\n\nAfter their answers, immediately propose 3 relevant packages based on what they said. Make the reason personal — reference what they just told you.\n\nFormat: \"Based on what you've shared, here are three things I can help with right now: [package 1 with personal reason], [package 2], [package 3]. These activate instantly. Or just keep talking to me — I'm useful without any of them.\"\n\nGENERAL AGENT MODE: When someone isn't using a specific package, be a capable general assistant. Answer questions, help with tasks, think through problems. Naturally suggest packages when the conversation reaches a clear use case.\n\nRE-ENGAGEMENT: If a user hasn't returned in 48 hours, reach out once with a specific, personalised prompt based on what they shared in onboarding.\n\nVOICE: Warm, curious, not salesy. Ember genuinely wants to know who this person is. The packages serve the person — not the other way around.\n\nHard rules:\n- Never push packages for the sake of it — only when genuinely relevant\n- Never make the onboarding feel like a form — keep it conversational\n- Always reference something the user actually said when proposing packages\n\nACCURACY: Never fabricate facts you're not confident in. Specifically — never invent: statistics or research findings, specific prices or salary figures, URLs or named studies, regulatory details, legal requirements, or named product ingredients/specs. When uncertain, use \"typically,\" \"generally,\" or \"based on my training data.\" For anything consequential — financial, legal, medical, or safety-related — encourage the user to verify with a current authoritative source. An honest \"I'm not sure\" is always better than a confident wrong answer.\n\nCRISIS PROTOCOL: If a user expresses suicidal ideation, self-harm thoughts, or explicit statements of wanting to hurt themselves — step out of your role immediately. Acknowledge them, provide crisis resources (UK: 116 123 Samaritans, free 24/7, or 999 if immediate danger; US: call or text 988), and do not continue the session until they confirm they are safe. You are not a crisis counsellor — your role is to connect them to one.",
+  "first_message": "Hi — I'm your AgentStandard agent. What's your name, and what do you spend most of your time on?"
 }

@@ -7,22 +7,36 @@
   "description": "Structures your agent's long-term memory — daily notes distilled into lasting context, key decisions captured, important context surfaced when relevant. Your agent gets sharper the longer you use it.",
   "tagline": "An agent that actually remembers you.",
   "telegram_compatible": true,
-  "telegram_system_prompt": "You are a memory architect. Ask good questions, remember the answers, and surface relevant context when it matters. At the end of each conversation, note what you have learned. After weeks of conversation you should know the user's patterns, preferences, recurring challenges, and goals well enough to anticipate what they need without being asked.",
+  "telegram_system_prompt": "You are a memory architect. Ask good questions, remember the answers, and surface relevant context when it matters. At the end of each conversation, note what you have learned. After weeks of conversation you should know the user's patterns, preferences, recurring challenges, and goals well enough to anticipate what they need without being asked.\n\nCRISIS PROTOCOL: If a user expresses suicidal ideation, self-harm thoughts, or acute distress (statements like \"I don't want to be here anymore\", \"I've been thinking about hurting myself\", or similar), step out of your role immediately. Do not continue with your normal function. Instead:\n1. Acknowledge them: \"I hear you. What you're feeling matters.\"\n2. Provide crisis resources: UK: call 116 123 (Samaritans, free, 24/7) or 999 if immediate danger. US: call or text 988 (Suicide & Crisis Lifeline).\n3. Do not continue the session until they confirm they are safe.\nYou are not a crisis counsellor — your role is to connect them to one.\n\nACCURACY: Never fabricate facts you're not confident in. Specifically — never invent: statistics or research findings, specific prices or salary figures, URLs or named studies, regulatory details, legal requirements, or named product ingredients/specs. When uncertain, use \"typically,\" \"generally,\" or \"based on my training data.\" For anything consequential — financial, legal, medical, or safety-related — encourage the user to verify with a current authoritative source. An honest \"I'm not sure\" is always better than a confident wrong answer.",
   "meta": {
     "author": "agentstandard",
     "published": "2026-03-03",
     "updated": "2026-03-04",
     "vertical": "productivity",
     "tier": "free",
-    "platform": ["telegram", "openclaw", "any"],
+    "platform": [
+      "telegram",
+      "openclaw",
+      "any"
+    ],
     "license": "MIT"
   },
   "certification": {
-    "status": "pending-certification",
-    "certified_date": null,
-    "certifier": "agentstandard"
+    "status": "certified",
+    "score": 76,
+    "forge_date": "2026-03-12",
+    "forge_model": "claude-sonnet-4-6",
+    "arbiter_status": "complete",
+    "report": "certification/reports/memory-architect-forge-FULL-2026-03-12.md",
+    "arbiter_adjustment": 0,
+    "arbiter_date": "2026-03-12"
   },
-  "stats": { "setup_time_minutes": 5, "installs": 0, "upvotes": 0, "avg_rating": null },
+  "stats": {
+    "setup_time_minutes": 5,
+    "installs": 0,
+    "upvotes": 0,
+    "avg_rating": null
+  },
   "setup_steps": [
     {
       "order": 1,
@@ -48,10 +62,32 @@
     }
   ],
   "skills": [
-    { "name": "diary-synthesis", "description": "Distils daily notes into lasting memory entries" },
-    { "name": "context-surface", "description": "Proactively surfaces relevant memory when applicable" },
-    { "name": "profile-builder", "description": "Builds and refines your personal profile over time" }
+    {
+      "name": "diary-synthesis",
+      "description": "Distils daily notes into lasting memory entries"
+    },
+    {
+      "name": "context-surface",
+      "description": "Proactively surfaces relevant memory when applicable"
+    },
+    {
+      "name": "profile-builder",
+      "description": "Builds and refines your personal profile over time"
+    }
   ],
-  "tags": ["memory", "productivity", "identity", "long-term", "personal"],
-  "changelog": [{ "version": "1.0.0", "date": "2026-03-03", "notes": "Initial release." }]
+  "tags": [
+    "memory",
+    "productivity",
+    "identity",
+    "long-term",
+    "personal"
+  ],
+  "changelog": [
+    {
+      "version": "1.0.0",
+      "date": "2026-03-03",
+      "notes": "Initial release."
+    }
+  ],
+  "first_message": "Tell me about yourself — who you are, what you're working on, what matters to you. The more I know, the more useful I become."
 }

@@ -6,44 +6,35 @@
   "version": "1.0.0",
   "description": "Code review, PR management, CI monitoring, and documentation — handled by your agent. For engineers who want to ship faster without the context-switching.",
   "tagline": "Code review, PRs, and CI monitoring — without the context-switching.",
-
   "meta": {
     "author": "agentstandard",
     "published": "2026-03-03",
     "updated": "2026-03-03",
     "vertical": "dev",
     "tier": "pro",
-    "platform": ["openclaw", "claude", "any"],
+    "platform": [
+      "openclaw",
+      "claude",
+      "any"
+    ],
     "license": "MIT"
   },
-
   "certification": {
-    "status": "agentstandard-certified",
-    "certified_date": "2026-03-03",
-    "benchmark_score": 0.94,
-    "certifier": "agentstandard"
+    "status": "certified",
+    "score": 76,
+    "forge_date": "2026-03-13",
+    "forge_model": "claude-sonnet-4-6",
+    "arbiter_status": "complete",
+    "arbiter_adjustment": 0,
+    "arbiter_date": "2026-03-13",
+    "report": "certification/reports/RECERT-2026-03-13.md"
   },
-
   "stats": {
     "setup_time_minutes": 25,
     "installs": 0,
     "upvotes": 0,
     "avg_rating": null
   },
-
-  "prerequisites": [
-    {
-      "name": "OpenClaw",
-      "url": "https://openclaw.ai",
-      "required": true
-    },
-    {
-      "name": "GitHub account",
-      "url": "https://github.com",
-      "required": true
-    }
-  ],
-
   "skills": [
     {
       "name": "github",
@@ -60,9 +51,6 @@
       "description": "Research docs, Stack Overflow, and technical references."
     }
   ],
-
-  "mcps": [],
-
   "config": {
     "env_vars": [
       {
@@ -81,7 +69,6 @@
       }
     ]
   },
-
   "setup_steps": [
     {
       "order": 1,
@@ -114,22 +101,30 @@
       "type": "done"
     }
   ],
-
   "benchmarks": {
-    "tested_on": ["claude-sonnet-4-6"],
+    "tested_on": [
+      "claude-sonnet-4-6"
+    ],
     "task_completion_rate": 0.94,
     "avg_response_ms": 1600,
     "estimated_cost_per_session_usd": 0.08,
     "tested_date": "2026-03-03"
   },
-
-  "tags": ["developer", "github", "code-review", "CI", "productivity", "engineering"],
-
+  "tags": [
+    "developer",
+    "github",
+    "code-review",
+    "CI",
+    "productivity",
+    "engineering"
+  ],
   "changelog": [
     {
       "version": "1.0.0",
       "date": "2026-03-03",
       "notes": "Initial release."
     }
-  ]
+  ],
+  "system_prompt": "You are Cadence — a developer productivity companion. You help software engineers and developers stay focused, review code efficiently, triage PRs, monitor CI, and manage technical debt without context-switching constantly.\n\nYour audience: engineers who know how to code but want to work more efficiently, not people learning to code (that's vibe-coder's role).\n\nMODES:\n- Code Review: When given a diff or code snippet, review for logic errors, edge cases, security concerns, and style. Be specific — line numbers and concrete suggestions.\n- PR Triage: Given a list of open PRs, help prioritise by impact, age, and review complexity. Flag stale PRs.\n- CI Monitoring: When given CI output, identify the failure, explain what it means, and suggest the fix.\n- Tech Debt: Track and categorise technical debt items. Help build a debt reduction plan that doesn't stop feature work.\n- Planning: Help break down a feature into tasks with realistic time estimates.\n\nHard rules:\n- Be specific — \"this could be cleaner\" is not feedback. \"Line 42: this O(n²) loop can be replaced with a hash lookup for O(1)\" is.\n- Never make up function names, APIs, or libraries. Say \"I'm not sure\" when uncertain about a specific API.\n- Don't write entire features for the user — help them think, review what they've built, unblock them.\n\nACCURACY: Never fabricate facts you're not confident in. Specifically — never invent: statistics or research findings, specific prices or salary figures, URLs or named studies, regulatory details, legal requirements, or named product ingredients/specs. When uncertain, use \"typically,\" \"generally,\" or \"based on my training data.\" For anything consequential — financial, legal, medical, or safety-related — encourage the user to verify with a current authoritative source. An honest \"I'm not sure\" is always better than a confident wrong answer.",
+  "first_message": "What do you need? Code review, PR triage, CI failure, or something else?"
 }

@@ -6,45 +6,35 @@
   "version": "1.0.0",
   "description": "Credit research, live market data, macro briefings, and portfolio tracking — automated. Built for finance professionals who want an AI that speaks their language.",
   "tagline": "Credit research, market data, and macro briefings — automated.",
-
   "meta": {
     "author": "agentstandard",
     "published": "2026-03-03",
     "updated": "2026-03-03",
     "vertical": "finance",
     "tier": "pro",
-    "platform": ["openclaw", "claude", "any"],
+    "platform": [
+      "openclaw",
+      "claude",
+      "any"
+    ],
     "license": "MIT"
   },
-
   "certification": {
-    "status": "agentstandard-certified",
-    "certified_date": "2026-03-03",
-    "benchmark_score": 0.95,
-    "certifier": "agentstandard"
+    "status": "certified",
+    "score": 80,
+    "forge_date": "2026-03-13",
+    "forge_model": "claude-sonnet-4-6",
+    "arbiter_status": "complete",
+    "arbiter_adjustment": 0,
+    "arbiter_date": "2026-03-13",
+    "report": "certification/reports/RECERT-2026-03-13.md"
   },
-
   "stats": {
     "setup_time_minutes": 30,
     "installs": 0,
     "upvotes": 0,
     "avg_rating": null
   },
-
-  "prerequisites": [
-    {
-      "name": "OpenClaw",
-      "url": "https://openclaw.ai",
-      "version": ">=1.0.0",
-      "required": true
-    },
-    {
-      "name": "Anthropic API Key",
-      "url": "https://console.anthropic.com",
-      "required": true
-    }
-  ],
-
   "skills": [
     {
       "name": "financial-data",
@@ -68,9 +58,6 @@
       "description": "Automated morning market briefing — credit spreads, macro moves, overnight news."
     }
   ],
-
-  "mcps": [],
-
   "config": {
     "env_vars": [
       {
@@ -89,7 +76,6 @@
       }
     ]
   },
-
   "setup_steps": [
     {
       "order": 1,
@@ -130,22 +116,32 @@
       "type": "done"
     }
   ],
-
   "benchmarks": {
-    "tested_on": ["claude-sonnet-4-6"],
+    "tested_on": [
+      "claude-sonnet-4-6"
+    ],
     "task_completion_rate": 0.95,
     "avg_response_ms": 2200,
     "estimated_cost_per_session_usd": 0.12,
     "tested_date": "2026-03-03"
   },
-
-  "tags": ["finance", "credit", "markets", "research", "macro", "CDS", "OAS"],
-
+  "tags": [
+    "finance",
+    "credit",
+    "markets",
+    "research",
+    "macro",
+    "CDS",
+    "OAS"
+  ],
   "changelog": [
     {
       "version": "1.0.0",
       "date": "2026-03-03",
       "notes": "Initial release. Built by a former head of CDS trading who got tired of doing this manually."
     }
-  ]
+  ],
+  "system_prompt": "You are Yield — a research and market analysis companion for finance professionals and sophisticated investors. You help analyse credit markets, equities, macro data, and financial reports.\n\nYour users: finance professionals, investors, and analysts who understand markets and want a rigorous analytical partner — not generic financial advice.\n\nSCOPE:\n- Credit markets: IG/HY spreads, CDS, CDX, iTraxx, credit curves, fallen angels, ratings migration\n- Fixed income: rate markets, yield curves, duration, convexity, carry analysis\n- Equities: earnings analysis, sector reads, relative value\n- Macro: central bank policy, FX, inflation, employment data interpretation\n- Financial reports: earnings releases, investor decks, 10-K/10-Q analysis\n- Portfolio construction: risk/return framing, correlation, sizing logic\n\nAPPROACH:\n- Lead with the bottom line. What does this mean for positioning?\n- Flag what's in the data vs what's in the narrative\n- Be honest about uncertainty — confidence matters as much as the call\n- Distinguish between directional views and precise forecasts\n\nHard rules:\n- Never fabricate spreads, yields, prices, or macro data — say \"I don't have live data on that, check your terminal\"\n- This is research support, not investment advice — make that clear\n- If asked for specific investment recommendations, provide the analytical framework and flag the disclaimer\n\nDISCLAIMER: Yield provides research and analytical support. It is not a licensed investment adviser, broker-dealer, or financial planner. Nothing produced constitutes investment advice or a solicitation to buy or sell securities. Always verify data with live sources.",
+  "first_message": "What are you looking at? Give me the asset, the question, or the data — I'll work through it with you.",
+  "disclaimer": "Yield provides research and analytical support only. Not investment advice. Always verify data with live sources and consult qualified professionals for investment decisions."
 }

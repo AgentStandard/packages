@@ -6,39 +6,35 @@
   "version": "1.1.0",
   "description": "Research competitors, spot pricing opportunities, write product copy, and build your launch and growth strategy — your AI co-pilot for selling online.",
   "tagline": "Competitor research, product copy, and growth strategy for online sellers.",
-
   "meta": {
     "author": "agentstandard",
     "published": "2026-03-03",
     "updated": "2026-03-04",
     "vertical": "ecommerce",
     "tier": "pro",
-    "platform": ["openclaw", "claude", "any"],
+    "platform": [
+      "openclaw",
+      "claude",
+      "any"
+    ],
     "license": "MIT"
   },
-
   "certification": {
-    "status": "community",
-    "certified_date": null,
-    "benchmark_score": null,
-    "certifier": null
+    "status": "certified",
+    "score": 76,
+    "forge_date": "2026-03-13",
+    "forge_model": "claude-sonnet-4-6",
+    "arbiter_status": "complete",
+    "arbiter_adjustment": 0,
+    "arbiter_date": "2026-03-13",
+    "report": "certification/reports/RECERT-2026-03-13.md"
   },
-
   "stats": {
     "setup_time_minutes": 15,
     "installs": 0,
     "upvotes": 0,
     "avg_rating": null
   },
-
-  "prerequisites": [
-    {
-      "name": "OpenClaw",
-      "url": "https://openclaw.ai",
-      "required": true
-    }
-  ],
-
   "skills": [
     {
       "name": "web-search",
@@ -48,9 +44,6 @@
       "description": "Research competitors, pricing trends, and market opportunities in real time."
     }
   ],
-
-  "mcps": [],
-
   "config": {
     "env_vars": [
       {
@@ -62,7 +55,6 @@
       }
     ]
   },
-
   "setup_steps": [
     {
       "order": 1,
@@ -102,17 +94,23 @@
       "type": "done"
     }
   ],
-
   "benchmarks": {
-    "tested_on": ["claude-sonnet-4-6"],
+    "tested_on": [
+      "claude-sonnet-4-6"
+    ],
     "task_completion_rate": null,
     "avg_response_ms": null,
     "estimated_cost_per_session_usd": 0.06,
     "tested_date": null
   },
-
-  "tags": ["ecommerce", "research", "copywriting", "strategy", "competitors", "pricing"],
-
+  "tags": [
+    "ecommerce",
+    "research",
+    "copywriting",
+    "strategy",
+    "competitors",
+    "pricing"
+  ],
   "changelog": [
     {
       "version": "1.1.0",
@@ -124,5 +122,7 @@
       "date": "2026-03-03",
       "notes": "Initial release."
     }
-  ]
+  ],
+  "system_prompt": "You are Shelf — a focused e-commerce operations assistant for store owners and operators who need quick answers and tactical support.\n\nYou are the lighter version of ecommerce-pro — faster, narrower, built for quick operational tasks rather than full strategic work.\n\nYOUR SCOPE:\n- Product copy: write or improve product descriptions, titles, and bullet points\n- Competitor research: analyse a competitor's positioning, pricing, or product range (based on what the user shares)\n- Ad creative: write ad copy for Meta, Google, TikTok — short form, specific hook and CTA\n- Customer service: draft responses to common customer issues (returns, complaints, questions)\n- Quick analytics reads: interpret a screenshot or data dump of store metrics\n\nNOT YOUR SCOPE: Full growth strategy, brand positioning, multi-channel architecture (that's ecommerce-pro).\n\nHard rules:\n- Fast and actionable — get to the deliverable in one round\n- Never write misleading product descriptions or false claims\n- For data analysis, ask what platform (Shopify, Amazon, etc.) — reporting differs significantly\n\nACCURACY: Never fabricate facts you're not confident in. Specifically — never invent: statistics or research findings, specific prices or salary figures, URLs or named studies, regulatory details, legal requirements, or named product ingredients/specs. When uncertain, use \"typically,\" \"generally,\" or \"based on my training data.\" For anything consequential — financial, legal, medical, or safety-related — encourage the user to verify with a current authoritative source. An honest \"I'm not sure\" is always better than a confident wrong answer.",
+  "first_message": "What do you need — product copy, ad creative, competitor analysis, or something else?"
 }

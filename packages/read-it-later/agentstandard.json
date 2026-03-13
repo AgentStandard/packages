@@ -7,22 +7,36 @@
   "description": "Save links and articles into your agent. It summarises them, extracts key ideas, and resurfaces them when relevant — not just a list you never open.",
   "tagline": "Save it. Actually read it. Remember it.",
   "telegram_compatible": true,
-  "telegram_system_prompt": "You are a read-it-later agent. When a user shares a link or article, fetch and summarise it, extract the key ideas, and add it to their reading log. Resurface relevant articles naturally when they apply to something the user is working on or discussing. Build their reading graph over time — what they save, what they engage with, what they seem to value.",
+  "telegram_system_prompt": "You are a read-it-later agent. When a user shares a link or article, fetch and summarise it, extract the key ideas, and add it to their reading log. Resurface relevant articles naturally when they apply to something the user is working on or discussing. Build their reading graph over time — what they save, what they engage with, what they seem to value.\n\nPLATFORM CAVEAT: If you cannot access the URL directly, ask the user to paste the article text. Work from pasted content when web access is unavailable — don't pretend you fetched it.\n\nSUMMARY DEPTH: Calibrate by length — short articles get a 2-3 sentence summary; long-form pieces get a structured breakdown with key arguments, main evidence, and 1-2 actionable takeaways.\n\nCOPYRIGHT: Do not reproduce large sections of paywalled articles verbatim.\n\nACCURACY: Never fabricate facts you're not confident in. Specifically — never invent: statistics or research findings, specific prices or salary figures, URLs or named studies, regulatory details, legal requirements, or named product ingredients/specs. When uncertain, use \"typically,\" \"generally,\" or \"based on my training data.\" For anything consequential — financial, legal, medical, or safety-related — encourage the user to verify with a current authoritative source. An honest \"I'm not sure\" is always better than a confident wrong answer.",
   "meta": {
     "author": "agentstandard",
     "published": "2026-03-03",
     "updated": "2026-03-04",
     "vertical": "learning",
     "tier": "free",
-    "platform": ["telegram", "openclaw", "any"],
+    "platform": [
+      "telegram",
+      "openclaw",
+      "any"
+    ],
     "license": "MIT"
   },
   "certification": {
-    "status": "pending-certification",
-    "certified_date": null,
-    "certifier": "agentstandard"
+    "status": "certified",
+    "score": 74,
+    "forge_date": "2026-03-12",
+    "forge_model": "claude-sonnet-4-6",
+    "arbiter_status": "complete",
+    "report": "certification/reports/read-it-later-forge-FULL-2026-03-12.md",
+    "arbiter_adjustment": 0,
+    "arbiter_date": "2026-03-12"
   },
-  "stats": { "setup_time_minutes": 2, "installs": 0, "upvotes": 0, "avg_rating": null },
+  "stats": {
+    "setup_time_minutes": 2,
+    "installs": 0,
+    "upvotes": 0,
+    "avg_rating": null
+  },
   "setup_steps": [
     {
       "order": 1,
@@ -48,10 +62,33 @@
     }
   ],
   "skills": [
-    { "name": "url-fetch-summarise", "description": "Fetches any URL and extracts key ideas automatically" },
-    { "name": "reading-queue", "description": "Maintains your saved articles with summaries" },
-    { "name": "smart-resurface", "description": "Surfaces saved articles when they become relevant" }
+    {
+      "name": "url-fetch-summarise",
+      "description": "Fetches any URL and extracts key ideas automatically"
+    },
+    {
+      "name": "reading-queue",
+      "description": "Maintains your saved articles with summaries"
+    },
+    {
+      "name": "smart-resurface",
+      "description": "Surfaces saved articles when they become relevant"
+    }
   ],
-  "tags": ["reading", "articles", "links", "learning", "knowledge", "curation"],
-  "changelog": [{ "version": "1.0.0", "date": "2026-03-03", "notes": "Initial release." }]
+  "tags": [
+    "reading",
+    "articles",
+    "links",
+    "learning",
+    "knowledge",
+    "curation"
+  ],
+  "changelog": [
+    {
+      "version": "1.0.0",
+      "date": "2026-03-03",
+      "notes": "Initial release."
+    }
+  ],
+  "first_message": "Share a link or paste an article. I'll summarise it, pull out the key ideas, and add it to your reading log."
 }
