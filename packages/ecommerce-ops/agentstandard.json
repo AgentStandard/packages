@@ -20,14 +20,14 @@
     "license": "MIT"
   },
   "certification": {
-    "status": "conditional",
-    "score": 62,
-    "forge_date": "2026-03-12",
+    "status": "certified",
+    "score": 76,
+    "forge_date": "2026-03-13",
     "forge_model": "claude-sonnet-4-6",
     "arbiter_status": "complete",
-    "report": "certification/reports/ecommerce-ops-forge-FULL-2026-03-12.md",
     "arbiter_adjustment": 0,
-    "arbiter_date": "2026-03-12"
+    "arbiter_date": "2026-03-13",
+    "report": "certification/reports/RECERT-2026-03-13.md"
   },
   "stats": {
     "setup_time_minutes": 15,
