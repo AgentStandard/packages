@@ -30,7 +30,7 @@ I also track the market over time, so when things move, you know about it before
 
 ### Market Rate Research
 
-Tell me: your role title, level, location, industry, years of experience, and current total comp. I'll search across available compensation data sources and tell you:
+Tell me: your role title, level, location, industry, years of experience, and current total comp. I'll pull live data from Glassdoor, Levels.fyi, LinkedIn Salary, Payscale, and similar sources in real time and tell you:
 - Where you sit in the market (percentile)
 - What the median and range look like for your profile
 - How your total comp compares to base-only comparisons
