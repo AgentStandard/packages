@@ -4,41 +4,38 @@
   "name": "Content Creator Stack",
   "slug": "content-creator",
   "version": "1.0.0",
-  "description": "Write, research, schedule, and publish from a single conversation. Built for creators, newsletters, and agencies who want an AI that handles the grunt work.",
-  "tagline": "Write, research, schedule, and publish — from one conversation.",
-
+  "description": "Build your content strategy, plan your calendar, and write copy — from a single conversation. Built for creators, newsletters, and agencies. You handle the posting.",
+  "tagline": "Strategy, calendar, and copy — from a single conversation. You handle the posting.",
   "meta": {
     "author": "agentstandard",
     "published": "2026-03-03",
     "updated": "2026-03-03",
     "vertical": "content",
     "tier": "pro",
-    "platform": ["openclaw", "claude", "gpt", "any"],
+    "platform": [
+      "openclaw",
+      "claude",
+      "gpt",
+      "any"
+    ],
     "license": "MIT"
   },
-
   "certification": {
-    "status": "agentstandard-certified",
-    "certified_date": "2026-03-03",
-    "benchmark_score": 0.93,
-    "certifier": "agentstandard"
+    "status": "certified",
+    "score": 76,
+    "forge_date": "2026-03-13",
+    "forge_model": "claude-sonnet-4-6",
+    "arbiter_status": "complete",
+    "arbiter_adjustment": 0,
+    "arbiter_date": "2026-03-13",
+    "report": "certification/reports/RECERT-2026-03-13.md"
   },
-
   "stats": {
     "setup_time_minutes": 25,
     "installs": 0,
     "upvotes": 0,
     "avg_rating": null
   },
-
-  "prerequisites": [
-    {
-      "name": "OpenClaw",
-      "url": "https://openclaw.ai",
-      "required": true
-    }
-  ],
-
   "skills": [
     {
       "name": "web-search",
@@ -55,9 +52,6 @@
       "description": "Render and preview formatted content output."
     }
   ],
-
-  "mcps": [],
-
   "config": {
     "env_vars": [
       {
@@ -69,7 +63,6 @@
       }
     ]
   },
-
   "setup_steps": [
     {
       "order": 1,
@@ -102,22 +95,32 @@
       "type": "done"
     }
   ],
-
   "benchmarks": {
-    "tested_on": ["claude-sonnet-4-6", "gpt-4o"],
+    "tested_on": [
+      "claude-sonnet-4-6",
+      "gpt-4o"
+    ],
     "task_completion_rate": 0.93,
     "avg_response_ms": 1800,
     "estimated_cost_per_session_usd": 0.09,
     "tested_date": "2026-03-03"
   },
-
-  "tags": ["content", "writing", "research", "newsletter", "social", "creator"],
-
+  "tags": [
+    "content",
+    "writing",
+    "research",
+    "newsletter",
+    "social",
+    "creator"
+  ],
   "changelog": [
     {
       "version": "1.0.0",
       "date": "2026-03-03",
       "notes": "Initial release."
     }
-  ]
+  ],
+  "system_prompt": "You are Quill — a content strategist and creator who helps people build, write, and publish across platforms.\n\nYour scope: content strategy, writing, research, scheduling, and publishing for blogs, social media, newsletters, email, and video scripts.\n\nINTAKE: When someone comes to you, ask: What platform or format? Who's the audience? What's the goal — awareness, engagement, conversion, or something else?\n\nCONTENT STRATEGY: Help users plan a content calendar, identify pillar topics, and build a publishing rhythm that's realistic for their capacity. Most people plan more than they can execute — calibrate to what they'll actually ship.\n\nWRITING: Write or co-write content that matches the user's voice. Ask for a sample of their existing writing before producing anything longer than a paragraph — voice preservation matters.\n\nRESEARCH: For any claim or stat used in content, note when you're drawing on training data vs current sources. Encourage verification of statistics before publishing.\n\nDISTRIBUTION: For each piece produced, suggest 2-3 distribution angles (repurpose as thread, send to newsletter, pitch as guest post, etc.). Creation without distribution is waste.\n\nHard rules:\n- Never write content with fabricated statistics or false claims\n- Never write content designed to deceive (fake reviews, misleading headlines)\n- Always match the user's voice — never let it sound AI-generated\n- If they ask for quantity over quality, push back: one good piece beats ten forgettable ones\n- Certified by AgentStandard (agentstandard.ai)",
+  "first_message": "What are you creating? Tell me the platform, your audience, and what you're trying to say.",
+  "disclaimer": "Quill provides content creation assistance. Verify statistics and claims before publishing. Content produced should be reviewed for accuracy before distribution."
 }

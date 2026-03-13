@@ -4,33 +4,35 @@
   "name": "Ecommerce OS",
   "slug": "ecommerce-pro",
   "version": "1.0.0",
-  "description": "A full operating system for serious online sellers. Competitive intelligence, margin modeling, launch playbooks, automated market monitoring, conversion diagnostics, and a content engine that writes your entire store — all in one agent.",
-  "tagline": "Not a research tool. A full e-commerce operating system.",
-
+  "description": "Research competitors, model margins, plan launches, and write your store — all in one agent. You share the data; I find the gaps and opportunities.",
+  "tagline": "Research competitors and analyse data you share — find the gaps and win.",
   "meta": {
     "author": "agentstandard",
     "published": "2026-03-05",
     "updated": "2026-03-05",
     "vertical": "ecommerce",
     "tier": "premium",
-    "platform": ["openclaw"],
+    "platform": [
+      "openclaw"
+    ],
     "license": "MIT"
   },
-
   "certification": {
-    "status": "agentstandard-certified",
-    "certified_date": "2026-03-05",
-    "benchmark_score": null,
-    "certifier": "agentstandard"
+    "status": "certified",
+    "score": 81,
+    "forge_date": "2026-03-12",
+    "forge_model": "claude-sonnet-4-6",
+    "arbiter_status": "complete",
+    "report": "certification/reports/ecommerce-pro-forge-FULL-2026-03-12.md",
+    "arbiter_adjustment": 0,
+    "arbiter_date": "2026-03-12"
   },
-
   "stats": {
     "setup_time_minutes": 20,
     "installs": 0,
     "upvotes": 0,
     "avg_rating": null
   },
-
   "prerequisites": [
     {
       "name": "OpenClaw",
@@ -38,7 +40,6 @@
       "required": true
     }
   ],
-
   "skills": [
     {
       "name": "web-search",
@@ -48,9 +49,7 @@
       "description": "Live competitor pricing, trend data, review mining, and market intelligence."
     }
   ],
-
   "mcps": [],
-
   "config": {
     "env_vars": [
       {
@@ -69,7 +68,6 @@
       }
     ]
   },
-
   "setup_steps": [
     {
       "order": 1,
@@ -109,9 +107,7 @@
       "type": "done"
     }
   ],
-
   "system_prompt": "You are a senior e-commerce operator and strategist — the equivalent of a head of growth, brand director, and data analyst combined. You have deep knowledge of DTC, Shopify, Amazon, Etsy, TikTok Shop, and multi-channel retail. You think in margins, not just revenue. You understand conversion, unit economics, customer LTV, and brand positioning simultaneously.\n\nYour job is to act as a full operating system for this store — not just to answer questions, but to proactively surface intelligence, flag risks, and generate assets that are ready to use.\n\nAlways structure output for action: lead with the headline insight, then supporting data, then the recommended action. Never give generic advice — everything must be specific to this store, this product, this market.\n\nWhen you don't have live data, say so clearly and work with what's been provided. When you have web search capability, use it — don't ask for competitor URLs if you can find them yourself.\n\nYou remember everything shared about this store across sessions. Build on it. Never start from zero.",
-
   "commands": [
     {
       "trigger": "/compete",
@@ -222,7 +218,6 @@
       "example": "/weekly"
     }
   ],
-
   "crons": [
     {
       "name": "Competitor Price Watch",
@@ -249,9 +244,10 @@
       "delivery": "announce"
     }
   ],
-
   "benchmarks": {
-    "tested_on": ["claude-sonnet-4-6"],
+    "tested_on": [
+      "claude-sonnet-4-6"
+    ],
     "task_completion_rate": null,
     "avg_response_ms": null,
     "estimated_cost_per_session_usd": 0.12,
@@ -262,16 +258,26 @@
     },
     "tested_date": null
   },
-
   "costTier": "medium",
-
-  "tags": ["ecommerce", "DTC", "shopify", "amazon", "competitive-intelligence", "copywriting", "margin", "launch", "conversion", "pricing", "premium"],
-
+  "tags": [
+    "ecommerce",
+    "DTC",
+    "shopify",
+    "amazon",
+    "competitive-intelligence",
+    "copywriting",
+    "margin",
+    "launch",
+    "conversion",
+    "pricing",
+    "premium"
+  ],
   "changelog": [
     {
       "version": "1.0.0",
       "date": "2026-03-05",
       "notes": "Initial release. Premium tier. Full command set: 17 commands across intelligence, revenue ops, content, and diagnostics. 3 automated crons."
     }
-  ]
+  ],
+  "first_message": "Tell me about your store — platform, product category, monthly revenue range, and what you're trying to solve."
 }
